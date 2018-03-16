@@ -1,0 +1,28 @@
+<table class="table table-bordered">
+
+  <thead>
+    <tr>
+      <td>Fábrica</td>
+      <td>Modelo</td>
+      <td>Placa</td>
+      <td>Cor</td>
+      <td>Ano de Fabricação</td>
+      <td width="275" align="center"><a class="btn btn-info" routerLink="/veiculo/add">Adicionar</a></td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let veiculo of veiculos">
+      <td>{{ veiculo.fabrica }}</td>
+      <td>{{ veiculo.modelo }}</td>
+      <td>{{ veiculo.placa }}</td>
+      <td>{{ veiculo.cor }}</td>
+      <td>{{ veiculo.anoFabricacao }}</td>
+      <td width="275"> 
+        <a class="btn btn-info" routerLink="/veiculo/show/{{ veiculo._id }}">Dados</a> 
+        <a class="btn btn-success"  routerLink="/veiculo/edit/{{ veiculo._id }}">Editar</a>
+        <a class="btn btn-danger" (click)="deleteVeiculo(veiculo._id)">Deletar</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

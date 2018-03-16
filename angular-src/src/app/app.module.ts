@@ -13,7 +13,12 @@ import { HomeClienteComponent } from './cliente/home-cliente/home-cliente.compon
 import { EditClienteComponent } from './cliente/edit-cliente/edit-cliente.component';
 import { AddClienteComponent } from './cliente/add-cliente/add-cliente.component';
 import { ShowClienteComponent } from './cliente/show-cliente/show-cliente.component';
-import { ClienteService } from './cliente/cliente.service'; //colocar aluguelservice e veiculoservice aqui
+import { ClienteService } from './cliente/cliente.service';
+import { HomeVeiculoComponent } from './veiculo/home-veiculo/home-veiculo.component';
+import { EditVeiculoComponent } from './veiculo/edit-veiculo/edit-veiculo.component';
+import { AddVeiculoComponent } from './veiculo/add-veiculo/add-veiculo.component';
+import { ShowVeiculoComponent } from './veiculo/show-veiculo/show-veiculo.component'; //colocar aluguelservice e veiculoservice aqui
+import { VeiculoService } from './veiculo/veiculo.service';
 
 
 @NgModule({
@@ -26,6 +31,10 @@ import { ClienteService } from './cliente/cliente.service'; //colocar aluguelser
     EditClienteComponent,
     AddClienteComponent,
     ShowClienteComponent,
+    HomeVeiculoComponent,
+    EditVeiculoComponent,
+    AddVeiculoComponent,
+    ShowVeiculoComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +42,7 @@ import { ClienteService } from './cliente/cliente.service'; //colocar aluguelser
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ClienteService], //colocar aluguelservice e veiculoservice aqui
+  providers: [ClienteService, VeiculoService], //colocar aluguelservice e veiculoservice aqui
   bootstrap: [AppComponent]
 })
 
