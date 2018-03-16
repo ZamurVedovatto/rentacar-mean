@@ -1,5 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('express-cors');
+
+
 
 //database config
 const mongoose = require('mongoose');
@@ -11,6 +14,13 @@ db.on('error', (err) => console.log('Erro no banco de dados: ' + err));
 
 //server config
 const app = express();
+
+app.use(cors({
+    allowedOrigins: [
+        '*', 'http://localhost:4200'
+    ]
+}))
+
 const port = 3000;
 app.get('/', (req, res)=> { res.send('Index do servidor')});
 

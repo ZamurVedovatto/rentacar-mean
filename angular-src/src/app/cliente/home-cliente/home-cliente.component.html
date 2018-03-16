@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <td>Nome</td>
+    <td>Email</td>
+    <td width="275" align="center"><a class="btn btn-info" routerLink="/cliente/add">Adicionar</a></td>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes">
+    <td>{{ cliente.fullName }}</td>
+    <td>{{ cliente.email }}</td>
+    <td width="275"> 
+      <a class="btn btn-info" routerLink="/cliente/show/{{ cliente._id }}">Dados</a> 
+      <a class="btn btn-success"  routerLink="/cliente/edit/{{ cliente._id }}">Editar</a>
+      <a class="btn btn-danger" (click)="deleteCliente(cliente._id)">Deletar</a>
+    </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,38 @@
+<div class="panel panel-default" >
+  <div class="panel-heading">Detalhes do cliente</div>
+  <div class="panel-body">
+    <form class="form-horizontal" *ngIf=cliente>
+
+      
+  <div class="form-group">
+    <label for="cliente_fullName" class="col-sm-2 control-label">Nome Completo: </label>
+    <div class="col-sm-9">
+      <p class="form-control">{{cliente.fullName}}</p> 
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="cliente_email" class="col-sm-2 control-label">Email: </label>
+    <div class="col-sm-9">
+      <p class="form-control">{{cliente.email}}</p>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="cliente_id" class="col-sm-2 control-label">ID do Cliente: </label>
+    <div class="col-sm-9">
+      <p class="form-control">{{cliente._id}}</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+      
+    <a class="btn btn-info" (click)="goBack()">Cancelar</a>
+    </div>
+    
+  </div>
+</form>
+
+  </div>
+</div>
