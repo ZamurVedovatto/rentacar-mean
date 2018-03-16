@@ -1,0 +1,29 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+
+//database config
+const mongoose = require('mongoose');
+const db_string = 'mongodb://zamur:123@ds243345.mlab.com:43345/restful-api';
+mongoose.connect(db_string);
+const db = mongoose.connection;
+db.on('connected', () => console.log('Conectado com sucesso em ' + db_string))
+db.on('error', (err) => console.log('Erro no banco de dados: ' + err));
+
+//server config
+const app = express();
+const port = 3000;
+app.get('/', (req, res)=> { res.send('Index do servidor')});
+
+//routes
+const clienteRouter = require('./routes/clienteRoutes');
+const veiculoRouter = require('./routes/veiculoRoutes');
+const aluguelRouter = require('./routes/aluguelRoutes');
+
+//middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use('/cliente', clienteRouter);
+app.use('/veiculo', veiculoRouter);
+app.use('/aluguel', aluguelRouter);
+
+app.listen(port, () => console.log('Servidor rodando na porta ' + port));
