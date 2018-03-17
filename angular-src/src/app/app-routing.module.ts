@@ -20,12 +20,10 @@ import { AddVeiculoComponent } from './veiculo/add-veiculo/add-veiculo.component
 import { ShowVeiculoComponent } from './veiculo/show-veiculo/show-veiculo.component';
 
 //componentes de Aluguel
-/*
 import { HomeAluguelComponent } from './aluguel/home-aluguel/home-aluguel.component';
 import { EditAluguelComponent } from './aluguel/edit-aluguel/edit-aluguel.component';
 import { AddAluguelComponent } from './aluguel/add-aluguel/add-aluguel.component';
 import { ShowAluguelComponent } from './aluguel/show-aluguel/show-aluguel.component';
-*/
 
 
 
@@ -44,15 +42,14 @@ const routes: Routes = [
   { path: 'veiculo', component:HomeVeiculoComponent },
   { path: 'veiculo/edit/:id', component:EditVeiculoComponent },
   { path: 'veiculo/add', component:AddVeiculoComponent },
-  { path: 'veiculo/show/:id', component:ShowVeiculoComponent }
+  { path: 'veiculo/show/:id', component:ShowVeiculoComponent },
 
   //rotas de alugueis
-  /*
   { path: 'aluguel', component:HomeAluguelComponent },
   { path: 'aluguel/edit/:id', component:EditAluguelComponent },
   { path: 'aluguel/add', component:AddAluguelComponent },
   { path: 'aluguel/show/:id', component:ShowAluguelComponent }
-  */
+  
 
 ];
 

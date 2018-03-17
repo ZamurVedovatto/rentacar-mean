@@ -19,6 +19,11 @@ import { EditVeiculoComponent } from './veiculo/edit-veiculo/edit-veiculo.compon
 import { AddVeiculoComponent } from './veiculo/add-veiculo/add-veiculo.component';
 import { ShowVeiculoComponent } from './veiculo/show-veiculo/show-veiculo.component'; //colocar aluguelservice e veiculoservice aqui
 import { VeiculoService } from './veiculo/veiculo.service';
+import { HomeAluguelComponent } from './aluguel/home-aluguel/home-aluguel.component';
+import { EditAluguelComponent } from './aluguel/edit-aluguel/edit-aluguel.component';
+import { AddAluguelComponent } from './aluguel/add-aluguel/add-aluguel.component';
+import { ShowAluguelComponent } from './aluguel/show-aluguel/show-aluguel.component';
+import { AluguelService } from './aluguel/aluguel.service';
 
 
 @NgModule({
@@ -35,6 +40,10 @@ import { VeiculoService } from './veiculo/veiculo.service';
     EditVeiculoComponent,
     AddVeiculoComponent,
     ShowVeiculoComponent,
+    HomeAluguelComponent,
+    EditAluguelComponent,
+    AddAluguelComponent,
+    ShowAluguelComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +51,7 @@ import { VeiculoService } from './veiculo/veiculo.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ClienteService, VeiculoService], //colocar aluguelservice e veiculoservice aqui
+  providers: [ClienteService, VeiculoService, AluguelService],
   bootstrap: [AppComponent]
 })
 
