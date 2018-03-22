@@ -17,7 +17,8 @@ import { ClienteService } from './cliente/cliente.service';
 import { HomeVeiculoComponent } from './veiculo/home-veiculo/home-veiculo.component';
 import { EditVeiculoComponent } from './veiculo/edit-veiculo/edit-veiculo.component';
 import { AddVeiculoComponent } from './veiculo/add-veiculo/add-veiculo.component';
-import { ShowVeiculoComponent } from './veiculo/show-veiculo/show-veiculo.component'; //colocar aluguelservice e veiculoservice aqui
+import { ShowVeiculoComponent } from './veiculo/show-veiculo/show-veiculo.component';
+
 import { VeiculoService } from './veiculo/veiculo.service';
 import { HomeAluguelComponent } from './aluguel/home-aluguel/home-aluguel.component';
 import { EditAluguelComponent } from './aluguel/edit-aluguel/edit-aluguel.component';

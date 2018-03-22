@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('express-cors');
-
-
+const config = require('./config/config');
 
 //database config
 const mongoose = require('mongoose');
-const db_string = 'mongodb://zamur:123@ds243345.mlab.com:43345/restful-api';
+const db_string = 'mongodb://user:pw@ds243345.mlab.com:43345/restful-api'
+    .replace("user", config.name)
+    .replace("pw", config.pw);
+    
 mongoose.connect(db_string);
 const db = mongoose.connection;
 db.on('connected', () => console.log('Conectado com sucesso em ' + db_string))

@@ -1,23 +1,24 @@
-<table class="table table-bordered">
+<table class="table table-hover">
     <thead>
-    <tr>
-      <td>ID Cliente</td>
-      <td>ID Veículo</td>
-      <td>Data de Retirada</td>
-      <td>Data de Entrega</td>
-      <td width="275" align="center"><a class="btn btn-info" routerLink="/aluguel/add">Adicionar</a></td>
+    <tr class="table-default">
+      <th scope="col">ID Cliente</th>
+      <th scope="col">ID Veículo</th>
+      <th scope="col">Data de Retirada</th>
+      <th scope="col">Data de Entrega</th>
+      <th scope="col" width="275" align="center"><a type="button" class="btn btn-outline-success btn-sm" routerLink="/aluguel/add">Adicionar</a></th>
     </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let aluguel of alugueis">
+      <!-- <tr class="table-primary" *ngFor="let aluguel of alugueis"> -->        
+      <tr class="table-default" *ngFor="let aluguel of alugueis">
       <td>{{ aluguel.idCliente }}</td>
       <td>{{ aluguel.idVeiculo }}</td>
       <td>{{ aluguel.dataRetirada }}</td>
       <td>{{ aluguel.dataEntrega }}</td>
       <td width="275"> 
-        <a class="btn btn-info" routerLink="/aluguel/show/{{ aluguel._id }}">Dados</a> 
-        <a class="btn btn-success"  routerLink="/aluguel/edit/{{ aluguel._id }}">Editar</a>
-        <a class="btn btn-danger" (click)="deleteAluguel(aluguel._id)">Deletar</a>
+        <a type="button" class="btn btn-outline-info btn-sm" routerLink="/aluguel/show/{{ aluguel._id }}">Dados</a> 
+        <a class="btn btn-outline-warning btn-sm"  routerLink="/aluguel/edit/{{ aluguel._id }}">Editar</a>
+        <a class="tn btn-outline-danger btn-sm" (click)="deleteAluguel(aluguel._id)">Deletar</a>
       </td>
       </tr>
     </tbody>

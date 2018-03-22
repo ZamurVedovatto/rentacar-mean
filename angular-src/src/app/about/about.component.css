@@ -1,0 +1,80 @@
+body, html{
+  height:100%;
+  margin:0;
+  font-size:14px;
+  font-family:"Lato", sans-serif;
+  font-weight:200;
+  line-height:1.4em;
+  color:#666;
+  margin-top: 32px;
+}
+
+.pimg1, .pimg2, .pimg3{
+  position: relative;
+  opacity:0.75;
+  background-position:center;
+  background-size: auto;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+.pimg1{
+  background-image: url("../../assets/car-about1.jpg");
+  min-height:50%;
+}
+
+.pimg2{
+  background-image: url("../../assets/car-about2.jpg");
+  min-height:280px;
+}
+
+.pimg3{
+  background-image: url("../../assets/car-about3.jpeg");
+  min-height:280px;
+}
+
+.section{
+  text-align: center;
+  padding: 12px 80px 12px 80px;
+}
+
+.section-light{
+  background-color:#f4f4f4;
+  color:#666;
+}
+
+.section-light h2{
+  margin-top: 40px;
+}
+
+.section-dark{
+  background-color:#282e34;
+  color:#ddd;
+}
+
+.ptext{
+  position:absolute;
+  top:50%;
+  width:100%;
+  text-align:center;
+  color:#000;
+  font-size:27px;
+  letter-spacing:8px;
+  text-transform:uppercase;
+}
+ 
+.ptext .border{
+  background-color:#111;
+  color:#fff;
+  padding: 20px;
+}
+
+.ptext .border.trans{
+  background-color:transparent;
+}
+
+@media(max-width:568px){
+  .pimg1, .pimg2, .pimg3{
+    background-attachment:scroll;
+  }
+}
