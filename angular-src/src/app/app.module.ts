@@ -7,30 +7,35 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { HomeClienteComponent } from './cliente/home-cliente/home-cliente.component';
-import { EditClienteComponent } from './cliente/edit-cliente/edit-cliente.component';
-import { AddClienteComponent } from './cliente/add-cliente/add-cliente.component';
-import { ShowClienteComponent } from './cliente/show-cliente/show-cliente.component';
-import { ClienteService } from './cliente/cliente.service';
-import { HomeVeiculoComponent } from './veiculo/home-veiculo/home-veiculo.component';
-import { EditVeiculoComponent } from './veiculo/edit-veiculo/edit-veiculo.component';
-import { AddVeiculoComponent } from './veiculo/add-veiculo/add-veiculo.component';
-import { ShowVeiculoComponent } from './veiculo/show-veiculo/show-veiculo.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
 
-import { VeiculoService } from './veiculo/veiculo.service';
-import { HomeAluguelComponent } from './aluguel/home-aluguel/home-aluguel.component';
-import { EditAluguelComponent } from './aluguel/edit-aluguel/edit-aluguel.component';
-import { AddAluguelComponent } from './aluguel/add-aluguel/add-aluguel.component';
-import { ShowAluguelComponent } from './aluguel/show-aluguel/show-aluguel.component';
-import { AluguelService } from './aluguel/aluguel.service';
-import { LoginComponent } from './usuario/login/login.component';
-import { RegistrarComponent } from './usuario/registrar/registrar.component';
-import { HomeUsuarioComponent } from './usuario/home-usuario/home-usuario.component';
-import { PerfilComponent } from './usuario/perfil/perfil.component';
+import { HomeClienteComponent } from './components/cliente/home-cliente/home-cliente.component';
+import { EditClienteComponent } from './components/cliente/edit-cliente/edit-cliente.component';
+import { AddClienteComponent } from './components/cliente/add-cliente/add-cliente.component';
+import { ShowClienteComponent } from './components/cliente/show-cliente/show-cliente.component';
+import { ClienteService } from './components/cliente/cliente.service';
 
+import { HomeVeiculoComponent } from './components/veiculo/home-veiculo/home-veiculo.component';
+import { EditVeiculoComponent } from './components/veiculo/edit-veiculo/edit-veiculo.component';
+import { AddVeiculoComponent } from './components/veiculo/add-veiculo/add-veiculo.component';
+import { ShowVeiculoComponent } from './components/veiculo/show-veiculo/show-veiculo.component';
+import { VeiculoService } from './components/veiculo/veiculo.service';
+
+import { HomeAluguelComponent } from './components/aluguel/home-aluguel/home-aluguel.component';
+import { EditAluguelComponent } from './components/aluguel/edit-aluguel/edit-aluguel.component';
+import { AddAluguelComponent } from './components/aluguel/add-aluguel/add-aluguel.component';
+import { ShowAluguelComponent } from './components/aluguel/show-aluguel/show-aluguel.component';
+import { AluguelService } from './components/aluguel/aluguel.service';
+
+import { LoginComponent } from './components/usuario/login/login.component';
+import { RegistrarComponent } from './components/usuario/registrar/registrar.component';
+import { HomeUsuarioComponent } from './components/usuario/home-usuario/home-usuario.component';
+import { PerfilComponent } from './components/usuario/perfil/perfil.component';
+import { ValidarUsuarioService } from './components/usuario/validar-usuario.service'; //colocar também em Providers
+
+import { FlashMessagesModule } from 'angular2-flash-messages'; //colocar também em Imports
 
 @NgModule({
   declarations: [
@@ -59,9 +64,10 @@ import { PerfilComponent } from './usuario/perfil/perfil.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FlashMessagesModule.forRoot()
   ],
-  providers: [ClienteService, VeiculoService, AluguelService],
+  providers: [ClienteService, VeiculoService, AluguelService, ValidarUsuarioService],
   bootstrap: [AppComponent]
 })
 

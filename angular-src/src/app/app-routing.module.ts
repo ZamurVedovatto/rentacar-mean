@@ -4,32 +4,32 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 //componentes de navegação principais
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
 
 //componentes de Cliente
-import { HomeClienteComponent } from './cliente/home-cliente/home-cliente.component';
-import { EditClienteComponent } from './cliente/edit-cliente/edit-cliente.component';
-import { AddClienteComponent } from './cliente/add-cliente/add-cliente.component';
-import { ShowClienteComponent } from './cliente/show-cliente/show-cliente.component';
+import { HomeClienteComponent } from './components/cliente/home-cliente/home-cliente.component';
+import { EditClienteComponent } from './components/cliente/edit-cliente/edit-cliente.component';
+import { AddClienteComponent } from './components/cliente/add-cliente/add-cliente.component';
+import { ShowClienteComponent } from './components/cliente/show-cliente/show-cliente.component';
 
 //componentes de Veiculo
-import { HomeVeiculoComponent } from './veiculo/home-veiculo/home-veiculo.component';
-import { EditVeiculoComponent } from './veiculo/edit-veiculo/edit-veiculo.component';
-import { AddVeiculoComponent } from './veiculo/add-veiculo/add-veiculo.component';
-import { ShowVeiculoComponent } from './veiculo/show-veiculo/show-veiculo.component';
+import { HomeVeiculoComponent } from './components/veiculo/home-veiculo/home-veiculo.component';
+import { EditVeiculoComponent } from './components/veiculo/edit-veiculo/edit-veiculo.component';
+import { AddVeiculoComponent } from './components/veiculo/add-veiculo/add-veiculo.component';
+import { ShowVeiculoComponent } from './components/veiculo/show-veiculo/show-veiculo.component';
 
 //componentes de Aluguel
-import { HomeAluguelComponent } from './aluguel/home-aluguel/home-aluguel.component';
-import { EditAluguelComponent } from './aluguel/edit-aluguel/edit-aluguel.component';
-import { AddAluguelComponent } from './aluguel/add-aluguel/add-aluguel.component';
-import { ShowAluguelComponent } from './aluguel/show-aluguel/show-aluguel.component';
+import { HomeAluguelComponent } from './components/aluguel/home-aluguel/home-aluguel.component';
+import { EditAluguelComponent } from './components/aluguel/edit-aluguel/edit-aluguel.component';
+import { AddAluguelComponent } from './components/aluguel/add-aluguel/add-aluguel.component';
+import { ShowAluguelComponent } from './components/aluguel/show-aluguel/show-aluguel.component';
 
 //componentes de Usuario
-import { RegistrarComponent  } from './usuario/registrar/registrar.component';
-import { HomeUsuarioComponent } from './usuario/home-usuario/home-usuario.component';
-import { LoginComponent } from './usuario/login/login.component';
-import { PerfilComponent } from './usuario/perfil/perfil.component';
+import { RegistrarComponent  } from './components/usuario/registrar/registrar.component';
+import { HomeUsuarioComponent } from './components/usuario/home-usuario/home-usuario.component';
+import { LoginComponent } from './components/usuario/login/login.component';
+import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 
 
 const routes: Routes = [
