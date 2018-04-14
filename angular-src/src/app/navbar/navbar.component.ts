@@ -4,8 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: [
-    './navbar.component.css',
-    '../../assets/bootstrap.min.css'
+    './navbar.component.css'
   ]
 })
 export class NavbarComponent implements OnInit {

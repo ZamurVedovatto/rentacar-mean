@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -25,6 +26,10 @@ import { EditAluguelComponent } from './aluguel/edit-aluguel/edit-aluguel.compon
 import { AddAluguelComponent } from './aluguel/add-aluguel/add-aluguel.component';
 import { ShowAluguelComponent } from './aluguel/show-aluguel/show-aluguel.component';
 import { AluguelService } from './aluguel/aluguel.service';
+import { LoginComponent } from './usuario/login/login.component';
+import { RegistrarComponent } from './usuario/registrar/registrar.component';
+import { HomeUsuarioComponent } from './usuario/home-usuario/home-usuario.component';
+import { PerfilComponent } from './usuario/perfil/perfil.component';
 
 
 @NgModule({
@@ -45,6 +50,10 @@ import { AluguelService } from './aluguel/aluguel.service';
     EditAluguelComponent,
     AddAluguelComponent,
     ShowAluguelComponent,
+    LoginComponent,
+    RegistrarComponent,
+    HomeUsuarioComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,

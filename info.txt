@@ -46,3 +46,11 @@ ____________________________
 modules:
 bcrypt: lib to help to hash passwords
 bodyparser: parses incoming request bodies
+
+
+
+
+
+BACKUP
+voltar para angular-cli.json, em styles
+    "../node_modules/bootstrap/dist/css/bootstrap.min.css"

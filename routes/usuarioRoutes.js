@@ -5,10 +5,10 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const User = require('../models/usuarioModel');
 
-//register
-router.post('/register', (req, res, next) => {
+//registrar
+router.post('/registrar', (req, res, next) => {
     let newUser = new User({
-        name: req.body.name,
+        nome: req.body.nome,
         email: req.body.email,
         username: req.body.username,
         password: req.body.password
@@ -29,8 +29,8 @@ router.post('/register', (req, res, next) => {
     });
 });
 
-//authenticate
-router.post('/authenticate', (req, res, next) => {
+//autenticar
+router.post('/autenticar', (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -55,7 +55,7 @@ router.post('/authenticate', (req, res, next) => {
                 token: 'JWT ' + token,
                 user: {
                     id: user._id,
-                    name: user.name,
+                    nome: user.nome,
                     username: user.username,
                     emai: user.email
                 }
@@ -70,8 +70,8 @@ router.post('/authenticate', (req, res, next) => {
     });
 });
 
-//profile
-router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+//perfil
+router.get('/perfil', passport.authenticate('jwt', {session:false}), (req, res, next) => {
     res.json({
         user: req.user
     });

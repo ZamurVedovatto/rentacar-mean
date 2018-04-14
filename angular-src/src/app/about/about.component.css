@@ -19,17 +19,17 @@ body, html{
 }
 
 .pimg1{
-  background-image: url("../../assets/car-about1.jpg");
+  background-image: url("../../assets/img/about/car-about1.jpg");
   min-height:50%;
 }
 
 .pimg2{
-  background-image: url("../../assets/car-about2.jpg");
+  background-image: url("../../assets/img/about/car-about2.jpg");
   min-height:280px;
 }
 
 .pimg3{
-  background-image: url("../../assets/car-about3.jpeg");
+  background-image: url("../../assets/img/about/car-about3.jpeg");
   min-height:280px;
 }
 
