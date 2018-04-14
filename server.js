@@ -1,13 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('express-cors');
-const config = require('./config/config');
+const config = require('./config/database');
 const path = require('path'); //core module
 const passport = require('passport');
 
 //database config
-const mongoose = require('mongoose');
-    
+const mongoose = require('mongoose');    
 mongoose.connect(config.database);
 const db = mongoose.connection;
 db.on('connected', () => console.log('Conectado com sucesso'))
@@ -29,7 +28,6 @@ const veiculoRouter = require('./routes/veiculoRoutes');
 const aluguelRouter = require('./routes/aluguelRoutes');
 const usuarioRouter = require('./routes/usuarioRoutes');
 
-
 //middlewares
 //set static folder
 app.use(express.static(path.join(__dirname, 'angular-src'))); //no video, ao inves de 'angular-src', foi usada 'public'
@@ -46,9 +44,14 @@ app.use(cors({
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(bodyParser.json());
 
+//PASSPORT
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport')(passport);
+
+//ROUTES
 app.use('/cliente', clienteRouter);
 app.use('/veiculo', veiculoRouter);
 app.use('/aluguel', aluguelRouter);
 app.use('/usuario', usuarioRouter);
-
 

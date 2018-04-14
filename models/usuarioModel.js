@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const config = require('../config/config');
+const config = require('../config/database');
 
-//usuario schema
-const UsuarioSchema = mongoose.Schema({
-    nome: {
+//user schema
+const UserSchema = mongoose.Schema({
+    name: {
         type: String
     },
     email: {
@@ -21,33 +21,30 @@ const UsuarioSchema = mongoose.Schema({
     }
 });
 
-const Usuario = module.exports = mongoose.model('Usuario', UsuarioSchema);
+const User = module.exports = mongoose.model('User', UserSchema);
 
-module.exports.getById = (id, callback)=>{
-    Usuario.findById(id, callback);
-}
+module.exports.getUserById = function (id, callback) {
+    User.findById(id, callback);
+};
 
-module.exports.getAll = function(callback){
-    console.log('Usuarios localizados com sucesso');    
-    Usuario.find(callback);
-}
-
-module.exports.getByUsername = (username, callback)=>{
+module.exports.getUserByUsername = function (username, callback) {
     const query = {username: username};
-    Usuario.findOne(query, callback);
-}
+    User.findOne(query, callback);
+};
 
-module.exports.add = (novoUsuario, callback)=>{
-    //hash the password
-    bcrypt.genSalt(10, (err, salt)=>{
-        bcrypt.hash(novoUsuario.password, salt, (err, hash)=>{
-            if (err) { 
-                throw err 
-            } else {
-                console.log('Usuário adicionado com sucesso');    
-                novoUsuario.password = hash;
-                Usuario.create(novoUsuario, callback);
-            }
+module.exports.addUser = function (newUser, callback) {
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+            if(err) throw err;
+            newUser.password = hash;
+            newUser.save(callback);
         });
+    });
+};
+
+module.exports.comparePassword = function(candidatePassword, hash, callback){
+    bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
+        if(err) throw err;
+        callback(null, isMatch);
     });
 }

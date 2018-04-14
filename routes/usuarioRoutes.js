@@ -1,45 +1,80 @@
-const express = require('express');
+const express = require ('express');
 const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-const Usuario = require('../models/usuarioModel');
+const config = require('../config/database');
+const User = require('../models/usuarioModel');
 
-
-//registrar
-router.post('/', (req, res)=>{
-    
-    let novoUsuario = {
-        nome: req.body.nome,
+//register
+router.post('/register', (req, res, next) => {
+    let newUser = new User({
+        name: req.body.name,
         email: req.body.email,
         username: req.body.username,
         password: req.body.password
-    }
-
-    Usuario.add(novoUsuario, (err, usuario) => {
-        if (err) throw err;
-        res.json(usuario);
     });
-})
 
-//get all
-router.get('/', (req, res) => {
-
-    Usuario.getAll((err, usuarios) => {
-        if (err) throw err;
-        res.json(usuarios);
+    User.addUser(newUser, (err, user) => {
+        if (err) {
+            res.json({
+                success: false,
+                msg:'Failed to register user'
+            });
+        } else {
+            res.json({
+                success: true,
+                msg: 'User registered'
+            });
+        }
     });
 });
 
+//authenticate
+router.post('/authenticate', (req, res, next) => {
+    const username = req.body.username;
+    const password = req.body.password;
 
-//autenticar
-router.post('/autenticar', (req, res, next)=>{
-    res.send('autenticar');
-})
+    User.getUserByUsername(username, (err, user) => {
+        if(err) throw err;
+        if(!user) {
+            return res.json({
+                success: false,
+                msg: 'User not found'
+            });
+        }
 
-//perfil
-router.get('/', (req, res, next)=>{
-    res.send('perfil');
-})
+        User.comparePassword(password, user.password, (err, isMatch) => {
+            if (err) throw err;
+            if (isMatch) {
+                const token = jwt.sign({data: user}, config.secret, {
+                expiresIn: 4800                
+            });
 
+            res.json({
+                success: true,
+                token: 'JWT ' + token,
+                user: {
+                    id: user._id,
+                    name: user.name,
+                    username: user.username,
+                    emai: user.email
+                }
+            });
+            } else {
+                return res.json({
+                    success: false,
+                    msg: 'Wrong password'
+                })
+            }
+        });
+    });
+});
+
+//profile
+router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+    res.json({
+        user: req.user
+    });
+});
 
 module.exports = router;
