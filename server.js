@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'angular-src'))); //no video, ao inv
 app.use(cors({
     allowedOrigins: [
         '*'
-        //,'http://localhost:4200'
+        ,'http://localhost:4200'
     ]
 }))
 

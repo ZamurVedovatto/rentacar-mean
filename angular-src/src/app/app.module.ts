@@ -34,6 +34,8 @@ import { RegistrarComponent } from './components/usuario/registrar/registrar.com
 import { HomeUsuarioComponent } from './components/usuario/home-usuario/home-usuario.component';
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { ValidarUsuarioService } from './components/usuario/validar-usuario.service'; //colocar também em Providers
+import { AuthService } from './components/usuario/auth.service'; //colocar também em Providers
+
 
 import { FlashMessagesModule } from 'angular2-flash-messages'; //colocar também em Imports
 
@@ -67,7 +69,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages'; //colocar também
     AppRoutingModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [ClienteService, VeiculoService, AluguelService, ValidarUsuarioService],
+  providers: [ClienteService, VeiculoService, AluguelService, ValidarUsuarioService, AuthService],
   bootstrap: [AppComponent]
 })
 
