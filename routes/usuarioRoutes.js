@@ -39,7 +39,7 @@ router.post('/autenticar', (req, res, next) => {
         if(!user) {
             return res.json({
                 success: false,
-                msg: 'User not found'
+                msg: 'Usuário não encontrado'
             });
         }
 
@@ -63,7 +63,7 @@ router.post('/autenticar', (req, res, next) => {
             } else {
                 return res.json({
                     success: false,
-                    msg: 'Wrong password'
+                    msg: 'Senha incorreta'
                 })
             }
         });
