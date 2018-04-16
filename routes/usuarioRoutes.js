@@ -3,27 +3,27 @@ const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
-const User = require('../models/usuarioModel');
+const Usuario = require('../models/usuarioModel');
 
 //registrar
 router.post('/registrar', (req, res, next) => {
-    let newUser = new User({
+    let novoUsuario = new Usuario({
         nome: req.body.nome,
         email: req.body.email,
         username: req.body.username,
         password: req.body.password
     });
 
-    User.addUser(newUser, (err, user) => {
+    Usuario.addUsuario(novoUsuario, (err, usuario) => {
         if (err) {
             res.json({
                 success: false,
-                msg:'Failed to register user'
+                msg:'Falha ao registrar o usuário'
             });
         } else {
             res.json({
                 success: true,
-                msg: 'User registered'
+                msg: 'Usuário registrado'
             });
         }
     });
@@ -34,30 +34,30 @@ router.post('/autenticar', (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    User.getUserByUsername(username, (err, user) => {
+    Usuario.getUsuarioByUsername(username, (err, usuario) => {
         if(err) throw err;
-        if(!user) {
+        if(!usuario) {
             return res.json({
                 success: false,
                 msg: 'Usuário não encontrado'
             });
         }
 
-        User.comparePassword(password, user.password, (err, isMatch) => {
+        Usuario.compararPassword(password, usuario.password, (err, isMatch) => {
             if (err) throw err;
             if (isMatch) {
-                const token = jwt.sign({data: user}, config.secret, {
+                const token = jwt.sign({data: usuario}, config.secret, {
                 expiresIn: 4800                
             });
 
             res.json({
                 success: true,
                 token: 'JWT ' + token,
-                user: {
-                    id: user._id,
-                    nome: user.nome,
-                    username: user.username,
-                    emai: user.email
+                usuario: {
+                    id: usuario._id,
+                    nome: usuario.nome,
+                    username: usuario.username,
+                    emai: usuario.email
                 }
             });
             } else {
@@ -71,9 +71,10 @@ router.post('/autenticar', (req, res, next) => {
 });
 
 //perfil
-router.get('/perfil', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+router.get('/perfil', passport.authenticate('jwt', {session:false}), (req, res, next) => {    
+
     res.json({
-        user: req.user
+        usuario: req.user
     });
 });
 

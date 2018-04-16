@@ -54,3 +54,6 @@ bodyparser: parses incoming request bodies
 BACKUP
 voltar para angular-cli.json, em styles
     "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+
+ng build (acessar toda aplicação pelo localhost:3000)
+    video 9 - 21 min

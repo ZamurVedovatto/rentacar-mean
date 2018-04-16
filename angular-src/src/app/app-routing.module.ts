@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './components/guards/auth.guard'; //colocar como provider e adicionar parametro nas rotas que desejamos proteger
 
-//componentes de navegação principais
+//componentes de navegação gerais
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 
@@ -26,49 +27,47 @@ import { AddAluguelComponent } from './components/aluguel/add-aluguel/add-alugue
 import { ShowAluguelComponent } from './components/aluguel/show-aluguel/show-aluguel.component';
 
 //componentes de Usuario
-import { RegistrarComponent  } from './components/usuario/registrar/registrar.component';
-import { HomeUsuarioComponent } from './components/usuario/home-usuario/home-usuario.component';
 import { LoginComponent } from './components/usuario/login/login.component';
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
-
+import { RegistrarComponent  } from './components/usuario/registrar/registrar.component';
 
 const routes: Routes = [
-  //rotas de navegação
-  { path: '', component:HomeComponent }, //home
+  //rotas de navegação geral
+  { path: '', component:HomeComponent }, //home geral
   { path: 'sobre', component:AboutComponent },
 
   //rotas de Cliente
-  { path: 'cliente', component:HomeClienteComponent },
-  { path: 'cliente/edit/:id', component:EditClienteComponent },
-  { path: 'cliente/add', component:AddClienteComponent },
-  { path: 'cliente/show/:id', component:ShowClienteComponent },
+  { path: 'cliente', component:HomeClienteComponent, canActivate:[AuthGuard] },
+  { path: 'cliente/edit/:id', component:EditClienteComponent, canActivate:[AuthGuard] },
+  { path: 'cliente/add', component:AddClienteComponent, canActivate:[AuthGuard] },
+  { path: 'cliente/show/:id', component:ShowClienteComponent, canActivate:[AuthGuard] },
 
   //rotas de veiculos
-  { path: 'veiculo', component:HomeVeiculoComponent },
-  { path: 'veiculo/edit/:id', component:EditVeiculoComponent },
-  { path: 'veiculo/add', component:AddVeiculoComponent },
-  { path: 'veiculo/show/:id', component:ShowVeiculoComponent },
+  { path: 'veiculo', component:HomeVeiculoComponent, canActivate:[AuthGuard] },
+  { path: 'veiculo/edit/:id', component:EditVeiculoComponent, canActivate:[AuthGuard] },
+  { path: 'veiculo/add', component:AddVeiculoComponent, canActivate:[AuthGuard] },
+  { path: 'veiculo/show/:id', component:ShowVeiculoComponent, canActivate:[AuthGuard] },
 
   //rotas de alugueis
-  { path: 'aluguel', component:HomeAluguelComponent },
-  { path: 'aluguel/edit/:id', component:EditAluguelComponent },
-  { path: 'aluguel/add', component:AddAluguelComponent },
-  { path: 'aluguel/show/:id', component:ShowAluguelComponent },
+  { path: 'aluguel', component:HomeAluguelComponent, canActivate:[AuthGuard] },
+  { path: 'aluguel/edit/:id', component:EditAluguelComponent, canActivate:[AuthGuard] },
+  { path: 'aluguel/add', component:AddAluguelComponent, canActivate:[AuthGuard] },
+  { path: 'aluguel/show/:id', component:ShowAluguelComponent, canActivate:[AuthGuard] },
 
   //rotas de usuarios
-  { path: 'usuario', component: HomeUsuarioComponent},
   { path: 'usuario/registrar', component:RegistrarComponent },
   { path: 'usuario/login', component:LoginComponent},
-  { path: 'usuario/perfil', component:PerfilComponent}
+  { path: 'usuario/perfil', component:PerfilComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forRoot(routes)
-
   ],
+  providers: [AuthGuard],
   exports: [RouterModule],
   declarations: []
 })
+
 export class AppRoutingModule { }

@@ -5,6 +5,7 @@ import { AluguelService } from '../aluguel/aluguel.service';
 import { Aluguel } from '../aluguel/aluguel';
 import { ClienteService } from '../cliente/cliente.service';
 import { Cliente } from '../cliente/cliente';
+import { AuthService } from '../usuario/auth.service'; //injetar como dependency no construtor
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ export class HomeComponent implements OnInit {
   constructor(
     public veiculoService: VeiculoService,
     public aluguelService: AluguelService,
-    public clienteService: ClienteService
+    public clienteService: ClienteService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {

@@ -1,28 +1,32 @@
-<table class="table table-bordered">
+<div class="table-responsive">
+  <table class="table table-hover table-sm">
+    <caption>Lista de Veículos</caption>
+    <thead>
+      <tr>
+        <th scope="col">Fábrica</fa></th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Placa</th>
+        <th scope="col">Cor</th>
+        <th scope="col">Ano de Fabricação</th>
+        <th scope="col" width="275" align="center"><a type="button" class="btn btn-light btn-sm" routerLink="/veiculo/add">Adicionar</a></th>
+      </tr>
+    </thead>
 
-  <thead>
-    <tr>
-      <td>Fábrica</td>
-      <td>Modelo</td>
-      <td>Placa</td>
-      <td>Cor</td>
-      <td>Ano de Fabricação</td>
-      <td width="275" align="center"><a class="btn btn-info" routerLink="/veiculo/add">Adicionar</a></td>
-    </tr>
-  </thead>
+    <tbody>
+      <tr *ngFor="let veiculo of veiculos">
+        <td>{{ veiculo.fabrica }}</td>
+        <td>{{ veiculo.modelo }}</td>
+        <td>{{ veiculo.placa }}</td>
+        <td>{{ veiculo.cor }}</td>
+        <td>{{ veiculo.anoFabricacao }}</td>
+        <td width="275"> 
+          <a type="button" class="btn btn-info btn-sm" routerLink="/veiculo/show/{{ veiculo._id }}">Dados</a> 
+          <a type="button" class="btn btn-secondary btn-sm"  routerLink="/veiculo/edit/{{ veiculo._id }}">Editar</a>
+          <a type="button" class="btn btn-danger btn-sm" (click)="deleteVeiculo(veiculo._id)">Deletar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-  <tbody>
-    <tr *ngFor="let veiculo of veiculos">
-      <td>{{ veiculo.fabrica }}</td>
-      <td>{{ veiculo.modelo }}</td>
-      <td>{{ veiculo.placa }}</td>
-      <td>{{ veiculo.cor }}</td>
-      <td>{{ veiculo.anoFabricacao }}</td>
-      <td width="275"> 
-        <a class="btn btn-info" routerLink="/veiculo/show/{{ veiculo._id }}">Dados</a> 
-        <a class="btn btn-success"  routerLink="/veiculo/edit/{{ veiculo._id }}">Editar</a>
-        <a class="btn btn-danger" (click)="deleteVeiculo(veiculo._id)">Deletar</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <i class="fas fa-adjust"></i>
+</div>

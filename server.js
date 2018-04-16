@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('express-cors');
+const cors = require('cors');
 const config = require('./config/database');
 const path = require('path'); //core module
 const passport = require('passport');
@@ -33,12 +33,7 @@ const usuarioRouter = require('./routes/usuarioRoutes');
 app.use(express.static(path.join(__dirname, 'angular-src'))); //no video, ao inves de 'angular-src', foi usada 'public'
 
 //CORS
-app.use(cors({
-    allowedOrigins: [
-        '*'
-        ,'http://localhost:4200'
-    ]
-}))
+app.use(cors());
 
 //BODYPARSER
 app.use(bodyParser.urlencoded({ extended: true })); 
@@ -55,3 +50,7 @@ app.use('/veiculo', veiculoRouter);
 app.use('/aluguel', aluguelRouter);
 app.use('/usuario', usuarioRouter);
 
+//caso seja acessada qualquer outra rota, usuário é direcionado para o index
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+})

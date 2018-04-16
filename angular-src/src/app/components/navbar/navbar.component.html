@@ -14,33 +14,40 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
 
         <ul class="navbar-nav mr-auto navbar-right">
-          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+          <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
             <a class="nav-link" [routerLink]="['/veiculo']">Veículos</a>
           </li>
-          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+          <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
             <a class="nav-link" [routerLink]="['/cliente']">Clientes</a>
           </li>
-          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+          <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
             <a class="nav-link" [routerLink]="['/aluguel']">Aluguel</a>
           </li>
         </ul>
     
         <ul class="nav navbar-nav ml-auto">
 
-          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+          <!-- Links do Usuário -->
+          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
             <a class="nav-link" [routerLink]="['usuario/login']">Login</a>
           </li>
-          
-          <li class="nav-item">
+
+          <li *ngIf="authService.loggedIn()" class="nav-item">
             <a class="nav-link" (click)="onLogoutClick()" href="#">Logout</a>
           </li>
 
-          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+          <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+            <a class="nav-link" [routerLink]="['usuario/perfil']">Perfil</a>
+          </li>    
+
+
+          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
             <a class="nav-link" [routerLink]="['usuario/registrar']">Cadastrar</a>
           </li>
+          <!-- Fim - Links do Usuário -->
 
           <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
-            <a class="nav-link" [routerLink]="['/sobre']">SGAV1.0</a>
+            <a class="nav-link" [routerLink]="['/sobre']">SGAV1.2</a>
           </li>
 
         </ul>

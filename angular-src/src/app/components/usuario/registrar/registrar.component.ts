@@ -17,14 +17,12 @@ export class RegistrarComponent implements OnInit {
   email: String;
   password: String;
 
-
   constructor(
     private validarUsuarioService: ValidarUsuarioService, 
     private flashMessage: FlashMessagesService,
     private authService: AuthService,
     private router: Router
   ) { }
-
 
   ngOnInit() {
   }

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -31,13 +30,12 @@ import { AluguelService } from './components/aluguel/aluguel.service';
 
 import { LoginComponent } from './components/usuario/login/login.component';
 import { RegistrarComponent } from './components/usuario/registrar/registrar.component';
-import { HomeUsuarioComponent } from './components/usuario/home-usuario/home-usuario.component';
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { ValidarUsuarioService } from './components/usuario/validar-usuario.service'; //colocar também em Providers
 import { AuthService } from './components/usuario/auth.service'; //colocar também em Providers
 
-
 import { FlashMessagesModule } from 'angular2-flash-messages'; //colocar também em Imports
+import { AngularFontAwesomeModule } from 'angular-font-awesome'; //colocar também em Imports
 
 @NgModule({
   declarations: [
@@ -59,15 +57,15 @@ import { FlashMessagesModule } from 'angular2-flash-messages'; //colocar também
     ShowAluguelComponent,
     LoginComponent,
     RegistrarComponent,
-    HomeUsuarioComponent,
-    PerfilComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    AngularFontAwesomeModule
   ],
   providers: [ClienteService, VeiculoService, AluguelService, ValidarUsuarioService, AuthService],
   bootstrap: [AppComponent]

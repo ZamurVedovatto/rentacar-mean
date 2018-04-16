@@ -35,11 +35,11 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
       
         if(data.success) {
-          this.authService.armazenarDadosUsuario(data.token, data.user);
+          this.authService.armazenarDadosUsuario(data.token, data.usuario);
           this.flashMessage.show('Você está logado', {
             cssClass: 'alert-success', 
             timeout: 5000});
-          this.router.navigate(['usuario']);
+          this.router.navigate(['usuario/perfil']);
         } else {
           this.flashMessage.show(data.msg, {
             cssClass: 'alert-danger', 
