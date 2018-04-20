@@ -23,6 +23,9 @@
           <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
             <a class="nav-link" [routerLink]="['/aluguel']">Aluguel</a>
           </li>
+          <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+            <a class="nav-link" [routerLink]="['/seguro']">Seguro</a>
+          </li>
         </ul>
     
         <ul class="nav navbar-nav ml-auto">
@@ -47,7 +50,7 @@
           <!-- Fim - Links do Usuário -->
 
           <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
-            <a class="nav-link" [routerLink]="['/sobre']">SGAV1.2</a>
+            <a class="nav-link" [routerLink]="['/sobre']">SisLoc 1.2</a>
           </li>
 
         </ul>

@@ -28,6 +28,12 @@ import { AddAluguelComponent } from './components/aluguel/add-aluguel/add-alugue
 import { ShowAluguelComponent } from './components/aluguel/show-aluguel/show-aluguel.component';
 import { AluguelService } from './components/aluguel/aluguel.service';
 
+import { AddSeguroComponent } from './components/seguro/add-seguro/add-seguro.component';
+import { EditSeguroComponent } from './components/seguro/edit-seguro/edit-seguro.component';
+import { HomeSeguroComponent } from './components/seguro/home-seguro/home-seguro.component';
+import { ShowSeguroComponent } from './components/seguro/show-seguro/show-seguro.component';
+import { SeguroService } from './components/seguro/seguro.service'
+
 import { LoginComponent } from './components/usuario/login/login.component';
 import { RegistrarComponent } from './components/usuario/registrar/registrar.component';
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
@@ -36,6 +42,10 @@ import { AuthService } from './components/usuario/auth.service'; //colocar tamb√
 
 import { FlashMessagesModule } from 'angular2-flash-messages'; //colocar tamb√©m em Imports
 import { AngularFontAwesomeModule } from 'angular-font-awesome'; //colocar tamb√©m em Imports
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NgDatepickerModule } from 'ng2-datepicker';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +67,11 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome'; //colocar tamb√
     ShowAluguelComponent,
     LoginComponent,
     RegistrarComponent,
-    PerfilComponent
+    PerfilComponent,
+    AddSeguroComponent,
+    EditSeguroComponent,
+    HomeSeguroComponent,
+    ShowSeguroComponent
   ],
   imports: [
     BrowserModule,
@@ -65,9 +79,11 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome'; //colocar tamb√
     HttpModule,
     AppRoutingModule,
     FlashMessagesModule.forRoot(),
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    BrowserAnimationsModule,
+    NgDatepickerModule
   ],
-  providers: [ClienteService, VeiculoService, AluguelService, ValidarUsuarioService, AuthService],
+  providers: [ClienteService, VeiculoService, AluguelService, SeguroService, ValidarUsuarioService, AuthService],
   bootstrap: [AppComponent]
 })
 

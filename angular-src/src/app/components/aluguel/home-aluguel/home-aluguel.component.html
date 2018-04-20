@@ -1,8 +1,8 @@
 <table class="table table-hover">
     <thead>
     <tr class="table-default">
-      <th scope="col">ID Cliente</th>
-      <th scope="col">ID Veículo</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Veículo</th>
       <th scope="col">Data de Retirada</th>
       <th scope="col">Data de Entrega</th>
       <th scope="col" width="275" align="center"><a type="button" class="btn btn-outline-success btn-sm" routerLink="/aluguel/add">Adicionar</a></th>
@@ -11,10 +11,11 @@
     <tbody>
       <!-- <tr class="table-primary" *ngFor="let aluguel of alugueis"> -->        
       <tr class="table-default" *ngFor="let aluguel of alugueis">
-      <td>{{ aluguel.idCliente }}</td>
-      <td>{{ aluguel.idVeiculo }}</td>
+      <td>{{ aluguel.Cliente }}</td>
+      <td>{{ aluguel.Veiculo }}</td>
       <td>{{ aluguel.dataRetirada }}</td>
-      <td>{{ aluguel.dataEntrega }}</td>
+      <td *ngIf="aluguel.dataEntrega != undefined">{{ aluguel.dataEntrega }}</td>
+      <td *ngIf="aluguel.dataEntrega === undefined">Alugado</td>
       <td width="275"> 
         <a type="button" class="btn btn-outline-info btn-sm" routerLink="/aluguel/show/{{ aluguel._id }}">Dados</a> 
         <a class="btn btn-outline-warning btn-sm"  routerLink="/aluguel/edit/{{ aluguel._id }}">Editar</a>

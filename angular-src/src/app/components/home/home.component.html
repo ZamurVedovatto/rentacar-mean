@@ -1,6 +1,6 @@
 <div class="jumbotron text-center">
-  <h1>Sistema de Locação de Veículos</h1>
-  <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nam neque excepturi laborum, laudantium ipsa dolore veritatis reprehenderit voluptatum ipsam.</p>
+  <h1>SisLoc</h1>
+  <p class="lead">Sistema de Gestão de Locação de Veículos</p>
 
   <div *ngIf="!authService.loggedIn()">
     <a class="btn btn-primary" [routerLink]="['usuario/registrar']">Registrar</a>
@@ -11,6 +11,7 @@
 <div *ngIf="!authService.loggedIn()" class="row">
   <div class="col-md-4">
     <h3>Aluguel de veículos</h3>
+    <i class="material-icons">face</i>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est, accusamus!</p>
   </div>
   <div class="col-md-4">
@@ -40,13 +41,26 @@
 
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-2">
     <h4>Veículos</h4>
 
     <table class="table table-hover">      
       <tbody>
         <tr *ngFor="let veiculo of veiculos">
           <td>{{ veiculo.fabrica }} - {{ veiculo.modelo }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="col-md-2">
+    <h4>Seguros</h4>
+
+    <table class="table table-hover">      
+      <tbody>
+        <tr *ngFor="let seguro of seguros">
+          <td>{{ seguro.seguradora }}</td>
         </tr>
       </tbody>
     </table>

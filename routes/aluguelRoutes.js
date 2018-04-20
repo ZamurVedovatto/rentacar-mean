@@ -14,13 +14,14 @@ router.get('/', (req, res) => {
 
 //create aluguel
 router.post('/', (req, res) => {
-
+  
     let novo = {
-        idCliente: req.body.idCliente,
-        idVeiculo: req.body.idVeiculo,
+        Cliente: req.body.Cliente._id,
+        Veiculo: req.body.Veiculo._id,
         dataRetirada: req.body.dataRetirada,
-        dataEntrega: req.body.dataEntrega
+        dataEntrega: undefined
     }
+   
 
     Aluguel.add(novo, (err, aluguel) => {
         if (err) throw err;
@@ -34,8 +35,8 @@ router.post('/', (req, res) => {
 router.put('/:_id', (req, res) => {
 
     let update = {
-        idCliente: req.body.idCliente,
-        idVeiculo: req.body.idVeiculo,
+        Cliente: req.body.Cliente,
+        Veiculo: req.body.Veiculo,
         dataRetirada: req.body.dataRetirada,
         dataEntrega: req.body.dataEntrega
     }

@@ -3,6 +3,8 @@ import { VeiculoService } from '../veiculo/veiculo.service';
 import { Veiculo } from '../veiculo/veiculo';
 import { AluguelService } from '../aluguel/aluguel.service';
 import { Aluguel } from '../aluguel/aluguel';
+import { SeguroService } from '../seguro/seguro.service';
+import { Seguro } from '../seguro/seguro';
 import { ClienteService } from '../cliente/cliente.service';
 import { Cliente } from '../cliente/cliente';
 import { AuthService } from '../usuario/auth.service'; //injetar como dependency no construtor
@@ -17,6 +19,7 @@ export class HomeComponent implements OnInit {
   constructor(
     public veiculoService: VeiculoService,
     public aluguelService: AluguelService,
+    public seguroService: SeguroService,
     public clienteService: ClienteService,
     private authService: AuthService
   ) { }
@@ -24,11 +27,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getVeiculos();
     this.getAlugueis();
+    this.getSeguros();
     this.getClientes();
   }
 
   veiculos: Veiculo;
   alugueis: Aluguel;
+  seguros: Seguro;
   clientes: Cliente;
 
   getClientes() {
@@ -42,6 +47,13 @@ export class HomeComponent implements OnInit {
     this.aluguelService.getAlugueis()
       .subscribe(alugueis => {
         this.alugueis = alugueis;
+      })
+  }
+
+  getSeguros() {
+    this.seguroService.getSeguros()
+      .subscribe(seguros => {
+        this.seguros = seguros;
       })
   }
 

@@ -3,5 +3,6 @@ export class Veiculo{
     modelo: String;
     placa: String;
     cor: String;
-    anoFabricacao: Number
+    anoFabricacao: Number;
+    disponivel: Boolean
 }

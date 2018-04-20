@@ -9,7 +9,9 @@
         <th scope="col">Placa</th>
         <th scope="col">Cor</th>
         <th scope="col">Ano de Fabricação</th>
-        <th scope="col" width="275" align="center"><a type="button" class="btn btn-light btn-sm" routerLink="/veiculo/add">Adicionar</a></th>
+        <th scope="col">Valor da Diária</th>
+        <th scope="col">Disponível</th>
+        <th scope="col" width="275" align="center"><a class="btn" routerLink="/veiculo/add"><i class="material-icons">add</i></a></th>
       </tr>
     </thead>
 
@@ -20,10 +22,12 @@
         <td>{{ veiculo.placa }}</td>
         <td>{{ veiculo.cor }}</td>
         <td>{{ veiculo.anoFabricacao }}</td>
+        <td>R${{ veiculo.valorDiaria }}</td>
+        <td>{{ veiculo.disponivel }}</td>
         <td width="275"> 
-          <a type="button" class="btn btn-info btn-sm" routerLink="/veiculo/show/{{ veiculo._id }}">Dados</a> 
-          <a type="button" class="btn btn-secondary btn-sm"  routerLink="/veiculo/edit/{{ veiculo._id }}">Editar</a>
-          <a type="button" class="btn btn-danger btn-sm" (click)="deleteVeiculo(veiculo._id)">Deletar</a>
+          <a class="btn" routerLink="/veiculo/show/{{ veiculo._id }}"><i class="material-icons">filter_list</i></a>          
+          <a class="btn" routerLink="/veiculo/edit/{{ veiculo._id }}"><i class="material-icons">gesture</i></a>
+          <a class="btn" (click)="deleteVeiculo(veiculo._id)"><i class="material-icons">clear</i></a>
         </td>
       </tr>
     </tbody>

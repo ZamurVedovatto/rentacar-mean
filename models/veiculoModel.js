@@ -5,7 +5,9 @@ const veiculoSchema = new mongoose.Schema( {
     modelo: String,
     placa: String,
     cor: String,
-    anoFabricacao: Number
+    anoFabricacao: Number,
+    valorDiaria: Number,
+    disponivel: Boolean
 });
 
 const Veiculo = module.exports = mongoose.model('Veiculo', veiculoSchema);

@@ -8,7 +8,6 @@ export class VeiculoService {
 
   constructor(private http:Http) { }
 
-
   getVeiculos() {
     return this.http.get("http://localhost:3000/veiculo")
       .map(res => res.json());

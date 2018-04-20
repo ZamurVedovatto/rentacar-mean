@@ -23,7 +23,6 @@ export class AuthService {
       .map(res => res.json());
   };
   
-
   //autenticar usuario registrado
   autenticarUsuario(usuario){
     let headers = new Headers();

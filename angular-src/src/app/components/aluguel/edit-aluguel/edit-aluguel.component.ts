@@ -13,27 +13,27 @@ export class EditAluguelComponent implements OnInit {
 
   constructor(
     public aluguelService: AluguelService,
-    public route:ActivatedRoute,
-    public router:Router
+    public route: ActivatedRoute,
+    public router: Router
   ) { }
 
   ngOnInit() {
     this.getAluguel();
   }
 
-  model = new Aluguel();
+  aluguel = new Aluguel();
   id = this.route.snapshot.params['id'];
 
 
   getAluguel(){
     this.aluguelService.getAluguel(this.id)
       .subscribe(aluguel => {
-        this.model = aluguel;
+        this.aluguel = aluguel;
       })
   }
   
   updateAluguel(){
-    this.aluguelService.updateAluguel(this.id, this.model)
+    this.aluguelService.updateAluguel(this.id, this.aluguel)
       .subscribe(()=> this.goBack())
   }
 

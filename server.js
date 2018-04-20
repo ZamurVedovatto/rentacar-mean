@@ -27,6 +27,8 @@ const clienteRouter = require('./routes/clienteRoutes');
 const veiculoRouter = require('./routes/veiculoRoutes');
 const aluguelRouter = require('./routes/aluguelRoutes');
 const usuarioRouter = require('./routes/usuarioRoutes');
+const seguroRouter = require('./routes/seguroRoutes');
+
 
 //middlewares
 //set static folder
@@ -49,8 +51,10 @@ app.use('/cliente', clienteRouter);
 app.use('/veiculo', veiculoRouter);
 app.use('/aluguel', aluguelRouter);
 app.use('/usuario', usuarioRouter);
+app.use('/seguro', seguroRouter);
 
-//caso seja acessada qualquer outra rota, usuário é direcionado para o index
+
+//após ngbuild, caso seja acessada qualquer outra rota, usuário é direcionado para o index
 app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname, 'public/index.html'));
 })

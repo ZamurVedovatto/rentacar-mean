@@ -32,8 +32,6 @@ export class HomeVeiculoComponent implements OnInit {
       .subscribe(()=> {
         this.getVeiculos();
       })
-  }
-
-  
+  } 
 
 }

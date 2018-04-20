@@ -32,8 +32,6 @@ export class HomeAluguelComponent implements OnInit {
       .subscribe(()=> {
         this.getAlugueis();
       })
-  }
-
-  
+  } 
 
 }

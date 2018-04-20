@@ -1,45 +1,52 @@
 <div class="panel panel-default">
-    <div class="panel-heading">Adicionar novo Aluguel</div>
-    <div class="panel-body">
-    <form class="form-horizontal" (submit)="addAluguel()">
+    <div class="panel-heading text-center">Adicionar novo Aluguel</div>
+    <hr>
+      <div class="panel-body">
+      <form class="form-horizontal" (submit)="addAluguel()">    
 
-    <div class="form-group">
-      <label for="aluguel_idCliente" class="col-sm-2 control-label">ID Cliente: </label>
-      <div class="col-sm-9">
-        <input type="text" class="form-control" [(ngModel)]="model.idCliente" name="idCliente" >
-      </div>
-    </div>
+        <!-- Select Cliente-->
+        <div class="form-group">
+          <label for="aluguel_Cliente" class="col-sm-2 control-label">Cliente: </label>
+          <div class="col-sm-6">
+            <div class="form-group">
+                <select class="custom-select" [(ngModel)]="aluguel.Cliente" name="cliente">
+                  <option *ngFor="let cliente of clientes" [ngValue]="cliente">{{cliente.fullName}}</option>
+                </select>
+              </div>
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label for="aluguel_idVeiculo" class="col-sm-2 control-label">ID Veículo: </label>
-      <div class="col-sm-9">
-        <input type="text" class="form-control" [(ngModel)]="model.idVeiculo" name="idVeiculo" >
-      </div>
-    </div>
+        <!-- Select Veiculo-->
+        <div class="form-group">
+          <label for="aluguel_Veiculo" class="col-sm-2 control-label">Veículo: </label>
+          <div class="col-sm-6">
+            <div class="form-group">
+                <select class="custom-select" [(ngModel)]="aluguel.Veiculo" name="veiculo">
+                  <ng-container *ngFor="let veiculo of veiculos">
+                    <option *ngIf="veiculo.disponivel === true" [ngValue]="veiculo">{{veiculo.fabrica}} - {{veiculo.modelo}} - {{veiculo.placa}} - R${{veiculo.valorDiaria}}</option>
+                  </ng-container>
+                </select>
+              </div>
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label for="aluguel_dataRetirada" class="col-sm-2 control-label">Data Retirada: </label>
-      <div class="col-sm-9">
-        <input type="text" class="form-control" [(ngModel)]="model.dataRetirada" name="dataRetirada" >
-      </div>
-    </div>
+        <!-- Select Data de Retirada-->
+        <div class="form-group">
+          <label for="aluguel_dataRetirada" class="col-sm-2 control-label">Data Retirada:</label>
+          <div class="col-sm-6">
+            <div class="datepicker-container">
+              <ng-datepicker [(ngModel)]="aluguel.dataRetirada" name="dataRetirada" [options]="options"></ng-datepicker>
+            </div>
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-8">
+            <button type="submit" class="btn btn-success">Salvar</button>
+            <a class="btn btn-info" (click)="goBack()">Cancelar</a>
+          </div>        
+        </div>
 
-    <div class="form-group">
-      <label for="aluguel_dataEntrega" class="col-sm-2 control-label">Data Entrega: </label>
-      <div class="col-sm-9">
-        <input type="text" class="form-control" [(ngModel)]="model.dataEntrega" name="dataEntrega">
-      </div>
-    </div>
-
-  
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-8">
-        <button type="submit" class="btn btn-success">Salvar</button>
-         <a class="btn btn-info" (click)="goBack()">Cancelar</a>
-      </div>
-     
-    </div>
-  </form>
-  
-    </div>
+    </form>  
   </div>
+</div>

@@ -1,6 +1,6 @@
 export class Aluguel{
-    idCliente: String;
-    idVeiculo: String;
-    dataRetirada: String;
-    dataEntrega: String;
+    Cliente: String;
+    Veiculo: String;
+    dataRetirada: Date;
+    dataEntrega: Date;
 }

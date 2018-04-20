@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const aluguelSchema = new mongoose.Schema( {
-    idCliente: String,
-    idVeiculo: String,
-    dataRetirada: String,
-    dataEntrega: String
+    Cliente: String,
+    Veiculo: String,
+    dataRetirada: Date,
+    dataEntrega: Date
 });
 
 const Aluguel = module.exports = mongoose.model('Aluguel', aluguelSchema);
@@ -15,6 +15,7 @@ module.exports.getAll = function(callback){
 }
 
 module.exports.add = function(novoAluguel, callback){
+    console.log(novoAluguel);    
     console.log('Aluguel adicionado com sucesso');    
     Aluguel.create(novoAluguel, callback);
 }

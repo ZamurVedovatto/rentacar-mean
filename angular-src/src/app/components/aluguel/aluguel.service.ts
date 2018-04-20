@@ -14,9 +14,9 @@ export class AluguelService {
       .map(res => res.json());
   }
 
-  addAluguel(info) {
-    return this.http.post("http://localhost:3000/aluguel", info)
-      .map(res => res.json());
+  addAluguel(novoAluguel) {    
+    return this.http.post("http://localhost:3000/aluguel", novoAluguel)
+      .map(res => res.json());      
   }
 
   getAluguel(id) {

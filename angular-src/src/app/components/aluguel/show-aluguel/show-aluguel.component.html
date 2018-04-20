@@ -5,16 +5,16 @@
   
         
     <div class="form-group">
-      <label for="aluguel_idCliente" class="col-sm-2 control-label">ID Cliente: </label>
+      <label for="aluguel_Cliente" class="col-sm-2 control-label">ID Cliente: </label>
       <div class="col-sm-9">
-        <p class="form-control">{{aluguel.idCliente}}</p> 
+        <p class="form-control">{{aluguel.Cliente}}</p> 
       </div>
     </div>
   
     <div class="form-group">
-        <label for="aluguel_idVeiculo" class="col-sm-2 control-label">ID Veículo: </label>
+        <label for="aluguel_Veiculo" class="col-sm-2 control-label">ID Veículo: </label>
         <div class="col-sm-9">
-          <p class="form-control">{{aluguel.idVeiculo}}</p> 
+          <p class="form-control">{{aluguel.Veiculo}}</p> 
         </div>
     </div>
 
@@ -28,7 +28,8 @@
     <div class="form-group">
       <label for="aluguel_dataEntrega" class="col-sm-2 control-label">Data de Entrega: </label>
       <div class="col-sm-9">
-        <p class="form-control">{{aluguel.dataEntrega}}</p> 
+        <p *ngIf="aluguel.dataEntrega != undefined" class="form-control">{{aluguel.dataEntrega}}</p>
+        <p *ngIf="aluguel.dataEntrega === undefined" class="form-control">Aluguel em andamento</p>
       </div>
     </div>
     

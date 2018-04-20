@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <td>Seguradora</td>
+    <td width="275" align="center"><a class="btn btn-info" routerLink="/seguro/add">Adicionar</a></td>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let seguro of seguros">
+    <td>{{ seguro.seguradora }}</td>
+    <td width="275"> 
+      <a class="btn btn-info" routerLink="/seguro/show/{{ seguro._id }}">Dados</a> 
+      <a class="btn btn-success"  routerLink="/seguro/edit/{{ seguro._id }}">Editar</a>
+      <a class="btn btn-danger" (click)="deleteSeguro(seguro._id)">Deletar</a>
+    </td>
+    </tr>
+  </tbody>
+</table>
