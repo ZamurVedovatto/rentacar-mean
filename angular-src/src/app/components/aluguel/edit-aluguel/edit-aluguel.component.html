@@ -29,7 +29,7 @@
         <label for="aluguel_dataEntrega" class="col-sm-2 control-label">Data de Entrega: </label>
         <div class="col-sm-9">
           <input *ngIf="aluguel.dataEntrega != undefined" type="text" class="form-control" [(ngModel)]="aluguel.dataEntrega" name="dataEntrega">
-          <input *ngIf="aluguel.dataEntrega === undefined" type="text" class="form-control" placeholder="Alugado" name="dataEntrega">
+          <input *ngIf="aluguel.dataEntrega === undefined" type="text" class="form-control" placeholder="Aluguel em andamento" name="dataEntrega">
         </div>
       </div>
 

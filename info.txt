@@ -62,10 +62,11 @@ ng build (acessar toda aplicação pelo localhost:3000)
 ____________________________
 TODO
 consertar aluguel
-    vinculo com veiculo e cliente
-        veiculo tem que estar disponivel
+    ok_vinculo com veiculo e cliente
+        ok_veiculo tem que estar disponivel
         mostrar valor da diária do veiculo
         método para cálculo de valor total
+        
     devolução de veiculo
         método para cálculo de valor total
         disponibilizar novamente o veiculo

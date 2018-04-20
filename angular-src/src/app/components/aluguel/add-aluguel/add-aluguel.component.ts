@@ -47,9 +47,11 @@ export class AddAluguelComponent implements OnInit {
   }
 
   veiculos: Veiculo;
+  veiculo: any;
   clientes: Cliente;
   aluguel = new Aluguel();
 
+  //obter lista de clientes
   getClientes() {
     this.clienteService.getClientes()
       .subscribe(clientes => {
@@ -57,21 +59,33 @@ export class AddAluguelComponent implements OnInit {
       })
   }
 
+  //obter lista de veiculos
   getVeiculos() {
     this.veiculoService.getVeiculos()
       .subscribe(veiculos => {
         this.veiculos = veiculos;
       })
-  }
-  
+  }  
+
+  //adicionar novo aluguel de veiculo vinculado a um cliente
   addAluguel(){
-   
+    
+    //buscar o veiculo alugado e alterar o atributo disponivel para false
+    this.veiculo = this.aluguel.Veiculo; 
+    this.veiculo.disponivel = !this.veiculo.disponivel;    
+    
+    this.veiculoService.updateVeiculo(this.veiculo._id, this.veiculo)
+      .subscribe(veiculo => {
+        this.veiculo = veiculo;
+    })
+
     this.aluguelService.addAluguel(this.aluguel)
-      .subscribe(()=> this.goBack())
+      .subscribe(()=> this.goBack());
   }
 
+  //retornar para a view principal de aluguel
   goBack(){
     this.router.navigate(['/aluguel']);
   }
-  
+
 }

@@ -27,7 +27,6 @@ export class ShowAluguelComponent implements OnInit {
     this.aluguelService.getAluguel(id)
       .subscribe(aluguel => {
         this.aluguel = aluguel;
-        console.log(this.aluguel);
       })
   }
 
