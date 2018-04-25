@@ -28,6 +28,7 @@ const veiculoRouter = require('./routes/veiculoRoutes');
 const aluguelRouter = require('./routes/aluguelRoutes');
 const usuarioRouter = require('./routes/usuarioRoutes');
 const seguroRouter = require('./routes/seguroRoutes');
+const manutencaoRouter = require('./routes/manutencaoRoutes');
 
 
 //middlewares
@@ -52,6 +53,7 @@ app.use('/veiculo', veiculoRouter);
 app.use('/aluguel', aluguelRouter);
 app.use('/usuario', usuarioRouter);
 app.use('/seguro', seguroRouter);
+app.use('/manutencao', manutencaoRouter);
 
 
 //após ngbuild, caso seja acessada qualquer outra rota, usuário é direcionado para o index

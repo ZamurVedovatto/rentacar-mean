@@ -1,0 +1,42 @@
+<div class="panel panel-default" >
+  <div class="panel-heading">Detalhes da Manutenção</div>
+  <div class="panel-body">
+    <form class="form-horizontal" *ngIf=manutencao>
+
+  <div class="form-group">
+    <label for="manutencao_dataInicio" class="col-sm-2 control-label">Data de Início: </label>
+    <div class="col-sm-9">
+      <p class="form-control">{{aluguel.dataInicio}}</p> 
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="manutencao_dataFim" class="col-sm-2 control-label">Data de Retorno: </label>
+    <div class="col-sm-9">
+      <p *ngIf="manutencao.dataFim != undefined" class="form-control">{{manutencao.dataFim}}</p>
+      <p *ngIf="manutencao.dataFim === undefined" class="form-control">Veículo em Manutenção</p>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="manutencao_id" class="col-sm-2 control-label">ID da Manutenção: </label>
+    <div class="col-sm-9">
+      <p class="form-control">{{manutencao._id}}</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+      
+    <a class="btn btn-info" (click)="goBack()">Voltar</a>
+    </div>
+    
+  </div>
+</form>
+
+  </div>
+</div>
+
+
+
+

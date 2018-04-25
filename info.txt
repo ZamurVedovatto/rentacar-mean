@@ -60,33 +60,7 @@ ng build (acessar toda aplicação pelo localhost:3000)
 
 
 ____________________________
-TODO
-consertar aluguel
-    ok_vinculo com veiculo e cliente
-        ok_veiculo tem que estar disponivel
-        mostrar valor da diária do veiculo
-        método para cálculo de valor total
-        
-    devolução de veiculo
-        método para cálculo de valor total
-        disponibilizar novamente o veiculo
-        registrar débito para o cliente
-            habilitar opção de pagar
 
-consertar tabelas de
-    clientes
-    seguros
-    aluguel
-
-colocar opções de acesso em somente um dropdown ou em um menu lateral esquerdo
-
-melhor frontend do perfil
-
-colocar foto para os veiculos
-    melhorar a apresentação dos veículos
-
-        
-
-vincular manutenção à um veiculo
-vincular veiculo à seguro
-geração de logs
+vincular veiculo à manutenção
+    indisponibilizar veiculo
+    

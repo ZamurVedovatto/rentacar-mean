@@ -79,6 +79,11 @@ export class AddAluguelComponent implements OnInit {
         this.veiculo = veiculo;
     })
 
+    console.log(this.veiculo);
+    console.log(this.veiculo);
+    
+    
+
     this.aluguelService.addAluguel(this.aluguel)
       .subscribe(()=> this.goBack());
   }

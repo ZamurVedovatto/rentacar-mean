@@ -25,9 +25,10 @@
         <td>R${{ veiculo.valorDiaria }}</td>
         <td>{{ veiculo.disponivel }}</td>
         <td width="275"> 
-          <a class="btn" routerLink="/veiculo/show/{{ veiculo._id }}"><i class="material-icons">filter_list</i></a>          
-          <a class="btn" routerLink="/veiculo/edit/{{ veiculo._id }}"><i class="material-icons">gesture</i></a>
-          <a class="btn" (click)="deleteVeiculo(veiculo._id)"><i class="material-icons">clear</i></a>
+          <a class="btn" routerLink="/veiculo/show/{{ veiculo._id }}">Dados</a>          
+          <a class="btn" routerLink="/veiculo/edit/{{ veiculo._id }}">Editar</a>
+          <a class="btn" routerLink="/manutencao/edit/{{ veiculo._id }}">Manutenção</a>
+          <a class="btn" (click)="deleteVeiculo(veiculo._id)">Apagar</a>
         </td>
       </tr>
     </tbody>

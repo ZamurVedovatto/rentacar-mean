@@ -18,8 +18,9 @@
     <td *ngIf="aluguel.dataEntrega != undefined">{{ aluguel.dataEntrega }}</td>
     <td *ngIf="aluguel.dataEntrega === undefined">Não devolvido</td>
     <td width="275"> 
-      <a type="button" class="btn btn-outline-info btn-sm" routerLink="/aluguel/show/{{ aluguel._id }}">Dados</a> 
-      <a class="btn btn-outline-warning btn-sm"  routerLink="/aluguel/edit/{{ aluguel._id }}">Editar</a>
+      <a type="button" class="btn btn-outline-info btn-sm" routerLink="/aluguel/show/{{ aluguel._id }}">Informações</a> 
+      <a class="btn btn-outline-warning btn-sm" routerLink="/aluguel/edit/{{ aluguel._id }}">Editar</a>
+      <a class="btn btn-outline-warning btn-sm" routerLink="/aluguel/finalizar/{{ aluguel._id }}">Finalizar Locação</a>
       <a class="tn btn-outline-danger btn-sm" (click)="deleteAluguel(aluguel._id)">Deletar</a>
     </td>
     </tr>

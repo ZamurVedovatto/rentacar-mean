@@ -26,6 +26,7 @@ import { HomeAluguelComponent } from './components/aluguel/home-aluguel/home-alu
 import { EditAluguelComponent } from './components/aluguel/edit-aluguel/edit-aluguel.component';
 import { AddAluguelComponent } from './components/aluguel/add-aluguel/add-aluguel.component';
 import { ShowAluguelComponent } from './components/aluguel/show-aluguel/show-aluguel.component';
+import { FinalizarAluguelComponent } from './components/aluguel/finalizar-aluguel/finalizar-aluguel.component';
 import { AluguelService } from './components/aluguel/aluguel.service';
 
 import { AddSeguroComponent } from './components/seguro/add-seguro/add-seguro.component';
@@ -33,6 +34,9 @@ import { EditSeguroComponent } from './components/seguro/edit-seguro/edit-seguro
 import { HomeSeguroComponent } from './components/seguro/home-seguro/home-seguro.component';
 import { ShowSeguroComponent } from './components/seguro/show-seguro/show-seguro.component';
 import { SeguroService } from './components/seguro/seguro.service'
+
+import { EditManutencaoComponent } from './components/manutencao/edit-manutencao/edit-manutencao.component';
+import { ManutencaoService } from './components/manutencao/manutencao.service';
 
 import { LoginComponent } from './components/usuario/login/login.component';
 import { RegistrarComponent } from './components/usuario/registrar/registrar.component';
@@ -45,7 +49,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome'; //colocar tamb√
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgDatepickerModule } from 'ng2-datepicker';
-
+import { AddManutencaoComponent } from './components/manutencao/add-manutencao/add-manutencao.component';
+import { ShowManutencaoComponent } from './components/manutencao/show-manutencao/show-manutencao.component';
 
 @NgModule({
   declarations: [
@@ -65,13 +70,17 @@ import { NgDatepickerModule } from 'ng2-datepicker';
     EditAluguelComponent,
     AddAluguelComponent,
     ShowAluguelComponent,
+    FinalizarAluguelComponent,
     LoginComponent,
     RegistrarComponent,
     PerfilComponent,
     AddSeguroComponent,
     EditSeguroComponent,
     HomeSeguroComponent,
-    ShowSeguroComponent
+    ShowSeguroComponent,
+    EditManutencaoComponent ,
+    AddManutencaoComponent,
+    ShowManutencaoComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +92,7 @@ import { NgDatepickerModule } from 'ng2-datepicker';
     BrowserAnimationsModule,
     NgDatepickerModule
   ],
-  providers: [ClienteService, VeiculoService, AluguelService, SeguroService, ValidarUsuarioService, AuthService],
+  providers: [ClienteService, VeiculoService, AluguelService, SeguroService, ManutencaoService, ValidarUsuarioService, AuthService],
   bootstrap: [AppComponent]
 })
 

@@ -1,0 +1,57 @@
+<div class="panel panel-default" >
+  <div class="panel-heading">Detalhes do Aluguel</div>
+  <div class="panel-body">
+    <form class="form-horizontal" *ngIf=aluguel>
+
+      
+  <div class="form-group">
+    <label for="aluguel_Cliente" class="col-sm-2 control-label">ID Cliente: </label>
+    <div class="col-sm-9">
+      <p class="form-control">{{aluguel.Cliente}}</p> 
+    </div>
+  </div>
+
+  <div class="form-group">
+      <label for="aluguel_Veiculo" class="col-sm-2 control-label">ID Veículo: </label>
+      <div class="col-sm-9">
+        <p class="form-control">{{aluguel.Veiculo}}</p> 
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label for="aluguel_dataRetirada" class="col-sm-2 control-label">Data de Retirada: </label>
+    <div class="col-sm-9">
+      <p class="form-control">{{aluguel.dataRetirada}}</p> 
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="aluguel_dataEntrega" class="col-sm-2 control-label">Data de Entrega: </label>
+    <div class="col-sm-9">
+      <p *ngIf="aluguel.dataEntrega != undefined" class="form-control">{{aluguel.dataEntrega}}</p>
+      <p *ngIf="aluguel.dataEntrega === undefined" class="form-control">Aluguel em andamento</p>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="aluguel_id" class="col-sm-2 control-label">ID do Aluguel: </label>
+    <div class="col-sm-9">
+      <p class="form-control">{{aluguel._id}}</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+    <a class="btn btn-info" (click)="finalizarAluguel(aluguel._id)">Finalizar</a>
+    <a class="btn btn-info" (click)="goBack()">Voltar</a>
+    </div>
+    
+  </div>
+</form>
+
+  </div>
+</div>
+
+
+
+

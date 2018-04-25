@@ -2,3 +2,8 @@ thead {
     color: white;
     background-color: #4E5D6C;
 }
+
+tbody tr td a {
+    font-size: 0.7em;
+    color: yellowgreen;
+}
