@@ -7,3 +7,7 @@ tbody tr td a {
     font-size: 0.7em;
     color: yellowgreen;
 }
+
+.novo-veiculo{
+    line-height: 1;
+}

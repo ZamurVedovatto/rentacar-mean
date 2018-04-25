@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
   getAlugueis() {
     this.aluguelService.getAlugueis()
       .subscribe(alugueis => {
-        this.alugueis = alugueis;
+        this.alugueis = alugueis;        
       })
   }
 
