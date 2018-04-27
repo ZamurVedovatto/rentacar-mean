@@ -7,7 +7,8 @@ const veiculoSchema = new mongoose.Schema( {
     cor: String,
     anoFabricacao: Number,
     valorDiaria: Number,
-    disponivel: Boolean
+    disponivel: Boolean,
+    manutencao: []
 });
 
 const Veiculo = module.exports = mongoose.model('Veiculo', veiculoSchema);

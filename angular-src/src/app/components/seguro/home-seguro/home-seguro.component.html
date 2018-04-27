@@ -1,18 +1,21 @@
-<table class="table table-bordered">
-  <thead>
-  <tr>
-    <td>Seguradora</td>
-    <td width="275" align="center"><a class="btn btn-info" routerLink="/seguro/add">Adicionar</a></td>
-  </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let seguro of seguros">
-    <td>{{ seguro.seguradora }}</td>
-    <td width="275"> 
-      <a class="btn btn-info" routerLink="/seguro/show/{{ seguro._id }}">Dados</a> 
-      <a class="btn btn-success"  routerLink="/seguro/edit/{{ seguro._id }}">Editar</a>
-      <a class="btn btn-danger" (click)="deleteSeguro(seguro._id)">Deletar</a>
-    </td>
+<div class="table-responsive">
+  <table class="table table-hover table-sm">
+    <caption>Lista de Seguros</caption>
+    <thead>
+    <tr>
+      <th scope="col">Seguradora</th>
+      <th width="275" align="center"><a type="button" class="btn btn-warning btn-sm novo-seguro" routerLink="/seguro/add">Adicionar</a></th>
     </tr>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <tr *ngFor="let seguro of seguros">
+      <td>{{ seguro.seguradora }}</td>
+      <td width="275"> 
+        <a class="btn" routerLink="/seguro/show/{{ seguro._id }}">Dados</a> 
+        <a class="btn"  routerLink="/seguro/edit/{{ seguro._id }}">Editar</a>
+        <a class="btn" (click)="deleteSeguro(seguro._id)">Deletar</a>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

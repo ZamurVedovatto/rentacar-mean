@@ -19,6 +19,7 @@ import { HomeVeiculoComponent } from './components/veiculo/home-veiculo/home-vei
 import { EditVeiculoComponent } from './components/veiculo/edit-veiculo/edit-veiculo.component';
 import { AddVeiculoComponent } from './components/veiculo/add-veiculo/add-veiculo.component';
 import { ShowVeiculoComponent } from './components/veiculo/show-veiculo/show-veiculo.component';
+import { ManutencaoVeiculoComponent } from './components/veiculo/manutencao-veiculo/manutencao-veiculo.component';
 
 //componentes de Aluguel
 import { HomeAluguelComponent } from './components/aluguel/home-aluguel/home-aluguel.component';
@@ -32,11 +33,6 @@ import { HomeSeguroComponent } from './components/seguro/home-seguro/home-seguro
 import { EditSeguroComponent } from './components/seguro/edit-seguro/edit-seguro.component';
 import { AddSeguroComponent } from './components/seguro/add-seguro/add-seguro.component';
 import { ShowSeguroComponent } from './components/seguro/show-seguro/show-seguro.component';
-
-//componentes de Manutencao
-import { EditManutencaoComponent } from './components/manutencao/edit-manutencao/edit-manutencao.component';
-import { AddManutencaoComponent } from './components/manutencao/add-manutencao/add-manutencao.component';
-import { ShowManutencaoComponent } from './components/manutencao/show-manutencao/show-manutencao.component';
 
 //componentes de Usuario
 import { LoginComponent } from './components/usuario/login/login.component';
@@ -59,6 +55,8 @@ const routes: Routes = [
   { path: 'veiculo/edit/:id', component:EditVeiculoComponent, canActivate:[AuthGuard] },
   { path: 'veiculo/add', component:AddVeiculoComponent, canActivate:[AuthGuard] },
   { path: 'veiculo/show/:id', component:ShowVeiculoComponent, canActivate:[AuthGuard] },
+  { path: 'veiculo/manutencao/:id', component:ManutencaoVeiculoComponent, canActivate:[AuthGuard] },
+
 
   //rotas de alugueis
   { path: 'aluguel', component:HomeAluguelComponent, canActivate:[AuthGuard] },
@@ -72,11 +70,6 @@ const routes: Routes = [
   { path: 'seguro/edit/:id', component:EditSeguroComponent, canActivate:[AuthGuard] },
   { path: 'seguro/add', component:AddSeguroComponent, canActivate:[AuthGuard] },
   { path: 'seguro/show/:id', component:ShowSeguroComponent, canActivate:[AuthGuard] },
-
-  //rotas de manutencoes
-  { path: 'manutencao/edit/:id', component:EditManutencaoComponent, canActivate:[AuthGuard] },
-  { path: 'manutencao/add', component:AddManutencaoComponent, canActivate:[AuthGuard] },
-  { path: 'manutencao/show/:id', component:ShowManutencaoComponent, canActivate:[AuthGuard] },
 
   //rotas de usuarios
   { path: 'usuario/registrar', component:RegistrarComponent },

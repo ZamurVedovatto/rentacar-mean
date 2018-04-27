@@ -27,7 +27,7 @@
         <td width="275"> 
           <a class="btn" routerLink="/veiculo/show/{{ veiculo._id }}">Dados</a>          
           <a class="btn" routerLink="/veiculo/edit/{{ veiculo._id }}">Editar</a>
-          <a class="btn" routerLink="/manutencao/edit/{{ veiculo._id }}">Manutenção</a>
+          <a class="btn" routerLink="/veiculo/manutencao/{{ veiculo._id }}">Manutenção</a>
           <a class="btn" (click)="deleteVeiculo(veiculo._id)">Apagar</a>
         </td>
       </tr>

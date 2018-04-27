@@ -51,6 +51,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgDatepickerModule } from 'ng2-datepicker';
 import { AddManutencaoComponent } from './components/manutencao/add-manutencao/add-manutencao.component';
 import { ShowManutencaoComponent } from './components/manutencao/show-manutencao/show-manutencao.component';
+import { ManutencaoVeiculoComponent } from './components/veiculo/manutencao-veiculo/manutencao-veiculo.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { ShowManutencaoComponent } from './components/manutencao/show-manutencao
     ShowSeguroComponent,
     EditManutencaoComponent ,
     AddManutencaoComponent,
-    ShowManutencaoComponent
+    ShowManutencaoComponent,
+    ManutencaoVeiculoComponent
   ],
   imports: [
     BrowserModule,

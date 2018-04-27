@@ -7,6 +7,7 @@ import { Cliente } from '../../cliente/cliente';
 import { VeiculoService } from '../../veiculo/veiculo.service';
 import { Veiculo } from '../../veiculo/veiculo';
 
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-aluguel',
@@ -18,7 +19,9 @@ export class HomeAluguelComponent implements OnInit {
   constructor(
     public aluguelService: AluguelService,
     public clienteService: ClienteService,
-    public veiculoService: VeiculoService
+    public veiculoService: VeiculoService,
+    public route:ActivatedRoute,
+    public router:Router
   ) { }
 
   ngOnInit() {
@@ -52,6 +55,26 @@ export class HomeAluguelComponent implements OnInit {
       .subscribe(alugueis => {
         this.alugueis = alugueis;
       })
+  }
+
+  getAluguel(id){
+    this.aluguelService.getAluguel(id)
+      .subscribe(aluguel => {
+        this.aluguel = aluguel;
+      })
+  }
+
+  finalizarAluguel(id){
+
+    this.getAluguel(id);    
+    
+    this.aluguel.dataEntrega = new Date();
+
+    this.aluguelService.updateAluguel(id, this.aluguel)
+      .subscribe(()=> {
+        this.getAlugueis();
+      })
+    
   }
 
   deleteAluguel(id){

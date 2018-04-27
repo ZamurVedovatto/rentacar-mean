@@ -4,5 +4,6 @@ export class Veiculo{
     placa: String;
     cor: String;
     anoFabricacao: Number;
-    disponivel: Boolean
+    disponivel: Boolean;
+    manutencao: [Object];
 }
