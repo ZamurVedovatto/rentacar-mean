@@ -9,7 +9,6 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico",
         { "glob": "data.json", "input": "./", "output": "./assets" }
       ],
       "index": "index.html",

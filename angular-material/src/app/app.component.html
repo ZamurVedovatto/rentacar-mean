@@ -1,42 +1,4 @@
-<mat-toolbar color="primary">
-  <span>GameViewer</span>    
+<app-toolbar></app-toolbar>
+<app-tabs></app-tabs>
 
-  <span class="spacer"></span>
-  
-  <a mat-icon-button [matMenuTriggerFor]="appMenu">
-    <mat-icon>more_vert</mat-icon>
-  </a>
-
-  <mat-menu #appMenu="matMenu">
-    <a mat-menu-item><mat-icon>fingerprint</mat-icon>Settings</a>
-    <a mat-menu-item><mat-icon>filter_drama</mat-icon>Help</a>
-  </mat-menu>
-
-</mat-toolbar>
-
-<mat-card>
-  <mat-card-content>
-    <mat-tab-group class="navigation">
-
-      <mat-tab label="Gallery">
-        <app-gallery></app-gallery>
-      </mat-tab>
-
-      <mat-tab class="settings" label="Settings">
-        <app-settings></app-settings>
-      </mat-tab>
-
-      <mat-tab label="Spinner">
-        <app-loading-spinner></app-loading-spinner>
-      </mat-tab>
-
-      <mat-tab label="Paginator">
-        <app-paginator></app-paginator>
-      </mat-tab>
-
-      
-      
-    </mat-tab-group>
-  </mat-card-content>
-</mat-card>
 

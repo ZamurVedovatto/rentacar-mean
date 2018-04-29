@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PageEvent} from '@angular/material';
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-paginator',
@@ -8,10 +8,11 @@ import {PageEvent} from '@angular/material';
 })
 export class PaginatorComponent implements OnInit {
 
+  /* Material Paginator configuration */
   // MatPaginator Inputs
-  length = 100;
-  pageSize = 10;
-  pageSizeOptions = [5, 10, 25, 100];
+  length = 50;
+  pageSize = 2;
+  pageSizeOptions = [5, 10, 25];
 
   // MatPaginator Output
   pageEvent: PageEvent;
@@ -19,12 +20,10 @@ export class PaginatorComponent implements OnInit {
   setPageSizeOptions(setPageSizeOptionsInput: string) {
     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
   }
-
+  /*End -  Material Paginator configuration */
   constructor() { }
 
   ngOnInit() {
   }
-
-
   
 }
