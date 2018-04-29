@@ -1,0 +1,19 @@
+{
+    "screenshots": [
+        {
+            "img": "assets/images/mario1.jpeg",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, doloremque?",
+            "liked": 0
+        },
+        {
+            "img": "assets/images/mario2.jpeg",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, doloremque?",
+            "liked": 0
+        },
+        {
+            "img": "assets/images/mario3.jpeg",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, doloremque?",
+            "liked": 0
+        }
+    ]
+}

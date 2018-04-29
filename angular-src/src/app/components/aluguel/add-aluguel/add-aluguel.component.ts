@@ -77,12 +77,7 @@ export class AddAluguelComponent implements OnInit {
     this.veiculoService.updateVeiculo(this.veiculo._id, this.veiculo)
       .subscribe(veiculo => {
         this.veiculo = veiculo;
-    })
-
-    console.log(this.veiculo);
-    console.log(this.veiculo);
-    
-    
+    })    
 
     this.aluguelService.addAluguel(this.aluguel)
       .subscribe(()=> this.goBack());

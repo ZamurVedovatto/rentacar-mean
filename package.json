@@ -18,5 +18,8 @@
     "jsonwebtoken": "*",
     "passport": "*",
     "passport-jwt": "*"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.7.4"
   }
 }
