@@ -38,6 +38,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { MyDialogComponent } from './components/dialog/mydialog/mydialog.component';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { MenuComponent } from './components/menu/menu.component';
 /* end - components */
 
 @NgModule({
@@ -53,7 +54,8 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
     DialogComponent,
     MyDialogComponent,
     TooltipComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
