@@ -1,0 +1,15 @@
+<mat-card class="panel">
+  <mat-card-title>Angular Material Sidenav Demo</mat-card-title>
+  <mat-card-content>
+    <mat-sidenav-container class="container">
+      <mat-sidenav #sidenav class="sidenav" mode="push">
+        Sidenav Content goes here
+      </mat-sidenav>
+
+      <div class="sidenav-content">
+        <button type="button" mat-button (click)="sidenav.open()">Open Sidenav</button>
+      </div>
+
+    </mat-sidenav-container>
+  </mat-card-content>
+</mat-card>

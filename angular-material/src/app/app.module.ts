@@ -24,6 +24,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSidenavModule} from '@angular/material/sidenav';
 /* end - angular material */
 
 /* components - put it in declarations*/
@@ -39,6 +40,7 @@ import { MyDialogComponent } from './components/dialog/mydialog/mydialog.compone
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 /* end - components */
 
 @NgModule({
@@ -55,7 +57,8 @@ import { MenuComponent } from './components/menu/menu.component';
     MyDialogComponent,
     TooltipComponent,
     SnackbarComponent,
-    MenuComponent
+    MenuComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,8 @@ import { MenuComponent } from './components/menu/menu.component';
     MatButtonModule,
     MatDialogModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule
   ],
   entryComponents: [
     MyDialogComponent
