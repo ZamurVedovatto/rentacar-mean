@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Address } from '../../address';
+import { Address } from '../../data-models/address.model';
 
 @Component({
   selector: 'app-form',

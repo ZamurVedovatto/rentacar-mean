@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
+import { UserService } from './services/user.service'; /* put it in providers */
 
 /* angular material - put it in imports*/
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,6 +27,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTableModule} from '@angular/material/table';
 /* end - angular material */
 
 /* components - put it in declarations*/
@@ -41,6 +44,7 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { DataTableComponent } from './components/data-table/data-table.component';
 /* end - components */
 
 @NgModule({
@@ -58,12 +62,14 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     TooltipComponent,
     SnackbarComponent,
     MenuComponent,
-    SidenavComponent
+    SidenavComponent,
+    DataTableComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatMenuModule,
@@ -80,12 +86,13 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     MatDialogModule,
     MatTooltipModule,
     MatSnackBarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule
   ],
   entryComponents: [
     MyDialogComponent
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
