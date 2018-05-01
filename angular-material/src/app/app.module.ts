@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -33,6 +33,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
 /* end - angular material */
 
 /* components - put it in declarations*/
@@ -51,7 +52,6 @@ import { MenuComponent } from './components/menu/menu.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { HomeDashboardComponent } from './components/home-dashboard/home-dashboard.component';
-
 /* end - components */
 
 /* usuario components */
@@ -89,6 +89,7 @@ import { MenuLateralPrincipalComponent } from './components/menu-lateral-princip
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -112,6 +113,7 @@ import { MenuLateralPrincipalComponent } from './components/menu-lateral-princip
     MatListModule,
     MatExpansionModule,
     MatDatepickerModule,
+    MatSelectModule,
     AppRoutingModule
   ],
   entryComponents: [

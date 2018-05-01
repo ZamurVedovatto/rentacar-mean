@@ -1,44 +1,42 @@
-<div *ngIf="usuario">
-  <mat-accordion class="example-headers-align">
-    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
-      <mat-expansion-panel-header>
-        <mat-panel-description class="panel-description">
-          <mat-icon>account_circle</mat-icon>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+<mat-accordion *ngIf="usuario" class="example-headers-align">
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+    <mat-expansion-panel-header>
+      <mat-panel-description class="panel-description">
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
-        <label><strong>Nome:</strong> {{ usuario.name }}</label><br>
-        <label><strong>Username:</strong> {{ usuario.username }}</label><br>
-        <label><strong>Email:</strong> {{ usuario.email }}</label>
+      <label><strong>Nome:</strong> {{ usuario.name }}</label><br>
+      <label><strong>Username:</strong> {{ usuario.username }}</label><br>
+      <label><strong>Email:</strong> {{ usuario.email }}</label>
 
-    </mat-expansion-panel>
+  </mat-expansion-panel>
 
-    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
-      <mat-expansion-panel-header>
-        <mat-panel-description class="panel-description">
-          <mat-icon>map</mat-icon>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+    <mat-expansion-panel-header>
+      <mat-panel-description class="panel-description">
+        <mat-icon>map</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
-        <label><strong>Logradouro:</strong> {{ usuario.address.street }}</label><br>
-        <label><strong>Número:</strong> {{ usuario.address.number }}</label><br>
-        <label><strong>Cidade:</strong> {{ usuario.address.city }}</label><br>
-        <label><strong>CEP:</strong> {{ usuario.address.zipCode }}</label>
+      <label><strong>Logradouro:</strong> {{ usuario.address.street }}</label><br>
+      <label><strong>Número:</strong> {{ usuario.address.number }}</label><br>
+      <label><strong>Cidade:</strong> {{ usuario.address.city }}</label><br>
+      <label><strong>CEP:</strong> {{ usuario.address.zipCode }}</label>
 
-    </mat-expansion-panel>
+  </mat-expansion-panel>
 
-    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
-      <mat-expansion-panel-header>
-        <mat-panel-description class="panel-description">
-          <mat-icon>date_range</mat-icon>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
+    <mat-expansion-panel-header>
+      <mat-panel-description class="panel-description">
+        <mat-icon>date_range</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
-        <label><strong>Fixo:</strong> {{ usuario.phone }}</label><br>
-        <label><strong>Celular:</strong> {{ usuario.cellPhone }}</label><br>
-        <a href="{{ usuario.linkedin }}">{{ usuario.linkedin }}</a>
+      <label><strong>Fixo:</strong> {{ usuario.phone }}</label><br>
+      <label><strong>Celular:</strong> {{ usuario.cellPhone }}</label><br>
+      <a href="{{ usuario.linkedin }}">{{ usuario.linkedin }}</a>
 
-    </mat-expansion-panel>
+  </mat-expansion-panel>
 
-  </mat-accordion>
-</div>
+</mat-accordion>

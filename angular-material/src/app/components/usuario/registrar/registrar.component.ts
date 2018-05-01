@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ValidarUsuarioService } from '../validar-usuario.service'; // injetar no construtor
 import { AuthService } from '../auth.service'; // injetar no construtor
-// import { FlashMessagesService } from 'angular2-flash-messages'; // injetar no construtor
 import { Router } from '@angular/router'; // injetar no construtor
+import { FormControl, Validators} from '@angular/forms';
+import { MatSnackBar } from '@angular/material'; // injetar no construtor
 
 @Component({
   selector: 'app-registrar',
@@ -12,54 +12,74 @@ import { Router } from '@angular/router'; // injetar no construtor
 export class RegistrarComponent implements OnInit {
 
   // properties
-  nome: String;
+  hide = true;
+
+  // user properts
+  name: String;
   username: String;
-  email: String;
+  email = new FormControl('', [Validators.email]);
   password: String;
+  street: String;
+  number: String;
+  city: String;
+  zipCode: String;
+  phone: String;
+  cellPhone: String;
+  linkedin: String;
 
   constructor(
-    private validarUsuarioService: ValidarUsuarioService,
-    // private flashMessage: FlashMessagesService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
   }
 
+  getErrorMessage() {
+    return this.email.hasError('email') ? 'Email inválido' : '';
+  }
+
+  openSnackbarRegistroValido(user) {
+    this.snackBar.open(`Usuário ${user.name} cadastrado com sucesso`, '', {
+      duration: 5000
+    });
+  }
+
+  openSnackbarRegistroInvalido() {
+    this.snackBar.open('Erro ao cadastrar usuário', '', {
+      duration: 3000
+    });
+  }
+
   // envio de dados do formulário de cadastro de novo usuário
   submeterRegistro() {
-    const usuario = {
-      nome: this.nome,
-      email: this.email,
+    const user = {
+      name: this.name,
       username: this.username,
-      password: this.password
+      email: this.email.value,
+      password: this.password,
+      address: {
+          street: this.street,
+          number: this.number,
+          city: this.city,
+          zipCode: this.zipCode,
+      },
+      phone: this.phone,
+      cellPhone: this.cellPhone,
+      linkedin: this.linkedin
     };
 
-    // validação de required fields
-    if (!this.validarUsuarioService.validarRegistro(usuario)) {
-      /* this.flashMessage.show('Por favor, preencha todos os campos', {cssClass: 'alert-warning', timeout: 3000}); */
-      return false;
-    }
-
-    // validação de email
-    if (!this.validarUsuarioService.validarEmail(usuario.email)) {
-      // this.flashMessage.show('Por favor, preencha o email corretamente', {cssClass: 'alert-warning', timeout: 3000});
-      return false;
-    }
-
     // registrar usuario (this is an observable)
-    this.authService.registrarUsuario(usuario)
+    this.authService.registrarUsuario(user)
       .subscribe(data => {
         if (data.success) {
-          // this.flashMessage.show('Você foi registrado com sucesso e pode realizar o login', {cssClass: 'alert-success', timeout: 3000});
+          this.openSnackbarRegistroValido(user);
           this.router.navigate(['usuario/login']);
         } else {
-          // this.flashMessage.show('Algo deu errado em seu registro', {cssClass: 'alert-danger', timeout: 3000});
+          this.openSnackbarRegistroInvalido();
           this.router.navigate(['usuario/registrar']);
         }
       });
-
   }
-
 }
