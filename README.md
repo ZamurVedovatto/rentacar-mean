@@ -1,6 +1,6 @@
 # Sistema de Gestão de Aluguel de Veículos
 
-This project was produced as activity of the sixth period of the degree in Information Systems
+This project was produced as activity of the sixth period of the degree in Information Systems.
 
 ## Development
 

@@ -1,0 +1,12 @@
+* {
+    text-align: center;
+    align-items: center;
+}
+
+.panel {
+    margin: 10px;    
+}
+
+button {
+    margin: 3px;
+}

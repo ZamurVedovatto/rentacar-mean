@@ -25,5 +25,5 @@ export class PaginatorComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
 }

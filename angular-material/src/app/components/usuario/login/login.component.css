@@ -1,0 +1,20 @@
+.formWidth {
+    width: 100%;
+}
+
+.fullWidth {
+    width: 95%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+mat-card {
+    position: relative;
+    margin: auto;
+    max-width: 400px;
+    width: 100%;
+}

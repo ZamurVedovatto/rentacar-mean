@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UserService } from './services/user.service'; /* put it in providers */
 
+import { AppRoutingModule } from './app-routing.module'; /* put it in imports */
+
 /* angular material - put it in imports*/
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
@@ -28,6 +30,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
+import {MatListModule} from '@angular/material/list';
 /* end - angular material */
 
 /* components - put it in declarations*/
@@ -45,7 +48,16 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
+import { HomeDashboardComponent } from './components/home-dashboard/home-dashboard.component';
 /* end - components */
+
+/* usuario components */
+import { LoginComponent } from './components/usuario/login/login.component';
+import { RegistrarComponent } from './components/usuario/registrar/registrar.component';
+import { PerfilComponent } from './components/usuario/perfil/perfil.component';
+import { ValidarUsuarioService } from './components/usuario/validar-usuario.service';
+import { AuthService } from './components/usuario/auth.service';
+import { MenuLateralPrincipalComponent } from './components/menu-lateral-principal/menu-lateral-principal.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +75,13 @@ import { DataTableComponent } from './components/data-table/data-table.component
     SnackbarComponent,
     MenuComponent,
     SidenavComponent,
-    DataTableComponent
+    DataTableComponent,
+    HomeDashboardComponent,
+    LoginComponent,
+    RegistrarComponent,
+    PerfilComponent,
+    MenuLateralPrincipalComponent,
+    MenuLateralPrincipalComponent
   ],
   imports: [
     BrowserModule,
@@ -87,12 +105,14 @@ import { DataTableComponent } from './components/data-table/data-table.component
     MatTooltipModule,
     MatSnackBarModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    MatListModule,
+    AppRoutingModule
   ],
   entryComponents: [
     MyDialogComponent
   ],
-  providers: [UserService],
+  providers: [UserService, ValidarUsuarioService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

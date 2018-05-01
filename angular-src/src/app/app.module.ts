@@ -33,7 +33,7 @@ import { AddSeguroComponent } from './components/seguro/add-seguro/add-seguro.co
 import { EditSeguroComponent } from './components/seguro/edit-seguro/edit-seguro.component';
 import { HomeSeguroComponent } from './components/seguro/home-seguro/home-seguro.component';
 import { ShowSeguroComponent } from './components/seguro/show-seguro/show-seguro.component';
-import { SeguroService } from './components/seguro/seguro.service'
+import { SeguroService } from './components/seguro/seguro.service';
 
 import { EditManutencaoComponent } from './components/manutencao/edit-manutencao/edit-manutencao.component';
 import { ManutencaoService } from './components/manutencao/manutencao.service';
@@ -41,11 +41,11 @@ import { ManutencaoService } from './components/manutencao/manutencao.service';
 import { LoginComponent } from './components/usuario/login/login.component';
 import { RegistrarComponent } from './components/usuario/registrar/registrar.component';
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
-import { ValidarUsuarioService } from './components/usuario/validar-usuario.service'; //colocar também em Providers
-import { AuthService } from './components/usuario/auth.service'; //colocar também em Providers
+import { ValidarUsuarioService } from './components/usuario/validar-usuario.service'; // colocar também em Providers
+import { AuthService } from './components/usuario/auth.service'; // colocar também em Providers
 
-import { FlashMessagesModule } from 'angular2-flash-messages'; //colocar também em Imports
-import { AngularFontAwesomeModule } from 'angular-font-awesome'; //colocar também em Imports
+import { FlashMessagesModule } from 'angular2-flash-messages'; // colocar também em Imports
+import { AngularFontAwesomeModule } from 'angular-font-awesome'; // colocar também em Imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgDatepickerModule } from 'ng2-datepicker';
