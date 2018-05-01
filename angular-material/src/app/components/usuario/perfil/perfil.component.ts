@@ -11,6 +11,11 @@ export class PerfilComponent implements OnInit {
 
   // properties
   usuario: Object;
+  step = 0;
+
+  setStep(index: number) {
+    this.step = index;
+  }
 
   constructor(
     private authService: AuthService,

@@ -4,14 +4,14 @@ const config = require('../config/database');
 
 //usuario schema
 const UsuarioSchema = mongoose.Schema({
-    nome: {
+    name: {
         type: String
     },
-    email: {
+    username: {
         type: String,
         required: true
     },
-    username: {
+    email: {
         type: String,
         required: true
     },
@@ -19,9 +19,15 @@ const UsuarioSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    tipo: {
-        type: String
-    }
+    address: {
+        street: String,
+        number: String,
+        city: String,
+        zipCode: String
+    },
+    phone: String,
+    cellPhone: String,
+    linkedin: String
 });
 
 const Usuario = module.exports = mongoose.model('Usuario', UsuarioSchema);

@@ -8,10 +8,19 @@ const Usuario = require('../models/usuarioModel');
 //registrar
 router.post('/registrar', (req, res, next) => {
     let novoUsuario = new Usuario({
-        nome: req.body.nome,
-        email: req.body.email,
+        name: req.body.name,
         username: req.body.username,
-        password: req.body.password
+        email: req.body.email,
+        password: req.body.password,
+        address: {
+            street: req.body.address_street,
+            number: req.body.address_number,
+            city: req.body.address_city,
+            zipCode: req.body.address_zipCode
+        },
+        phone: req.body.phone,
+        cellPhone: req.body.cellphone,
+        linkedin: req.body.linkedin
     });
 
     Usuario.addUsuario(novoUsuario, (err, usuario) => {
@@ -55,9 +64,19 @@ router.post('/autenticar', (req, res, next) => {
                 token: 'JWT ' + token,
                 usuario: {
                     id: usuario._id,
-                    nome: usuario.nome,
-                    username: usuario.username,
-                    emai: usuario.email
+                    name: usuario.name,
+                    username: usuario.usernome,
+                    email: usuario.email,
+                    password: usuario.password,
+                    address: {
+                        street: usuario.address_street,
+                        number: usuario.address_number,
+                        city: usuario.address_city,
+                        zipCode: usuario.address_zipCode
+                    },
+                    phone: usuario.phone,
+                    cellPhone: usuario.cellphone,
+                    linkedin: usuario.linkedin
                 }
             });
             } else {

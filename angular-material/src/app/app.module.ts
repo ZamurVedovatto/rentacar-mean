@@ -31,6 +31,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 /* end - angular material */
 
 /* components - put it in declarations*/
@@ -49,6 +51,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { HomeDashboardComponent } from './components/home-dashboard/home-dashboard.component';
+
 /* end - components */
 
 /* usuario components */
@@ -107,6 +110,8 @@ import { MenuLateralPrincipalComponent } from './components/menu-lateral-princip
     MatSidenavModule,
     MatTableModule,
     MatListModule,
+    MatExpansionModule,
+    MatDatepickerModule,
     AppRoutingModule
   ],
   entryComponents: [
