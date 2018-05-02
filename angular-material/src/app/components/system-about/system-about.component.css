@@ -1,0 +1,16 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 12px auto;
+    padding: 24px;
+    max-width: 50%;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+mat-card-content {
+    margin: 50px;
+}

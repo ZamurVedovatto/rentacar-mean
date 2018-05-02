@@ -27,17 +27,6 @@ export class ManutencaoVeiculoComponent implements OnInit {
     locale: ptLocale
   };
 
-  constructor(
-    public veiculoService: VeiculoService,
-    public route:ActivatedRoute,
-    public router:Router
-  ) { }
-
-  ngOnInit() {    
-    this.getVeiculo();
-    this.date = new Date();
-  }
-
   model = new Veiculo();
   id = this.route.snapshot.params['id'];
 
@@ -47,27 +36,36 @@ export class ManutencaoVeiculoComponent implements OnInit {
   manutencao = {
     dataInicio: Date(),
     dataRetirada: Date()
+  };
+
+  constructor(
+    public veiculoService: VeiculoService,
+    public route: ActivatedRoute,
+    public router: Router
+  ) { }
+
+  ngOnInit() {
+    this.getVeiculo();
+    this.date = new Date();
   }
 
-
-  getVeiculo(){
+  getVeiculo() {
     this.veiculoService.getVeiculo(this.id)
       .subscribe(veiculo => {
-        this.model = veiculo;   
-      })
-  }  
+        this.model = veiculo;
+      });
+  }
 
-  updateVeiculo(){
+  updateVeiculo() {
     this.manutencao.dataInicio = this.dataInicio;
     this.manutencao.dataRetirada = this.dataRetirada;
     this.model.manutencao.push(this.manutencao);
-    console.log(this.model);
-    
+
     this.veiculoService.updateVeiculo(this.id, this.model)
-      .subscribe(()=> this.goBack())
+      .subscribe(() => this.goBack());
   }
 
-  goBack(){
+  goBack() {
     this.router.navigate(['/veiculo']);
   }
 }

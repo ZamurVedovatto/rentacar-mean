@@ -3,3 +3,9 @@
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
 }
+
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}

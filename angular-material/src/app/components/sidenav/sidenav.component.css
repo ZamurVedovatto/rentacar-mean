@@ -18,6 +18,8 @@ mat-card {
 }
 
 .floating-button{
+    margin: 0;
+    padding: 0;
     position: fixed;
     top: 80px;
     left: 20px;

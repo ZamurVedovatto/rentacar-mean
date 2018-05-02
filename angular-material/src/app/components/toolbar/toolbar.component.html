@@ -9,12 +9,23 @@
 
   <mat-menu #appMenu="matMenu">
 
-
-    <a mat-menu-item [routerLink]="['usuario/registrar']"><mat-icon>fingerprint</mat-icon>Registrar</a>
-    <a mat-menu-item><mat-icon>face</mat-icon>Profile</a>
-    <a mat-menu-item [routerLink]="['usuario/login']"><mat-icon>flight_land</mat-icon>Login</a>
-    <a mat-menu-item><mat-icon>flight_takeoff</mat-icon>Logout</a>
-    <a mat-menu-item><mat-icon>info_outline</mat-icon>About</a>
+    <ul>
+      <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a mat-menu-item [routerLink]="['usuario/login']"><mat-icon>flight_land</mat-icon>Login</a>
+      </li>
+      <li *ngIf="authService.loggedIn()">
+        <a mat-menu-item (click)="onLogoutClick()" href="#"><mat-icon>flight_takeoff</mat-icon>Logout</a>
+      </li>
+      <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a mat-menu-item [routerLink]="['usuario/perfil']"><mat-icon>face</mat-icon>Profile</a>
+      </li>
+      <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a mat-menu-item [routerLink]="['usuario/registrar']"><mat-icon>fingerprint</mat-icon>Registrar</a>
+      </li>
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a mat-menu-item [routerLink]="['/sobre']"><mat-icon>info_outline</mat-icon>About</a>
+      </li>
+    </ul>
     
   </mat-menu>
 

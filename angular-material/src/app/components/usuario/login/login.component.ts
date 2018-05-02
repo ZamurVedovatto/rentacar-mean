@@ -12,6 +12,7 @@ import { ValidarUsuarioService } from '../validar-usuario.service';
 export class LoginComponent implements OnInit {
 
   // properties
+  hide = true;
   username: String;
   password: String;
 

@@ -34,6 +34,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDividerModule} from '@angular/material/divider';
 /* end - angular material */
 
 /* components - put it in declarations*/
@@ -61,6 +62,7 @@ import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { ValidarUsuarioService } from './components/usuario/validar-usuario.service';
 import { AuthService } from './components/usuario/auth.service';
 import { MenuLateralPrincipalComponent } from './components/menu-lateral-principal/menu-lateral-principal.component';
+import { SystemAboutComponent } from './components/system-about/system-about.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +86,8 @@ import { MenuLateralPrincipalComponent } from './components/menu-lateral-princip
     RegistrarComponent,
     PerfilComponent,
     MenuLateralPrincipalComponent,
-    MenuLateralPrincipalComponent
+    MenuLateralPrincipalComponent,
+    SystemAboutComponent
   ],
   imports: [
     BrowserModule,
@@ -114,6 +117,7 @@ import { MenuLateralPrincipalComponent } from './components/menu-lateral-princip
     MatExpansionModule,
     MatDatepickerModule,
     MatSelectModule,
+    MatDividerModule,
     AppRoutingModule
   ],
   entryComponents: [

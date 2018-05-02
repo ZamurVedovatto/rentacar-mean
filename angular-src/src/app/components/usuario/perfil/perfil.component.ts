@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service'; //injetar como dependency no construtor
-import { Router } from '@angular/router'; //injetar como dependency no construtor
+import { AuthService } from '../auth.service'; // injetar como dependency no construtor
+import { Router } from '@angular/router'; // injetar como dependency no construtor
 
 @Component({
   selector: 'app-perfil',
@@ -9,7 +9,7 @@ import { Router } from '@angular/router'; //injetar como dependency no construto
 })
 export class PerfilComponent implements OnInit {
 
-  //properties
+  // properties
   usuario: Object;
 
   constructor(
@@ -20,8 +20,6 @@ export class PerfilComponent implements OnInit {
   ngOnInit() {
     this.authService.getPerfil().subscribe(perfil => {
       this.usuario = perfil.usuario;
-      console.log(this.usuario);
-      
     },
      err => {
        console.log(err);
