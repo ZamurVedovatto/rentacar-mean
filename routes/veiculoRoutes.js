@@ -23,7 +23,8 @@ router.post('/', (req, res) => {
         anoFabricacao: req.body.anoFabricacao,
         valorDiaria: req.body.valorDiaria,
         disponivel: true,
-        manutencao: req.body.manutencao
+        idSeguro: undefined,
+        manutencoesIds: undefined
     }
 
     Veiculo.add(novoVeiculo, (err, veiculo) => {
@@ -45,7 +46,8 @@ router.put('/:_id', (req, res) => {
         anoFabricacao: req.body.anoFabricacao,
         valorDiaria: req.body.valorDiaria,
         disponivel: req.body.disponivel,
-        manutencao: req.body.manutencao
+        idSeguro: req.body.idSeguro,
+        manutencoesIds: req.body.manutencoesIds
     }
 
     Veiculo.update(req.params._id, update, (err, update) => {

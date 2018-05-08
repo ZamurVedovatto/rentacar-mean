@@ -4,31 +4,23 @@ const config = require('../config/database');
 
 //usuario schema
 const UsuarioSchema = mongoose.Schema({
-    name: {
-        type: String
+    fullName: { type: String },
+    username: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+    endereco: {
+        logradouro: String,
+        numero: Number,
+        cidade: String,
+        cep: String
     },
-    username: {
-        type: String,
-        required: true
+    fixo: { type: String },
+    celular: { type: String },
+    linkedin: { type: String },
     },
-    email: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    address: {
-        street: String,
-        number: String,
-        city: String,
-        zipCode: String
-    },
-    phone: String,
-    cellPhone: String,
-    linkedin: String
-});
+    { 
+        collection: 'usuarios'
+    });
 
 const Usuario = module.exports = mongoose.model('Usuario', UsuarioSchema);
 

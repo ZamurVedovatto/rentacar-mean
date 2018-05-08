@@ -16,7 +16,11 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 
     let novoSeguro = {
-        seguradora: req.body.seguradora
+        idVeiculo: req.body.idVeiculo,
+        seguradora: req.body.seguradora,
+        valorMensal: req.body.valorMensal,
+        dataInicioContrato: req.body.dataInicioContrato,
+        dataFimContrato: req.body.dataFimContrato
     }
 
     Seguro.add(novoSeguro, (err, seguro) => {
@@ -31,7 +35,11 @@ router.post('/', (req, res) => {
 router.put('/:_id', (req, res) => {
 
     let update = {
-        seguradora: req.body.seguradora
+        idVeiculo: req.body.idVeiculo,
+        seguradora: req.body.seguradora,
+        valorMensal: req.body.valorMensal,
+        dataInicioContrato: req.body.dataInicioContrato,
+        dataFimContrato: req.body.dataFimContrato
     }
 
     Seguro.update(req.params._id, update, (err, update) => {

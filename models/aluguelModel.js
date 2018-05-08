@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 
 const aluguelSchema = new mongoose.Schema( {
-    Cliente: String,
-    Veiculo: String,
-    dataRetirada: Date,
-    dataEntrega: Date
-});
+    idCliente: { type: String, required: true },
+    idVeiculo: { type: String, required: true },
+    dataRetirada: { type: Date },
+    dataEntrega: { type: Date },
+    valorFinal: { type: Number }
+    },
+    { 
+        collection: 'alugueis' 
+    });
 
 const Aluguel = module.exports = mongoose.model('Aluguel', aluguelSchema);
 

@@ -1,15 +1,19 @@
 const mongoose = require('mongoose');
 
 const veiculoSchema = new mongoose.Schema( {
-    fabrica: String,
-    modelo: String,
-    placa: String,
-    cor: String,
-    anoFabricacao: Number,
-    valorDiaria: Number,
-    disponivel: Boolean,
-    manutencao: []
-});
+    fabrica: { type: String, required: true },
+    modelo: { type: String, required: true },
+    placa: { type: String, required: true },
+    cor: { type: String, required: true },
+    anoFabricacao: { type: Number, required: true },
+    valorDiaria: { type: Number },
+    disponivel:  { type: Boolean },
+    idSeguro: { type: String },
+    manutencoesIds: [ { type: String } ] 
+    },
+    {
+        collection: 'veiculos' 
+    });
 
 const Veiculo = module.exports = mongoose.model('Veiculo', veiculoSchema);
 

@@ -1,8 +1,15 @@
 const mongoose = require('mongoose');
 
 const seguroSchema = new mongoose.Schema( {
-    seguradora: String    
-});
+    idVeiculo: { type: String, required: true },
+    seguradora: { type: String, required: true },
+    valorMensal: { type: Number },
+    dataInicioContrato: { type: Date },
+    dataFimContrato: { type: Date }
+    },
+    { 
+        collection: 'seguros'
+    });
 
 const Seguro = module.exports = mongoose.model('Seguro', seguroSchema);
 

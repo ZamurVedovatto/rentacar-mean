@@ -8,18 +8,18 @@ const Usuario = require('../models/usuarioModel');
 //registrar
 router.post('/registrar', (req, res, next) => {
     let novoUsuario = new Usuario({
-        name: req.body.name,
+        fullName: req.body.fullName,
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
-        address: {
-            street: req.body.address_street,
-            number: req.body.address_number,
-            city: req.body.address_city,
-            zipCode: req.body.address_zipCode
+        endereco: {
+            logradouro: req.body.endereco_logradouro,
+            numero: req.body.endereco_numero,
+            cidade: req.body.endereco_cidade,
+            cep: req.body.endereco_cep,
         },
-        phone: req.body.phone,
-        cellPhone: req.body.cellphone,
+        fixo: req.body.fixo,
+        celular: req.body.celular,
         linkedin: req.body.linkedin
     });
 
@@ -63,19 +63,18 @@ router.post('/autenticar', (req, res, next) => {
                 success: true,
                 token: 'JWT ' + token,
                 usuario: {
-                    id: usuario._id,
-                    name: usuario.name,
-                    username: usuario.usernome,
+                    fullName: usuario.fullName,
+                    username: usuario.username,
                     email: usuario.email,
                     password: usuario.password,
-                    address: {
-                        street: usuario.address_street,
-                        number: usuario.address_number,
-                        city: usuario.address_city,
-                        zipCode: usuario.address_zipCode
+                    endereco: {
+                        logradouro: usuario.endereco_logradouro,
+                        numero: usuario.endereco_numero,
+                        cidade: usuario.endereco_cidade,
+                        cep: usuario.endereco_cep,
                     },
-                    phone: usuario.phone,
-                    cellPhone: usuario.cellphone,
+                    fixo: usuario.fixo,
+                    celular: usuario.celular,
                     linkedin: usuario.linkedin
                 }
             });

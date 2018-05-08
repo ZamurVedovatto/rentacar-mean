@@ -17,7 +17,16 @@ router.post('/', (req, res) => {
 
     let novoCliente = {
         fullName: req.body.fullName,
-        email: req.body.email
+        email: req.body.email,
+        endereco: {
+            logradouro: req.body.endereco_logradouro,
+            numero: req.body.endereco_numero,
+            cidade: req.body.endereco_cidade,
+            cep: req.body.endereco_cep,
+        },
+        fixo: req.body.fixo,
+        celular: req.body.celular,
+        alugueisIds: undefined
     }
 
     Cliente.add(novoCliente, (err, cliente) => {
@@ -33,7 +42,16 @@ router.put('/:_id', (req, res) => {
 
     let update = {
         fullName: req.body.fullName,
-        email: req.body.email
+        email: req.body.email,
+        endereco: {
+            logradouro: req.body.endereco_logradouro,
+            numero: req.body.endereco_numero,
+            cidade: req.body.endereco_cidade,
+            cep: req.body.endereco_cep,
+        },
+        fixo: req.body.fixo,
+        celular: req.body.celular,
+        alugueisIds: req.body.alugueisIds
     }
 
     Cliente.update(req.params._id, update, (err, update) => {

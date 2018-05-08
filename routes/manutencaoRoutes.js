@@ -18,14 +18,14 @@ router.post('/', (req, res) => {
     let novaManutencao = {
         idVeiculo: req.body.idVeiculo,
         dataInicio: req.body.dataInicio,
-        dataFim: req.body.dataFim
+        dataFim: req.body.dataFim,
+        valorFinal: req.body.valorFinal
     }
 
     Manutencao.add(novaManutencao, (err, manutencao) => {
         if (err) throw err;
         res.json(manutencao);
-    });
-    
+    });    
 });
 
 
@@ -33,9 +33,10 @@ router.post('/', (req, res) => {
 router.put('/:_id', (req, res) => {
 
     let update = {
-        idVeiculo: req.body.idVeiculo,
+        veiculo: req.body.idVeiculo,
         dataInicio: req.body.dataInicio,
-        dataFim: req.body.dataFim
+        dataFim: req.body.dataFim,
+        valorFinal: req.body.valorFinal
     }
 
     Manutencao.update(req.params._id, update, (err, update) => {

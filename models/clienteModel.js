@@ -2,8 +2,20 @@ const mongoose = require('mongoose');
 
 const clienteSchema = new mongoose.Schema( {
     fullName: String,
-    email: String
-});
+    email: String,
+    endereco: {
+        logradouro: String,
+        numero: Number,
+        cidade: String,
+        cep: String
+    },
+    fixo: String,
+    celular: String,
+    alugueisIds: [ { aluguelId: String }]
+    },
+    { 
+        collection: 'clientes' 
+    });
 
 const Cliente = module.exports = mongoose.model('Cliente', clienteSchema);
 

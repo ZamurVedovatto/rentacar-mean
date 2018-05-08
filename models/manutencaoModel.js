@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 
 const manutencaoSchema = new mongoose.Schema( {
-    idVeiculo: String,
-    dataInicio: String,
-    dataFim: String
-});
+    idVeiculo: { type: String, required: true },
+    dataInicio: { type: String },
+    dataFim: { type: Date },
+    valorFinal: { type: Number }
+    },
+    { 
+        collection: 'manutencoes' 
+    });
 
 const Manutencao = module.exports = mongoose.model('Manutencao', manutencaoSchema);
 
