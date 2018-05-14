@@ -21,10 +21,36 @@ router.post('/', (req, res) => {
         placa: req.body.placa,
         cor: req.body.cor,
         anoFabricacao: req.body.anoFabricacao,
-        valorDiaria: req.body.valorDiaria,
-        disponivel: true,
-        idSeguro: undefined,
-        manutencoesIds: undefined
+        valorDiaria: req.body.valorDiaria,   
+        manutencao: { 
+            periodo: { 
+                inicio: req.body.manutencao_periodo_inicio,
+                fim: req.body.manutencao_periodo_fim
+            },
+            idOficina: req.body.manutencao_idOficina,
+            descricao: req.body.manutencao_descricao,
+            valorFinal: req.body.manutencao_valorFinal
+        },    
+        aluguel: {
+            periodo: { 
+                inicio: req.body.aluguel_periodo_inicio,
+                fim: req.body.aluguel_periodo_fim
+            },        
+            idCliente: req.body.aluguel_idCliente,
+            valorFinal: req.body.aluguel_valorFinal
+        },    
+        seguro: {
+            periodo: { 
+                inicio: req.body.seguro_periodo_inicio,
+                fim: req.body.seguro_periodo_fim
+            },
+            idSeguradora: req.body.seguro_idSeguradora,
+            valorTotal: req.body.seguro_valorTotal
+        },
+        
+        historico_de_alugueis: [ ],
+        historico_de_manutencoes: [ ],
+        historico_de_seguros: [ ]
     }
 
     Veiculo.add(novoVeiculo, (err, veiculo) => {
@@ -44,10 +70,35 @@ router.put('/:_id', (req, res) => {
         placa: req.body.placa,
         cor: req.body.cor,
         anoFabricacao: req.body.anoFabricacao,
-        valorDiaria: req.body.valorDiaria,
-        disponivel: req.body.disponivel,
-        idSeguro: req.body.idSeguro,
-        manutencoesIds: req.body.manutencoesIds
+        valorDiaria: req.body.valorDiaria,   
+        manutencao: { 
+            periodo: { 
+                inicio: req.body.manutencao_periodo_inicio,
+                fim: req.body.manutencao_periodo_fim
+            },
+            descricao: req.body.manutencao_descricao,
+            valorFinal: req.body.manutencao_valorFinal
+        },    
+        aluguel: {
+            periodo: { 
+                inicio: req.body.aluguel_periodo_inicio,
+                fim: req.body.aluguel_periodo_fim
+            },        
+            idCliente: req.body.aluguel_idCliente,
+            valorFinal: req.body.aluguel_valorFinal
+        },    
+        seguro: {
+            periodo: { 
+                inicio: req.body.seguro_periodo_inicio,
+                fim: req.body.seguro_periodo_fim
+            },
+            idSeguradora: req.body.seguro_idSeguradora,
+            valorTotal: req.body.seguro_valorTotal
+        },
+        
+        historico_de_alugueis: req.body.historico_de_alugueis,
+        historico_de_manutencoes: req.body.historico_de_manutencoes,
+        historico_de_seguros: req.body.historico_de_seguros        
     }
 
     Veiculo.update(req.params._id, update, (err, update) => {

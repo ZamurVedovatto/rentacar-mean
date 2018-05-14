@@ -7,7 +7,7 @@ const Usuario = require('../models/usuarioModel');
 
 //registrar
 router.post('/registrar', (req, res, next) => {
-    let novoUsuario = new Usuario({
+    let novoUsuario = new Usuario( {
         fullName: req.body.fullName,
         username: req.body.username,
         email: req.body.email,

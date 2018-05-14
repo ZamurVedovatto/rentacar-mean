@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const clienteSchema = new mongoose.Schema( {
-    fullName: String,
-    email: String,
+const clienteSchema = new mongoose.Schema({    
+    fullName: { type: String },
+    email: { type: String, required: true },
     endereco: {
         logradouro: String,
         numero: Number,
@@ -11,11 +11,10 @@ const clienteSchema = new mongoose.Schema( {
     },
     fixo: String,
     celular: String,
-    alugueisIds: [ { aluguelId: String }]
+    idade: { type: Number, min: 18, max: 65 }
     },
-    { 
-        collection: 'clientes' 
-    });
+    { collection: 'clientes' }
+);
 
 const Cliente = module.exports = mongoose.model('Cliente', clienteSchema);
 
@@ -38,3 +37,4 @@ module.exports.delete = function(id, callback){
 module.exports.getOne = function(id, callback){
     Cliente.findById(id, callback);
 }
+

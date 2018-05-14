@@ -2,13 +2,6 @@
   <mat-card-content class="panel">
     <mat-sidenav-container class="container">
 
-      <mat-sidenav #sidenav class="sidenav" mode="push">
-        <app-menu-lateral-principal *ngIf="authService.loggedIn()"></app-menu-lateral-principal>
-      </mat-sidenav>
-
-      <a *ngIf="authService.loggedIn()" class="floating-button" (click)="sidenav.open()">
-        <mat-icon >wrap_text</mat-icon>
-      </a>
 
       <router-outlet></router-outlet>
 

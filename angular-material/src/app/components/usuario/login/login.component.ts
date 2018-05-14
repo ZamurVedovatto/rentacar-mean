@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service'; // injetar como dependency no construtor
 import { Router } from '@angular/router'; // injetar como dependency no construtor
-// import { FlashMessagesService } from 'angular2-flash-messages'; // injetar como dependency no construtor
 import { ValidarUsuarioService } from '../validar-usuario.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -18,11 +18,23 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
-    // private flashMessage: FlashMessagesService
+    private router: Router,
+    public snackbar: MatSnackBar
   ) { }
 
   ngOnInit() {
+  }
+
+  snackBarLogin(usuario) {
+    this.snackbar.open(usuario.fullName + ' logado com sucesso', '', {
+      duration: 3000
+    });
+  }
+
+  snackBarWrongLogin() {
+    this.snackbar.open('Usuario ou senha incorretos', '', {
+      duration: 3000
+    });
   }
 
   // submeter formulario de login
@@ -37,21 +49,11 @@ export class LoginComponent implements OnInit {
 
         if (data.success) {
           this.authService.armazenarDadosUsuario(data.token, data.usuario);
+          this.snackBarLogin(data.usuario);
+          this.router.navigate(['home']);
 
-          /* this.flashMessage.show('Você está logado', {
-            cssClass: 'alert-success',
-            timeout: 5000});
-          */
-
-          this.router.navigate(['usuario/perfil']);
         } else {
-
-          /*
-          this.flashMessage.show(data.msg, {
-            cssClass: 'alert-danger',
-            timeout: 5000});
-          */
-
+          this.snackBarWrongLogin();
           this.router.navigate(['usuario/login']);
         }
 

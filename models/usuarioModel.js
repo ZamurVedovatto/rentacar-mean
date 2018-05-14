@@ -2,25 +2,23 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const config = require('../config/database');
 
-//usuario schema
-const UsuarioSchema = mongoose.Schema({
+const UsuarioSchema = new mongoose.Schema({    
     fullName: { type: String },
     username: { type: String, required: true },
-    email: { type: String, required: true },
     password: { type: String, required: true },
+    email: { type: String, required: true },
     endereco: {
         logradouro: String,
         numero: Number,
         cidade: String,
         cep: String
     },
-    fixo: { type: String },
-    celular: { type: String },
-    linkedin: { type: String },
+    fixo: String,
+    celular: String,
+    linkedin: { type: String }
     },
-    { 
-        collection: 'usuarios'
-    });
+    { collection: 'usuarios' }
+);
 
 const Usuario = module.exports = mongoose.model('Usuario', UsuarioSchema);
 

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const veiculoSchema = new mongoose.Schema( {
     fabrica: { type: String, required: true },
@@ -6,14 +7,39 @@ const veiculoSchema = new mongoose.Schema( {
     placa: { type: String, required: true },
     cor: { type: String, required: true },
     anoFabricacao: { type: Number, required: true },
-    valorDiaria: { type: Number },
-    disponivel:  { type: Boolean },
-    idSeguro: { type: String },
-    manutencoesIds: [ { type: String } ] 
+    valorDiaria: { type: Number },    
+    manutencao: { 
+        periodo: { 
+            inicio: { type: Date },
+            fim: { type: Date }
+        },
+        idOficina: Schema.Types.ObjectId,
+        descricao: { type: String },
+        valorFinal: { type: Number }
+    },    
+    aluguel: {
+        periodo: { 
+            inicio: { type: Date },
+            fim: { type: Date }
+        },        
+        idCliente: Schema.Types.ObjectId,
+        valorFinal: { type: Number }
+    },    
+    seguro: {
+        periodo: { 
+            inicio: { type: Date },
+            fim: { type: Date }
+        },
+        idSeguradora: Schema.Types.ObjectId,
+        valorTotal: { type: Number }
     },
-    {
-        collection: 'veiculos' 
-    });
+    
+    historico_de_alugueis: [ ],
+    historico_de_manutencoes: [ ],
+    historico_de_seguros: [ ]
+    },
+    { collection: 'veiculos' }
+);
 
 const Veiculo = module.exports = mongoose.model('Veiculo', veiculoSchema);
 

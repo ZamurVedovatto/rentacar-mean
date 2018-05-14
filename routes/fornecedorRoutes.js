@@ -1,19 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const Cliente = require('../models/clienteModel');
+const Fornecedor = require('../models/fornecedorModel');
 
-//get all clientes
+//get all
 router.get('/', (req, res) => {
-    Cliente.getAll((err, clientes) => {
+
+    Fornecedor.getAll((err, fornecedores) => {
         if (err) throw err;
-        res.json(clientes);
+        res.json(fornecedores);
     });
+
 });
 
-//create cliente
+//create
 router.post('/', (req, res) => {
-    let novoCliente = {
-        fullName: req.body.fullName,
+
+    let novoFornecedor = {
+        tipo: req.body.tipo,
+        nomeFantasia: req.body.nomeFantasia,
         email: req.body.email,
         endereco: {
             logradouro: req.body.endereco_logradouro,
@@ -21,22 +25,23 @@ router.post('/', (req, res) => {
             cidade: req.body.endereco_cidade,
             cep: req.body.endereco_cep,
         },
-        fixo: req.body.fixo,
-        celular: req.body.celular,
-        idade: req.body.idade
+        fixo: req.body.fixo
     }
 
-    Cliente.add(novoCliente, (err, cliente) => {
+    Fornecedor.add(novoFornecedor, (err, fornecedor) => {
         if (err) throw err;
-        res.json(cliente);
-    });  
+        res.json(fornecedor);
+    });
+    
 });
 
 
-//update cliente
+//update
 router.put('/:_id', (req, res) => {
+
     let update = {
-        fullName: req.body.fullName,
+        tipo: req.body.tipo,
+        nomeFantasia: req.body.nomeFantasia,
         email: req.body.email,
         endereco: {
             logradouro: req.body.endereco_logradouro,
@@ -44,32 +49,37 @@ router.put('/:_id', (req, res) => {
             cidade: req.body.endereco_cidade,
             cep: req.body.endereco_cep,
         },
-        fixo: req.body.fixo,
-        celular: req.body.celular,
-        idade: req.body.idade
+        fixo: req.body.fixo
     }
-    Cliente.update(req.params._id, update, (err, update) => {
+
+    Fornecedor.update(req.params._id, update, (err, update) => {
         if (err) throw err;
         res.json(update);
-    });    
+    });
+    
 });
 
 
-//deletar cliente
+//deletar
 router.delete('/:_id', (req, res) => {
-    Cliente.delete(req.params._id, (err, cliente) => {
+
+    Fornecedor.delete(req.params._id, (err, fornecedor) => {
         if (err) throw err;
-        res.json(cliente);
-    });    
+        res.json(fornecedor);
+    });
+    
 });
 
 
-//encontrar um cliente
+//encontrar um
 router.get('/:_id', (req, res) => {
-    Cliente.getOne(req.params._id, (err, cliente) => {
+
+    Fornecedor.getOne(req.params._id, (err, fornecedor) => {
         if (err) throw err;
-        res.json(cliente);
-    });    
+        res.json(fornecedor);
+    });
+    
 });
+
 
 module.exports = router;

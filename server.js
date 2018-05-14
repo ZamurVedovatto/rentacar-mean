@@ -24,11 +24,9 @@ app.listen(port, () => console.log('Servidor rodando na porta ' + port));
 //INDEX ROUTE
 app.get('/', (req, res)=> { res.send('Index do servidor')});
 const clienteRouter = require('./routes/clienteRoutes');
-const veiculoRouter = require('./routes/veiculoRoutes');
-const aluguelRouter = require('./routes/aluguelRoutes');
+const fornecedorRouter = require('./routes/fornecedorRoutes');
 const usuarioRouter = require('./routes/usuarioRoutes');
-const seguroRouter = require('./routes/seguroRoutes');
-const manutencaoRouter = require('./routes/manutencaoRoutes');
+const veiculoRouter = require('./routes/veiculoRoutes');
 
 
 //middlewares
@@ -49,12 +47,9 @@ require('./config/passport')(passport);
 
 //ROUTES
 app.use('/cliente', clienteRouter);
-app.use('/veiculo', veiculoRouter);
-app.use('/aluguel', aluguelRouter);
+app.use('/fornecedor', fornecedorRouter);
 app.use('/usuario', usuarioRouter);
-app.use('/seguro', seguroRouter);
-app.use('/manutencao', manutencaoRouter);
-
+app.use('/veiculo', veiculoRouter);
 
 //após ngbuild, caso seja acessada qualquer outra rota, usuário é direcionado para o index
 app.get('*', (req, res)=>{

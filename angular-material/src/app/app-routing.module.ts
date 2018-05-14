@@ -14,7 +14,12 @@ import { LoginComponent } from './components/usuario/login/login.component';
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { RegistrarComponent  } from './components/usuario/registrar/registrar.component';
 
+import { TabsComponent } from './components/tabs/tabs.component';
+
 const routes: Routes = [
+  { path: '', component: LoginComponent },
+  { path: 'home', component: TabsComponent},
+
   // rotas de navegação geral
   { path: 'sobre', component: SystemAboutComponent },
 
