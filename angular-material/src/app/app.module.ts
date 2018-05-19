@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UserService } from './services/user.service'; /* put it in providers */
+import { VeiculoService } from './services/veiculo.service';
 
 import { AppRoutingModule } from './app-routing.module'; /* put it in imports */
 
@@ -35,6 +36,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatSortModule} from '@angular/material';
 /* end - angular material */
 
 /* components - put it in declarations*/
@@ -64,6 +66,10 @@ import { AuthService } from './components/usuario/auth.service';
 import { MenuLateralPrincipalComponent } from './components/menu-lateral-principal/menu-lateral-principal.component';
 import { SystemAboutComponent } from './components/system-about/system-about.component';
 
+/* veiculo components */
+import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-veiculo.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +93,8 @@ import { SystemAboutComponent } from './components/system-about/system-about.com
     PerfilComponent,
     MenuLateralPrincipalComponent,
     MenuLateralPrincipalComponent,
-    SystemAboutComponent
+    SystemAboutComponent,
+    ShowVeiculoComponent
   ],
   imports: [
     BrowserModule,
@@ -118,12 +125,18 @@ import { SystemAboutComponent } from './components/system-about/system-about.com
     MatDatepickerModule,
     MatSelectModule,
     MatDividerModule,
+    MatSortModule,
     AppRoutingModule
   ],
   entryComponents: [
     MyDialogComponent
   ],
-  providers: [UserService, ValidarUsuarioService, AuthService],
+  providers: [
+    UserService,
+    ValidarUsuarioService,
+    AuthService,
+    VeiculoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
