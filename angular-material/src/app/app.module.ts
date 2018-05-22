@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UserService } from './services/user.service'; /* put it in providers */
 import { VeiculoService } from './services/veiculo.service';
 import { ClienteService } from './services/cliente.service';
+import { FornecedorService } from './services/fornecedor.service';
 import { LOCALE_ID } from '@angular/core';
 import * as moment from 'moment';
 
@@ -142,7 +143,8 @@ import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-ve
     ValidarUsuarioService,
     AuthService,
     VeiculoService,
-    ClienteService
+    ClienteService,
+    FornecedorService
   ],
   bootstrap: [AppComponent]
 })

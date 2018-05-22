@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../../data-models/cliente.model';
-import { Veiculo } from '../../../data-models/veiculoModel';
-import { VeiculoService } from '../../../services/veiculo.service';
 import { ClienteService } from '../../../services/cliente.service';
+import { Veiculo } from '../../../data-models/veiculo.model';
+import { VeiculoService } from '../../../services/veiculo.service';
+import { Fornecedor } from '../../../data-models/fornecedor.model';
+import { FornecedorService } from '../../../services/fornecedor.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import * as moment from 'moment';
 
@@ -13,13 +15,15 @@ import * as moment from 'moment';
 })
 export class ShowVeiculoComponent implements OnInit {
 
+  seguradora: Fornecedor;
+  oficina: Fornecedor;
   cliente: Cliente;
   veiculo: Veiculo;
-  step = 0;
 
   constructor(
     public veiculoService: VeiculoService,
     public clienteService: ClienteService,
+    public fornecedorService: FornecedorService,
     public route: ActivatedRoute,
     public router: Router
   ) { }
@@ -28,19 +32,40 @@ export class ShowVeiculoComponent implements OnInit {
     this.getVeiculo();
   }
 
-  setStep(index: number) {
-    this.step = index;
-  }
-
   getVeiculo() {
     const id = this.route.snapshot.params['id'];
     this.veiculoService.getVeiculo(id)
       .subscribe(veiculo => {
         this.veiculo = veiculo;
+
         if (this.veiculo.aluguel) {
           this.getCliente(this.veiculo);
         }
+
+        if (this.veiculo.manutencao) {
+          this.getOficina(this.veiculo);
+        }
+
+        if (this.veiculo.seguro) {
+          this.getSeguradora(this.veiculo);
+        }
+
       });
+  }
+
+
+  getOficina(veiculo) {
+    this.fornecedorService.getFornecedor(veiculo.manutencao.idOficina)
+      .subscribe(oficina => {
+        this.oficina = oficina;
+    });
+  }
+
+  getSeguradora(veiculo) {
+    this.fornecedorService.getFornecedor(veiculo.seguro.idSeguradora)
+      .subscribe(seguradora => {
+        this.seguradora = seguradora;
+    });
   }
 
   getCliente(veiculo) {
@@ -55,6 +80,16 @@ export class ShowVeiculoComponent implements OnInit {
     return clienteCompleto;
   }
 
+  showOficina() {
+    const oficinaCompleto = `${this.oficina.nomeFantasia} - ${this.oficina.email}`;
+    return oficinaCompleto;
+  }
+
+  showSeguradora() {
+    const seguradoraCompleto = `${this.seguradora.nomeFantasia} - ${this.seguradora.email}`;
+    return seguradoraCompleto;
+  }
+
   goBack() {
     this.router.navigate(['/veiculo']);
   }
@@ -65,8 +100,9 @@ export class ShowVeiculoComponent implements OnInit {
     return now.diff(firstDate, 'days');
   }
 
-  beautyDataInicioAluguel() {
-    return moment(this.veiculo.aluguel.periodo.inicio);
+  beautyData(data) {
+    const dataMoment = moment(data);
+    return moment(dataMoment);
   }
 
   valorTotalLocacao() {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Veiculo } from '../data-models/veiculoModel';
+import { Veiculo } from '../data-models/veiculo.model';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 

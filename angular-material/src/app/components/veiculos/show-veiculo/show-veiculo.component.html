@@ -1,127 +1,67 @@
-<mat-grid-list *ngIf=veiculo cols="3" rowHeight="2:2">
-  <mat-grid-tile>
-      <mat-accordion class="example-headers-align">
-        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="false">
-          <mat-expansion-panel-header>
-            <mat-panel-description class="panel-description">Informações do Veículo</mat-panel-description>
-          </mat-expansion-panel-header>
-      
-            <label><strong>Montadora:</strong> {{ veiculo.fabrica }}</label><br>
-            <label><strong>Modelo:</strong> {{ veiculo.modelo }}</label><br>
-            <label><strong>Placa:</strong> {{ veiculo.placa }}</label><br>
-            <label><strong>Cor:</strong> {{ veiculo.cor }}</label><br>
-            <label><strong>Ano de Fabricação:</strong> {{ veiculo.anoFabricacao }}</label><br>
-            <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
-            <br>
-            <button mat-raised-button>Editar informações</button>
-      
-        </mat-expansion-panel>
-      
-        <mat-expansion-panel *ngIf="veiculo.aluguel" [expanded]="step === 1" (opened)="setStep(1)" hideToggle="false">
-          <mat-expansion-panel-header>
-            <mat-panel-description class="panel-description">Aluguel em andamento</mat-panel-description>
-          </mat-expansion-panel-header>
-      
-            <label><strong>Data de início:</strong> {{ beautyDataInicioAluguel() }}</label><br>
-            <label><strong>Cliente:</strong> {{ showCliente() }}</label><br>
-            <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
-            <label><strong>Dias de locação:</strong> {{ difDays() }}</label><br>
-            <label><strong>Valor até o momento:</strong> {{ valorTotalLocacao() | currency: 'BRL':'symbol':'1.2-2' }}</label><br>
-            <br>
-            <button mat-raised-button>Finalizar locação</button>
-      
-        </mat-expansion-panel>
-      </mat-accordion>
-
-  </mat-grid-tile>
+<mat-grid-list *ngIf=veiculo cols="2" rowHeight="4:2">
 
   <mat-grid-tile>
-    <mat-accordion class="example-headers-align">
-      <mat-expansion-panel *ngIf="veiculo.manutencao" [expanded]="step === 2" (opened)="setStep(2)" hideToggle="false">
-        <mat-expansion-panel-header>
-          <mat-panel-description class="panel-description">Manutenção em andamento</mat-panel-description>
-        </mat-expansion-panel-header>
-
-          <label><strong>Data de início:</strong> {{ veiculo.manutencao.periodo.inicio }}</label><br>
-          <label><strong>Oficina:</strong> {{ veiculo.manutencao.idOficina }}</label><br>
-          <label><strong>Descrição:</strong> {{ veiculo.manutencao.descricao }}</label><br>
-          <label><strong>Valor:</strong> {{ veiculo.manutencao.valorFinal }}</label><br>
-          <br>
-          <button mat-raised-button>Editar informações</button>
-    
-      </mat-expansion-panel>
-    
-      <mat-expansion-panel *ngIf="veiculo.aluguel" [expanded]="step === 3" (opened)="setStep(3)" hideToggle="false">
-        <mat-expansion-panel-header>
-          <mat-panel-description class="panel-description">Aluguel em andamento</mat-panel-description>
-        </mat-expansion-panel-header>
-    
-          <label><strong>Data de início:</strong> {{ beautyDataInicioAluguel() }}</label><br>
-          <label><strong>Cliente:</strong> {{ showCliente() }}</label><br>
-          <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
-          <label><strong>Dias de locação:</strong> {{ difDays() }}</label><br>
-          <label><strong>Valor até o momento:</strong> {{ valorTotalLocacao() | currency: 'BRL':'symbol':'1.2-2' }}</label><br>
-          <br>
-          <button mat-raised-button>Finalizar locação</button>
-    
-      </mat-expansion-panel>
-    </mat-accordion>
-
+      <div class="panel-description">
+        <h2>Informações</h2>
+        <label><strong>Montadora:</strong> {{ veiculo.fabrica }}</label><br>
+        <label><strong>Modelo:</strong> {{ veiculo.modelo }}</label><br>
+        <label><strong>Placa:</strong> {{ veiculo.placa }}</label><br>
+        <label><strong>Cor:</strong> {{ veiculo.cor }}</label><br>
+        <label><strong>Ano de Fabricação:</strong> {{ veiculo.anoFabricacao }}</label><br>
+        <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
+        <br>
+        <button mat-raised-button>Excluir</button>
+        <button mat-raised-button>Editar</button>
+      </div>    
   </mat-grid-tile>
 
-  <mat-grid-tile>
-    <mat-accordion class="example-headers-align">
-      <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle="false">
-        <mat-expansion-panel-header>
-          <mat-panel-description class="panel-description">Informações do Veículo</mat-panel-description>
-        </mat-expansion-panel-header>
-    
-          <label><strong>Montadora:</strong> {{ veiculo.fabrica }}</label><br>
-          <label><strong>Modelo:</strong> {{ veiculo.modelo }}</label><br>
-          <label><strong>Placa:</strong> {{ veiculo.placa }}</label><br>
-          <label><strong>Cor:</strong> {{ veiculo.cor }}</label><br>
-          <label><strong>Ano de Fabricação:</strong> {{ veiculo.anoFabricacao }}</label><br>
-          <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
-          <br>
-          <button mat-raised-button>Editar informações</button>
-    
-      </mat-expansion-panel>
-    
-      <mat-expansion-panel *ngIf="veiculo.aluguel" [expanded]="step === 5" (opened)="setStep(5)" hideToggle="false">
-        <mat-expansion-panel-header>
-          <mat-panel-description class="panel-description">Aluguel em andamento</mat-panel-description>
-        </mat-expansion-panel-header>
-    
-          <label><strong>Data de início:</strong> {{ beautyDataInicioAluguel() }}</label><br>
-          <label><strong>Cliente:</strong> {{ showCliente() }}</label><br>
-          <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
-          <label><strong>Dias de locação:</strong> {{ difDays() }}</label><br>
-          <label><strong>Valor até o momento:</strong> {{ valorTotalLocacao() | currency: 'BRL':'symbol':'1.2-2' }}</label><br>
-          <br>
-          <button mat-raised-button>Finalizar locação</button>
-    
-      </mat-expansion-panel>
-    </mat-accordion>
-
+  <mat-grid-tile *ngIf="veiculo.aluguel">
+    <div class="panel-description">
+      <h2>Aluguel</h2>
+      <label><strong>Data de início:</strong> {{ beautyData(veiculo.aluguel.periodo.inicio) }}</label><br>
+      <label><strong>Cliente:</strong> {{ showCliente() }}</label><br>
+      <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
+      <label><strong>Dias de locação:</strong> {{ difDays() }}</label><br>
+      <label><strong>Valor até o momento:</strong> {{ valorTotalLocacao() | currency: 'BRL':'symbol':'1.2-2' }}</label><br>
+      <br>
+      <button mat-raised-button>Editar</button>
+      <button mat-raised-button>Finalizar</button>
+    </div>
   </mat-grid-tile>
+
+  
+  <mat-grid-tile *ngIf="veiculo.manutencao">
+    <div class="panel-description">
+      <h2>Manutenção</h2>
+      <label><strong>Data de início:</strong> {{ beautyData(veiculo.manutencao.periodo.inicio) }}</label><br>
+      <label><strong>Oficina:</strong> {{ showOficina() }}</label><br>
+      <label><strong>Descrição:</strong> {{ veiculo.manutencao.descricao }}</label><br>
+      <label><strong>Valor:</strong> {{ veiculo.manutencao.valorFinal | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
+      <br>
+      <button mat-raised-button>Editar</button>
+      <button mat-raised-button>Finalizar</button>
+    </div>
+  </mat-grid-tile>
+
+    
+  <mat-grid-tile *ngIf="veiculo.seguro">
+    <div class="panel-description">
+      <h2>Seguro</h2>
+      <label><strong>Data de início:</strong> {{ beautyData(veiculo.seguro.periodo.inicio) }}</label><br>
+      <label><strong>Seguradora:</strong> {{ showSeguradora() }}</label><br>
+      <label><strong>Valor:</strong> {{ veiculo.seguro.valorFinal | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
+      <br>
+      <button mat-raised-button>Editar</button>
+      <button mat-raised-button>Finalizar</button>
+    </div>
+  </mat-grid-tile>  
+
 </mat-grid-list>
 
-<br>
-<a mat-raised-button (click)="goBack()">Voltar</a>
+<mat-divider></mat-divider>
+<button id="buttonBack" mat-raised-button (click)="goBack()">Voltar</button>
 
 <!--
-
-
-
-
-seguro: {
-    periodo: {
-        inicio: Date;
-        fim: Date;
-    };
-    idSeguradora: mongoose.Schema.ObjectId;
-    valorTotal: Number;
-};
 
 historico_de_alugueis: String[ ];
 historico_de_manutencoes: String[ ];

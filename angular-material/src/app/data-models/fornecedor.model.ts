@@ -1,8 +1,10 @@
-/* Cliente data model class */
+/* Fornecedor data model class */
 /* ? set this to optional */
 
-export class Cliente {
-    fullName: String;
+export class Fornecedor {
+
+    tipo: String;
+    nomeFantasia: String;
     email: String;
     endereco?: {
         logradouro?: String,
@@ -11,7 +13,5 @@ export class Cliente {
         cep?: String
     };
     fixo?: String;
-    celular?: String;
-    linkedin?: String;
-    idade?: Number;
 }
+

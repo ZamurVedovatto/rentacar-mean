@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Veiculo } from '../../../data-models/veiculoModel';
+import { Veiculo } from '../../../data-models/veiculo.model';
 import { VeiculoService } from '../../../services/veiculo.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
