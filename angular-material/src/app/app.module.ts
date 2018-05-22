@@ -6,6 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UserService } from './services/user.service'; /* put it in providers */
 import { VeiculoService } from './services/veiculo.service';
+import { ClienteService } from './services/cliente.service';
+import { LOCALE_ID } from '@angular/core';
+import * as moment from 'moment';
 
 import { AppRoutingModule } from './app-routing.module'; /* put it in imports */
 
@@ -37,6 +40,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSortModule} from '@angular/material';
+import {MatGridListModule} from '@angular/material/grid-list';
 /* end - angular material */
 
 /* components - put it in declarations*/
@@ -67,8 +71,8 @@ import { MenuLateralPrincipalComponent } from './components/menu-lateral-princip
 import { SystemAboutComponent } from './components/system-about/system-about.component';
 
 /* veiculo components */
+import { HomeVeiculoComponent } from './components/veiculos/home-veiculo/home-veiculo.component';
 import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-veiculo.component';
-
 
 @NgModule({
   declarations: [
@@ -94,6 +98,7 @@ import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-ve
     MenuLateralPrincipalComponent,
     MenuLateralPrincipalComponent,
     SystemAboutComponent,
+    HomeVeiculoComponent,
     ShowVeiculoComponent
   ],
   imports: [
@@ -126,6 +131,7 @@ import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-ve
     MatSelectModule,
     MatDividerModule,
     MatSortModule,
+    MatGridListModule,
     AppRoutingModule
   ],
   entryComponents: [
@@ -135,7 +141,8 @@ import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-ve
     UserService,
     ValidarUsuarioService,
     AuthService,
-    VeiculoService
+    VeiculoService,
+    ClienteService
   ],
   bootstrap: [AppComponent]
 })

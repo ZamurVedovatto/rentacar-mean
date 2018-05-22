@@ -1,10 +1,8 @@
 /* User data model class */
 /* ? set this to optional */
 
-export class User {
+export class Cliente {
     fullName: String;
-    username: String;
-    password: String;
     email: String;
     endereco?: {
         logradouro?: String,
@@ -15,4 +13,5 @@ export class User {
     fixo?: String;
     celular?: String;
     linkedin?: String;
+    idade?: Number;
 }

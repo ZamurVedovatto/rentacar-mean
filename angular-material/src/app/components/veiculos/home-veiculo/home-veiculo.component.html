@@ -1,0 +1,63 @@
+<div>
+  <mat-table [dataSource]="veiculos">
+
+    <ng-container matColumnDef="disponivel">
+      <mat-header-cell *matHeaderCellDef> Disponível </mat-header-cell>
+      <mat-cell *matCellDef="let veiculo" >        
+        <span *ngIf="disponivel(veiculo)"> Sim </span>      
+        <span *ngIf="!disponivel(veiculo)"> Não </span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="modelo">
+      <mat-header-cell *matHeaderCellDef> Modelo </mat-header-cell>
+      <mat-cell *matCellDef="let veiculo"> {{ veiculo.modelo }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="fabrica">
+      <mat-header-cell *matHeaderCellDef> Montadora </mat-header-cell>
+      <mat-cell *matCellDef="let veiculo"> {{ veiculo.fabrica }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="cor">
+      <mat-header-cell *matHeaderCellDef> Cor </mat-header-cell>
+      <mat-cell *matCellDef="let veiculo"> {{ veiculo.cor }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="anoFabricacao">
+      <mat-header-cell *matHeaderCellDef> Ano de Fabricação </mat-header-cell>
+      <mat-cell *matCellDef="let veiculo"> {{ veiculo.anoFabricacao }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="valorDiaria">
+      <mat-header-cell *matHeaderCellDef> Valor da Diária </mat-header-cell>
+      <mat-cell *matCellDef="let veiculo"> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="edicao">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let veiculo">
+        <button mat-button [matMenuTriggerFor]="menu">
+          <i class="material-icons">open_in_new</i>
+        </button>
+        <mat-menu #menu="matMenu" yPosition="above">
+          <button *ngIf="disponivel(veiculo)" mat-menu-item>Alugar</button>
+          <button *ngIf="!disponivel(veiculo)" mat-menu-item>Finalizar locação</button>
+          <button mat-menu-item routerLink="/veiculo/show/{{ veiculo._id }}">Info</button>
+        </mat-menu>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+  </mat-table>
+</div>
+
+<!--
+
+<a class="btn" routerLink="/veiculo/edit/{{ veiculo._id }}">Editar</a>
+<a class="btn" routerLink="/veiculo/manutencao/{{ veiculo._id }}">Manutenção</a>
+
+
+-->

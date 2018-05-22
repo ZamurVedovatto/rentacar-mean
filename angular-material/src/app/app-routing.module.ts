@@ -14,6 +14,11 @@ import { LoginComponent } from './components/usuario/login/login.component';
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { RegistrarComponent  } from './components/usuario/registrar/registrar.component';
 
+// componentes de Veiculo
+import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-veiculo.component';
+import { HomeVeiculoComponent } from './components/veiculos/home-veiculo/home-veiculo.component';
+
+
 import { TabsComponent } from './components/tabs/tabs.component';
 
 const routes: Routes = [
@@ -26,7 +31,13 @@ const routes: Routes = [
   // rotas de usuarios
   { path: 'usuario/registrar', component: RegistrarComponent },
   { path: 'usuario/login', component: LoginComponent},
-  { path: 'usuario/perfil', component: PerfilComponent, canActivate: [AuthGuard]}
+  { path: 'usuario/perfil', component: PerfilComponent, canActivate: [AuthGuard]},
+
+  // rotas de veiculos
+  { path: 'veiculo', component: HomeVeiculoComponent, canActivate: [AuthGuard] },
+  // { path: 'veiculo/edit/:id', component: EditVeiculoComponent, canActivate: [AuthGuard] },
+  // { path: 'veiculo/add', component: AddVeiculoComponent, canActivate: [AuthGuard] },
+  { path: 'veiculo/show/:id', component: ShowVeiculoComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

@@ -1,15 +1,18 @@
+/* User data model class */
+/* ? set this to optional */
+
 export class User {
-    name: String;
+    fullName: String;
     username: String;
-    email: String;
     password: String;
-    address: {
-        street: String,
-        number: String,
-        city: String,
-        zipCode: String
+    email: String;
+    endereco?: {
+        logradouro?: String,
+        numero?: String,
+        cidade?: String,
+        cep?: String
     };
-    phone: String;
-    cellPhone: String;
-    linkedin: String;
+    fixo?: String;
+    celular?: String;
+    linkedin?: String;
 }
