@@ -1,3 +1,23 @@
-#buttonBack{
-    margin-top: 16px;
+mat-grid-tile {
+    background-color: azure;
+}
+
+#buttonBack {
+    margin-top: 24px;
+}
+
+mat-grid-list {
+    margin: 0 0 14px 0;
+}
+
+table {
+    width: 94%;
+}
+
+.demo-tab-group {
+    border: 1px solid #e8e8e8;
+}
+
+.demo-tab-content {
+    padding: 16px;
 }

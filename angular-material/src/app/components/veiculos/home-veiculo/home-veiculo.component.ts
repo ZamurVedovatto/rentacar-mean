@@ -13,7 +13,7 @@ export class HomeVeiculoComponent implements OnInit {
 
   veiculo: Veiculo;
   veiculos: Veiculo;
-  displayedColumns = ['disponivel', 'modelo', 'fabrica', 'cor', 'anoFabricacao', 'valorDiaria', 'edicao'];
+  displayedColumns = ['modelo', 'fabrica', 'cor', 'anoFabricacao', 'valorDiaria', 'disponivel', 'edicao'];
 
   constructor(
     public veiculoService: VeiculoService,

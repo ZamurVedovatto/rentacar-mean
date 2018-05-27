@@ -42,6 +42,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSortModule} from '@angular/material';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTableDataSource} from '@angular/material';
 /* end - angular material */
 
 /* components - put it in declarations*/

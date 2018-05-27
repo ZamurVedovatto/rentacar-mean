@@ -33,7 +33,7 @@ export class Veiculo {
         valorTotal: Number;
     };
 
-    historico_de_alugueis: String[ ];
-    historico_de_manutencoes: String[ ];
-    historico_de_seguros: String[ ];
+    historico_de_alugueis: mongoose.Types.Mixed[ ];
+    historico_de_manutencoes: mongoose.Types.Mixe[ ]; // ver se pode ser Object
+    historico_de_seguros: mongoose.Types.Mixe[ ];
 }

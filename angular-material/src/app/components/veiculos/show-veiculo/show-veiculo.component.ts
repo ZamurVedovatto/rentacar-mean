@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Cliente } from '../../../data-models/cliente.model';
 import { ClienteService } from '../../../services/cliente.service';
 import { Veiculo } from '../../../data-models/veiculo.model';
@@ -6,6 +6,8 @@ import { VeiculoService } from '../../../services/veiculo.service';
 import { Fornecedor } from '../../../data-models/fornecedor.model';
 import { FornecedorService } from '../../../services/fornecedor.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material';
+import { CdkTableModule} from '@angular/cdk/table';
 import * as moment from 'moment';
 
 @Component({
@@ -37,6 +39,9 @@ export class ShowVeiculoComponent implements OnInit {
     this.veiculoService.getVeiculo(id)
       .subscribe(veiculo => {
         this.veiculo = veiculo;
+        const aluguel = this.veiculo.aluguel;
+
+        this.veiculo.historico_de_alugueis.push(aluguel);
 
         if (this.veiculo.aluguel) {
           this.getCliente(this.veiculo);

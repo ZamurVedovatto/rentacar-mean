@@ -1,14 +1,6 @@
 <div>
   <mat-table [dataSource]="veiculos">
 
-    <ng-container matColumnDef="disponivel">
-      <mat-header-cell *matHeaderCellDef> Disponível </mat-header-cell>
-      <mat-cell *matCellDef="let veiculo" >        
-        <span *ngIf="disponivel(veiculo)"> Sim </span>      
-        <span *ngIf="!disponivel(veiculo)"> Não </span>
-      </mat-cell>
-    </ng-container>
-
     <ng-container matColumnDef="modelo">
       <mat-header-cell *matHeaderCellDef> Modelo </mat-header-cell>
       <mat-cell *matCellDef="let veiculo"> {{ veiculo.modelo }} </mat-cell>
@@ -32,6 +24,14 @@
     <ng-container matColumnDef="valorDiaria">
       <mat-header-cell *matHeaderCellDef> Valor da Diária </mat-header-cell>
       <mat-cell *matCellDef="let veiculo"> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="disponivel">
+      <mat-header-cell *matHeaderCellDef> Disponível </mat-header-cell>
+      <mat-cell *matCellDef="let veiculo" >        
+        <span *ngIf="disponivel(veiculo)"> Sim </span>      
+        <span *ngIf="!disponivel(veiculo)"> Não </span>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="edicao">
