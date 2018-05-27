@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         if (data.success) {
           this.authService.armazenarDadosUsuario(data.token, data.usuario);
           this.snackBarLogin(data.usuario);
-          this.router.navigate(['home']);
+          this.router.navigate(['veiculo']);
 
         } else {
           this.snackBarWrongLogin();

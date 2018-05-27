@@ -14,7 +14,7 @@ export class RegistrarComponent implements OnInit {
   // properties
   hide = true;
 
-  // user properts
+  // user properties
   name: String;
   username: String;
   email = new FormControl('', [Validators.email]);

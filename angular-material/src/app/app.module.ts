@@ -75,6 +75,7 @@ import { SystemAboutComponent } from './components/system-about/system-about.com
 /* veiculo components */
 import { HomeVeiculoComponent } from './components/veiculos/home-veiculo/home-veiculo.component';
 import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-veiculo.component';
+import { AddVeiculoComponent } from './components/veiculos/add-veiculo/add-veiculo.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-ve
     MenuLateralPrincipalComponent,
     SystemAboutComponent,
     HomeVeiculoComponent,
-    ShowVeiculoComponent
+    ShowVeiculoComponent,
+    AddVeiculoComponent
   ],
   imports: [
     BrowserModule,

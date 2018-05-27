@@ -35,7 +35,11 @@
     </ng-container>
 
     <ng-container matColumnDef="edicao">
-      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-button routerLink="/veiculo/add">
+          <i class="material-icons">playlist_add</i>
+        </button>
+      </mat-header-cell>
       <mat-cell *matCellDef="let veiculo">
         <button mat-button [matMenuTriggerFor]="menu">
           <i class="material-icons">open_in_new</i>

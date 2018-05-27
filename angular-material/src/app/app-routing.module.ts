@@ -17,7 +17,7 @@ import { RegistrarComponent  } from './components/usuario/registrar/registrar.co
 // componentes de Veiculo
 import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-veiculo.component';
 import { HomeVeiculoComponent } from './components/veiculos/home-veiculo/home-veiculo.component';
-
+import { AddVeiculoComponent } from './components/veiculos/add-veiculo/add-veiculo.component';
 
 import { TabsComponent } from './components/tabs/tabs.component';
 
@@ -36,7 +36,7 @@ const routes: Routes = [
   // rotas de veiculos
   { path: 'veiculo', component: HomeVeiculoComponent, canActivate: [AuthGuard] },
   // { path: 'veiculo/edit/:id', component: EditVeiculoComponent, canActivate: [AuthGuard] },
-  // { path: 'veiculo/add', component: AddVeiculoComponent, canActivate: [AuthGuard] },
+  { path: 'veiculo/add', component: AddVeiculoComponent, canActivate: [AuthGuard] },
   { path: 'veiculo/show/:id', component: ShowVeiculoComponent, canActivate: [AuthGuard] }
 ];
 

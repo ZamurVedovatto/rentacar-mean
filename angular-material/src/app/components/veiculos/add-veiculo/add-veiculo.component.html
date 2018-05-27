@@ -1,0 +1,108 @@
+<div class="container">
+  <h1>Cadastro de novo Veículo</h1>
+  <form class="formWidth" (submit)="addVeiculo()">
+    <table class="fullWidth" cellspacing="0">
+      <tr>  
+        <td>          
+          <mat-form-field class="fullWidth">
+
+            <mat-select placeholder="Montadora" [(ngModel)]="model.fabrica" name="fabrica" required>
+              <mat-option value="Volkswagen">Volkswagen</mat-option>
+              <mat-option value="Ford">Ford</mat-option>
+              <mat-option value="FIAT">FIAT</mat-option>
+              <mat-option value="Chevrolet">Chevrolet</mat-option>
+              <mat-option value="Audi">Audi</mat-option>
+              <mat-option value="BMW">BMW</mat-option>
+              <mat-option value="CAOA Hyundai">CAOA Hyundai</mat-option>
+              <mat-option value="Citroen">Citroen</mat-option>
+              <mat-option value="Honda">Honda</mat-option>
+              <mat-option value="Land Rover">Land Rover</mat-option>
+              <mat-option value="Mercedes-Benz">Mercedes-Benz</mat-option>
+              <mat-option value="Mitsubishi">Mitsubishi</mat-option>
+              <mat-option value="Nissan">Nissan</mat-option>
+              <mat-option value="Peogeot">Peogeot</mat-option>
+              <mat-option value="Renault">Renault</mat-option>
+              <mat-option value="Suzuki">Suzuki</mat-option>
+              <mat-option value="Toyota">Toyota</mat-option>
+              <mat-option value="Troller">Troller</mat-option>
+              <mat-option value="Volvo">Volvo</mat-option>
+            </mat-select>
+
+            <!--
+            <input matInput type="text" placeholder="Fábrica" id="fabrica" [(ngModel)]="model.fabrica" name="fabrica" required>
+            -->
+          </mat-form-field>
+        </td>  
+
+        <td>
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Modelo" id="modelo" [(ngModel)]="model.modelo" name="modelo" required>
+          </mat-form-field>
+        </td>        
+      </tr>
+
+      <tr>  
+        <td>          
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Placa" id="placa" [(ngModel)]="model.placa" name="placa" required>
+          </mat-form-field>
+        </td>  
+        <td>          
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Cor" id="cor" [(ngModel)]="model.cor" name="cor" required>
+          </mat-form-field>
+        </td>  
+      </tr>
+      <tr>
+        <td>          
+          <mat-form-field class="fullWidth">
+
+            <mat-select placeholder="Ano de Fabricação" [(ngModel)]="model.anoFabricacao" name="anoFabricacao" required>
+              <mat-option value="2018">2018</mat-option>
+              <mat-option value="2017">2017</mat-option>
+              <mat-option value="2016">2016</mat-option>
+              <mat-option value="2015">2015</mat-option>
+              <mat-option value="2014">2014</mat-option>
+              <mat-option value="2013">2013</mat-option>
+              <mat-option value="2012">2012</mat-option>
+              <mat-option value="2011">2011</mat-option>
+              <mat-option value="2010">2010</mat-option>
+              <mat-option value="2010">2010</mat-option>
+              <mat-option value="2008">2008</mat-option>
+              <mat-option value="2007">2007</mat-option>
+              <mat-option value="2006">2006</mat-option>
+              <mat-option value="2005">2005</mat-option>
+              <mat-option value="2004">2004</mat-option>
+              <mat-option value="2003">2003</mat-option>
+              <mat-option value="2002">2002</mat-option>
+              <mat-option value="2001">2001</mat-option>
+              <mat-option value="2000">2000</mat-option>
+            </mat-select>
+
+            <!--
+            <input matInput type="number" placeholder="Ano de Fabricação" id="anoFabricacao" [(ngModel)]="model.anoFabricacao" name="anoFabricacao" required>
+            <mat-hint align="start">Rua, Avenida, Estrada, Galeria, Praça, Quadra</mat-hint>
+            -->
+          </mat-form-field>
+        </td>  
+        <td>
+          <mat-form-field class="fullWidth">
+            <input matInput type="number" placeholder="Valor da diária" id="valorDiaria" [(ngModel)]="model.valorDiaria" name="valorDiaria" required>
+            <span matPrefix>R$&nbsp;</span>
+            <span matSuffix>,00</span>
+          </mat-form-field>
+        </td>  
+      </tr>
+
+      <tr>
+        <td>
+        </td>
+        <td>
+          <button mat-button color="warn" (click)="goBack()">Cancelar</button>
+          <button mat-button color="primary" type="submit">Salvar</button>
+        </td>
+      </tr>
+    </table>
+
+  </form>
+</div>
