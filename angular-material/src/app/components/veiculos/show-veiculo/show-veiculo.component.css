@@ -1,7 +1,3 @@
-mat-grid-tile {
-    background-color: azure;
-}
-
 #buttonBack {
     margin-top: 24px;
 }
@@ -19,5 +15,6 @@ table {
 }
 
 .demo-tab-content {
-    padding: 16px;
+    padding: 26px;
+    min-height: 280px;    
 }

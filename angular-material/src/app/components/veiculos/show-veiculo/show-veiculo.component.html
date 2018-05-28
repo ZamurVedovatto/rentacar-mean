@@ -1,142 +1,135 @@
 <mat-card>
   <mat-card-content>
     <mat-tab-group class="demo-tab-group">
+
+      <!-- Informações Gerais -->
       <mat-tab label="Informações Gerais">
+        <div class="demo-tab-content">          
+            <label><strong>Montadora:</strong> {{ veiculo.fabrica }}</label><br>
+            <label><strong>Modelo:</strong> {{ veiculo.modelo }}</label><br>
+            <label><strong>Placa:</strong> {{ veiculo.placa }}</label><br>
+            <label><strong>Cor:</strong> {{ veiculo.cor }}</label><br>
+            <label><strong>Ano de Fabricação:</strong> {{ veiculo.anoFabricacao }}</label><br>
+            <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
+            <br>
+            <button mat-raised-button (click)="cliqueExcluir(veiculo._id)">Excluir</button>
+            <button mat-raised-button>Editar</button>
+        </div>
+      </mat-tab>
+
+      <!-- Aluguel -->
+      <mat-tab *ngIf="veiculo.aluguel" label="Aluguel">
         <div class="demo-tab-content">
 
-          <mat-grid-list *ngIf=veiculo cols="4" rowHeight="4:3">
-
-            <mat-grid-tile>
-              <div>
-                <h2>Informações</h2>
-                <label><strong>Montadora:</strong> {{ veiculo.fabrica }}</label><br>
-                <label><strong>Modelo:</strong> {{ veiculo.modelo }}</label><br>
-                <label><strong>Placa:</strong> {{ veiculo.placa }}</label><br>
-                <label><strong>Cor:</strong> {{ veiculo.cor }}</label><br>
-                <label><strong>Ano de Fabricação:</strong> {{ veiculo.anoFabricacao }}</label><br>
-                <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
-                <br>
-                <button mat-raised-button>Excluir</button>
-                <button mat-raised-button>Editar</button>
-              </div>    
-          </mat-grid-tile>
-        
-          <mat-grid-tile *ngIf="veiculo.aluguel">
-            <div>
-              <h2>Aluguel</h2>
-              <label><strong>Data de início:</strong> {{ beautyData(veiculo.aluguel.periodo.inicio) }}</label><br>
-              <label><strong>Cliente:</strong> {{ showCliente() }}</label><br>
-              <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
-              <label><strong>Dias de locação:</strong> {{ difDays() }}</label><br>
-              <label><strong>Valor até o momento:</strong> {{ valorTotalLocacao() | currency: 'BRL':'symbol':'1.2-2' }}</label><br>
-              <br>
-              <button mat-raised-button>Editar</button>
-              <button mat-raised-button>Finalizar</button>
-            </div>
-          </mat-grid-tile>        
-          
-          <mat-grid-tile *ngIf="veiculo.manutencao">
-            <div>
-              <h2>Manutenção</h2>
-              <label><strong>Data de início:</strong> {{ beautyData(veiculo.manutencao.periodo.inicio) }}</label><br>
-              <label><strong>Oficina:</strong> {{ showOficina() }}</label><br>
-              <label><strong>Descrição:</strong> {{ veiculo.manutencao.descricao }}</label><br>
-              <label><strong>Valor:</strong> {{ veiculo.manutencao.valorFinal | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
-              <br>
-              <button mat-raised-button>Editar</button>
-              <button mat-raised-button>Finalizar</button>
-            </div>
-          </mat-grid-tile>
-        
-            
-          <mat-grid-tile *ngIf="veiculo.seguro">
-            <div>
-              <h2>Seguro</h2>
-              <label><strong>Data de início:</strong> {{ beautyData(veiculo.seguro.periodo.inicio) }}</label><br>
-              <label><strong>Seguradora:</strong> {{ showSeguradora() }}</label><br>
-              <label><strong>Valor:</strong> {{ veiculo.seguro.valorTotal | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
-              <br>
-              <button mat-raised-button>Editar</button>
-              <button mat-raised-button>Finalizar</button>
-            </div>
-          </mat-grid-tile>  
-        
-        </mat-grid-list>
+          <label><strong>Data de início:</strong> {{ beautyData(veiculo.aluguel.periodo.inicio) }}</label><br>
+          <label><strong>Cliente:</strong> {{ showCliente() }}</label><br>
+          <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
+          <label><strong>Dias de locação até o momento:</strong> {{ difDays() }}</label><br>
+          <label><strong>Valor final atual:</strong> {{ valorTotalLocacao() | currency: 'BRL':'symbol':'1.2-2' }}</label><br>
+          <br>
+          <button mat-raised-button>Editar</button>
+          <button mat-raised-button>Finalizar</button>
 
         </div>
       </mat-tab>
-      <mat-tab label="Históricos">
+
+      <!-- Manutenção -->
+      <mat-tab *ngIf="veiculo.manutencao" label="Manutenção">
         <div class="demo-tab-content">
 
-          <mat-grid-list *ngIf=veiculo cols="3" rowHeight="2:1">
+          <label><strong>Data de início:</strong> {{ beautyData(veiculo.manutencao.periodo.inicio) }}</label><br>
+          <label><strong>Oficina:</strong> {{ showOficina() }}</label><br>
+          <label><strong>Descrição:</strong> {{ veiculo.manutencao.descricao }}</label><br>
+          <label><strong>Valor:</strong> {{ veiculo.manutencao.valorFinal | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
+          <br>
+          <button mat-raised-button>Editar</button>
+          <button mat-raised-button>Finalizar</button>
+   
+        </div>
+      </mat-tab>
 
-            <mat-grid-tile *ngIf=veiculo.historico_de_alugueis>
-              <table mat-table class="mat-elevation-z8">
-                <caption><h2>Aluguéis</h2></caption>
-                <thead>
-                  <th mat-header-cell>Retirada</th>
-                  <th mat-header-cell>Devolução</th>
-                  <th mat-header-cell>Cliente</th>
-                  <th mat-header-cell>Valor</th>
-                </thead>
-                <tbody *ngFor="let aluguel of veiculo.historico_de_alugueis">
-                  <td mat-cell> {{aluguel.periodo.inicio}} </td>        
-                  <td mat-cell> {{aluguel.periodo.fim}} </td>        
-                  <td mat-cell> {{aluguel.idCliente}} </td>        
-                  <td mat-cell> {{aluguel.valorFinal}} </td>
-                </tbody>
-              </table>
-            </mat-grid-tile>
+      <!-- Seguro -->
+      <mat-tab *ngIf="veiculo.seguro" label="Seguro">
+        <div class="demo-tab-content">
 
-            <mat-grid-tile *ngIf=veiculo.historico_de_alugueis>
-              <table mat-table class="mat-elevation-z8">
-                <caption><h2>Manutenções</h2></caption>
-               <thead>
-                 <th mat-header-cell>Retirada</th>
-                 <th mat-header-cell>Devolução</th>
-                 <th mat-header-cell>Cliente</th>
-                 <th mat-header-cell>Valor</th>
-               </thead>
-               <tbody *ngFor="let aluguel of veiculo.historico_de_alugueis">
-                 <td mat-cell> {{aluguel.periodo.inicio}} </td>        
-                 <td mat-cell> {{aluguel.periodo.fim}} </td>        
-                 <td mat-cell> {{aluguel.idCliente}} </td>        
-                 <td mat-cell> {{aluguel.valorFinal}} </td>
-               </tbody>
-             </table>
-           </mat-grid-tile>
+          <label><strong>Data de início:</strong> {{ beautyData(veiculo.seguro.periodo.inicio) }}</label><br>
+          <label><strong>Seguradora:</strong> {{ showSeguradora() }}</label><br>
+          <label><strong>Valor:</strong> {{ veiculo.seguro.valorTotal | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
+          <br>
+          <button mat-raised-button>Editar</button>
+          <button mat-raised-button>Finalizar</button>
 
-           <mat-grid-tile *ngIf=veiculo.historico_de_alugueis>
-            <table mat-table class="mat-elevation-z8">
-              <caption><h2>Seguros</h2></caption>
-              <thead>
-               <th mat-header-cell>Retirada</th>
-               <th mat-header-cell>Devolução</th>
-               <th mat-header-cell>Cliente</th>
-               <th mat-header-cell>Valor</th>
-              </thead>
-              <tbody *ngFor="let aluguel of veiculo.historico_de_alugueis">
-               <td mat-cell> {{aluguel.periodo.inicio}} </td>        
-               <td mat-cell> {{aluguel.periodo.fim}} </td>        
-               <td mat-cell> {{aluguel.idCliente}} </td>        
-               <td mat-cell> {{aluguel.valorFinal}} </td>
-             </tbody>
-           </table>
-          </mat-grid-tile>
-        </mat-grid-list>
+        </div>
+      </mat-tab>
+
+      <!-- Histórico de Aluguéis -->
+      <mat-tab *ngIf="veiculo.historico_de_alugueis.length > 0" label="Histórico de Aluguéis">
+        <div class="demo-tab-content">
+
+          <table mat-table>
+            <thead>
+              <th mat-header-cell>Retirada</th>
+              <th mat-header-cell>Devolução</th>
+              <th mat-header-cell>Cliente</th>
+              <th mat-header-cell>Valor</th>
+            </thead>
+            <tbody *ngFor="let aluguel of veiculo.historico_de_alugueis">
+              <td mat-cell>{{aluguel.periodo.inicio}}</td>        
+              <td mat-cell>{{aluguel.periodo.fim}}</td>        
+              <td mat-cell>{{aluguel.idCliente}}</td>        
+              <td mat-cell>{{aluguel.valorFinal}}</td>
+            </tbody>
+          </table>
 
         </div>  
-      </mat-tab>      
+      </mat-tab>
+
+      <!-- Histórico de Manutenções -->
+      <mat-tab *ngIf="veiculo.historico_de_manutencoes.length > 0" label="Histórico de Manutenções">
+        <div class="demo-tab-content">
+
+          <table mat-table>
+            <thead>
+              <th mat-header-cell>Retirada</th>
+              <th mat-header-cell>Devolução</th>
+              <th mat-header-cell>Cliente</th>
+              <th mat-header-cell>Valor</th>
+            </thead>
+            <tbody *ngFor="let aluguel of veiculo.historico_de_alugueis">
+              <td mat-cell>{{aluguel.periodo.inicio}}</td>        
+              <td mat-cell>{{aluguel.periodo.fim}}</td>        
+              <td mat-cell>{{aluguel.idCliente}}</td>        
+              <td mat-cell>{{aluguel.valorFinal}}</td>
+            </tbody>
+          </table>
+
+        </div>  
+      </mat-tab>
+      
+      <!-- Histórico de Seguros -->
+      <mat-tab *ngIf="veiculo.historico_de_seguros.length > 0" label="Histórico de Seguros">
+        <div class="demo-tab-content">
+
+          <table mat-table>
+            <thead>
+              <th mat-header-cell>Retirada</th>
+              <th mat-header-cell>Devolução</th>
+              <th mat-header-cell>Cliente</th>
+              <th mat-header-cell>Valor</th>
+            </thead>
+            <tbody *ngFor="let aluguel of veiculo.historico_de_alugueis">
+              <td mat-cell>{{aluguel.periodo.inicio}}</td>        
+              <td mat-cell>{{aluguel.periodo.fim}}</td>        
+              <td mat-cell>{{aluguel.idCliente}}</td>        
+              <td mat-cell>{{aluguel.valorFinal}}</td>
+            </tbody>
+          </table>
+
+        </div>  
+      </mat-tab>
+      
     </mat-tab-group>
   </mat-card-content>
 </mat-card>
 
-
-<button id="buttonBack" mat-raised-button (click)="goBack()">Voltar</button>
-
-<!--
-
-historico_de_manutencoes: String[ ];
-historico_de_seguros: String[ ];
-
--->
+<button mat-raised-button id="buttonBack" color="primary" (click)="goBack()">Voltar</button>

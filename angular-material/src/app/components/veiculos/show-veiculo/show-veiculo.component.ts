@@ -7,8 +7,10 @@ import { Fornecedor } from '../../../data-models/fornecedor.model';
 import { FornecedorService } from '../../../services/fornecedor.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
-import { CdkTableModule} from '@angular/cdk/table';
+// import { CdkTableModule} from '@angular/cdk/table';
 import * as moment from 'moment';
+import * as _swal from 'sweetalert';
+import { SweetAlert } from 'sweetalert/typings/core';
 
 @Component({
   selector: 'app-show-veiculo',
@@ -21,6 +23,7 @@ export class ShowVeiculoComponent implements OnInit {
   oficina: Fornecedor;
   cliente: Cliente;
   veiculo: Veiculo;
+  swal: SweetAlert = _swal as any;
 
   constructor(
     public veiculoService: VeiculoService,
@@ -39,9 +42,9 @@ export class ShowVeiculoComponent implements OnInit {
     this.veiculoService.getVeiculo(id)
       .subscribe(veiculo => {
         this.veiculo = veiculo;
-        const aluguel = this.veiculo.aluguel;
-
-        this.veiculo.historico_de_alugueis.push(aluguel);
+        // console.log(this.veiculo);
+        // const aluguel = this.veiculo.aluguel;
+        // this.veiculo.historico_de_alugueis.push(aluguel);
 
         if (this.veiculo.aluguel) {
           this.getCliente(this.veiculo);
@@ -58,6 +61,38 @@ export class ShowVeiculoComponent implements OnInit {
       });
   }
 
+  deleteVeiculo(id) {
+    this.veiculoService.deleteVeiculo(id)
+      .subscribe(() => {
+        this.goBack();
+      });
+  }
+
+  cliqueExcluir(id) {
+    swal({
+      title: `Excluir ${this.veiculo.fabrica} - ${this.veiculo.modelo}?`,
+      buttons: {
+        cancel: {
+          text: 'Cancelar',
+          value: null,
+          visible: true,
+          className: '',
+          closeModal: true,
+        },
+        confirm: {
+          text: 'OK',
+          value: true,
+          visible: true,
+          className: '',
+          closeModal: true
+        }
+      }
+    }).then((value) => {
+      if (value) {
+        this.deleteVeiculo(id);
+      }
+    });
+  }
 
   getOficina(veiculo) {
     this.fornecedorService.getFornecedor(veiculo.manutencao.idOficina)

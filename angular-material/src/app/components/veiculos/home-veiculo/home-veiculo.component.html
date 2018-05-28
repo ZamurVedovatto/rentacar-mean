@@ -1,9 +1,9 @@
-<div>
+<div id="conteudo">
   <mat-table [dataSource]="veiculos">
 
     <ng-container matColumnDef="modelo">
       <mat-header-cell *matHeaderCellDef> Modelo </mat-header-cell>
-      <mat-cell *matCellDef="let veiculo"> {{ veiculo.modelo }} </mat-cell>
+      <mat-cell *matCellDef="let veiculo"><strong> {{ veiculo.modelo }} </strong></mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="fabrica">
