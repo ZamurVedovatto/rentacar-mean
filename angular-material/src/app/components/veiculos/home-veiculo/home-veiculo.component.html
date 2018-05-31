@@ -29,8 +29,8 @@
     <ng-container matColumnDef="disponivel">
       <mat-header-cell *matHeaderCellDef> Disponível </mat-header-cell>
       <mat-cell *matCellDef="let veiculo" >        
-        <span *ngIf="disponivel(veiculo)"> Sim </span>      
-        <span *ngIf="!disponivel(veiculo)"> Não </span>
+        <span *ngIf="veiculo.aluguel"> Sim </span>      
+        <span *ngIf="!veiculo.aluguel"> Não </span>
       </mat-cell>
     </ng-container>
 
@@ -45,8 +45,8 @@
           <i class="material-icons">open_in_new</i>
         </button>
         <mat-menu #menu="matMenu" yPosition="above">
-          <button *ngIf="disponivel(veiculo)" mat-menu-item>Alugar</button>
-          <button *ngIf="!disponivel(veiculo)" mat-menu-item>Finalizar locação</button>
+          <button *ngIf="veiculo.aluguel" mat-menu-item>Alugar</button>
+          <button *ngIf="!veiculo.aluguel" mat-menu-item>Finalizar locação</button>
           <button mat-menu-item routerLink="/veiculo/show/{{ veiculo._id }}">Info</button>
         </mat-menu>
       </mat-cell>

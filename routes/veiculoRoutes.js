@@ -80,6 +80,7 @@ router.put('/:_id', (req, res) => {
     });
 
     */
+   console.log(req.body);   
    let update = req.body;
 
     Veiculo.update(req.params._id, update, (err, update) => {

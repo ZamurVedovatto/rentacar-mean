@@ -12,10 +12,6 @@ import { MatSnackBar } from '@angular/material'; // injetar no construtor
 })
 export class AddVeiculoComponent implements OnInit {
 
-  // properties
-  hide = true;
-
-  // veiculo properties
   model = new Veiculo();
 
   constructor(

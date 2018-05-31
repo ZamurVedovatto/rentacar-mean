@@ -59,6 +59,14 @@ export class ShowVeiculoComponent implements OnInit {
       });
   }
 
+  updateVeiculo() {
+    this.veiculoService.updateVeiculo(this.id, this.veiculo)
+      .subscribe(() => {
+        console.log(this.veiculo);
+        this.goBackVeiculo();
+      });
+  }
+
   deleteVeiculo(id) {
     this.veiculoService.deleteVeiculo(id)
       .subscribe(() => {
@@ -144,8 +152,24 @@ export class ShowVeiculoComponent implements OnInit {
     return dias * Number(this.veiculo.valorDiaria);
   }
 
+  finalizarAluguel() {
+    this.atualizarAluguel();
+    this.veiculo.historico_de_alugueis.push(this.veiculo.aluguel);
+    delete this.veiculo.aluguel;
+    this.updateVeiculo();
+  }
+
+  atualizarAluguel() {
+    this.veiculo.aluguel.periodo.fim = new Date();
+    this.veiculo.aluguel.valorFinal = this.valorTotalLocacao();
+  }
+
   goBack() {
     this.router.navigate(['/veiculo']);
+  }
+
+  goBackVeiculo() {
+    this.router.navigate(['/veiculo/show/' + this.id]);
   }
 
 }

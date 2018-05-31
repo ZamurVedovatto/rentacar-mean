@@ -24,14 +24,6 @@ export class HomeVeiculoComponent implements OnInit {
     this.getVeiculos();
   }
 
-  disponivel(veiculo) {
-    if (veiculo.aluguel) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   getVeiculos() {
     this.veiculoService.getVeiculos()
       .subscribe(veiculos => {

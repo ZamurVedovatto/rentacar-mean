@@ -50,7 +50,7 @@
             <label><strong>Valor final atual:</strong> {{ valorTotalLocacao() | currency: 'BRL':'symbol':'1.2-2' }}</label><br>
             <br>
             <button mat-raised-button routerLink="/veiculo/editaraluguel/{{ veiculo._id }}">Editar</button>
-            <button mat-raised-button>Finalizar</button>
+            <button type="button" mat-raised-button (click)="finalizarAluguel()">Finalizar</button>
           </div>
 
         </div>
