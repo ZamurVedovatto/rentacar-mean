@@ -33,8 +33,6 @@ export class AddVeiculoComponent implements OnInit {
     this.model.historico_de_manutencoes = [];
     this.model.historico_de_seguros = [];
 
-    console.log(this.model);
-
     this.veiculoService.addVeiculo(this.model)
       .subscribe(() => this.goBack());
   }

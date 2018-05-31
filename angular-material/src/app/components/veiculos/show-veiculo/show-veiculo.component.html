@@ -49,7 +49,7 @@
             <label><strong>Dias de locação até o momento:</strong> {{ difDays() }}</label><br>
             <label><strong>Valor final atual:</strong> {{ valorTotalLocacao() | currency: 'BRL':'symbol':'1.2-2' }}</label><br>
             <br>
-            <button mat-raised-button>Editar</button>
+            <button mat-raised-button routerLink="/veiculo/editaraluguel/{{ veiculo._id }}">Editar</button>
             <button mat-raised-button>Finalizar</button>
           </div>
 

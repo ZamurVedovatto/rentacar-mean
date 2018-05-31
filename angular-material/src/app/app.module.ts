@@ -87,7 +87,8 @@ import { HomeVeiculoComponent } from './components/veiculos/home-veiculo/home-ve
 import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-veiculo.component';
 import { AddVeiculoComponent } from './components/veiculos/add-veiculo/add-veiculo.component';
 import { EditVeiculoComponent } from './components/veiculos/edit-veiculo/edit-veiculo.component';
-import { AlugarVeiculoComponent } from './components/veiculos/alugar-veiculo/alugar-veiculo.component';
+import { AlugarVeiculoComponent } from './components/veiculos/aluguel/alugar-veiculo/alugar-veiculo.component';
+import { EditarAluguelComponent } from './components/veiculos/aluguel/editar-aluguel/editar-aluguel.component';
 
 
 @NgModule({
@@ -118,7 +119,8 @@ import { AlugarVeiculoComponent } from './components/veiculos/alugar-veiculo/alu
     ShowVeiculoComponent,
     AddVeiculoComponent,
     EditVeiculoComponent,
-    AlugarVeiculoComponent
+    AlugarVeiculoComponent,
+    EditarAluguelComponent
   ],
   imports: [
     BrowserModule,

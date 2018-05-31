@@ -19,7 +19,8 @@ import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-ve
 import { HomeVeiculoComponent } from './components/veiculos/home-veiculo/home-veiculo.component';
 import { AddVeiculoComponent } from './components/veiculos/add-veiculo/add-veiculo.component';
 import { EditVeiculoComponent } from './components/veiculos/edit-veiculo/edit-veiculo.component';
-import { AlugarVeiculoComponent } from './components/veiculos/alugar-veiculo/alugar-veiculo.component';
+import { AlugarVeiculoComponent } from './components/veiculos/aluguel/alugar-veiculo/alugar-veiculo.component';
+import { EditarAluguelComponent } from './components/veiculos/aluguel/editar-aluguel/editar-aluguel.component';
 
 
 import { TabsComponent } from './components/tabs/tabs.component';
@@ -41,7 +42,8 @@ const routes: Routes = [
   { path: 'veiculo/edit/:id', component: EditVeiculoComponent, canActivate: [AuthGuard] },
   { path: 'veiculo/add', component: AddVeiculoComponent, canActivate: [AuthGuard] },
   { path: 'veiculo/show/:id', component: ShowVeiculoComponent, canActivate: [AuthGuard] },
-  { path: 'veiculo/alugar/:id', component: AlugarVeiculoComponent, canActivate: [AuthGuard]}
+  { path: 'veiculo/alugar/:id', component: AlugarVeiculoComponent, canActivate: [AuthGuard]},
+  { path: 'veiculo/editaraluguel/:id', component: EditarAluguelComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

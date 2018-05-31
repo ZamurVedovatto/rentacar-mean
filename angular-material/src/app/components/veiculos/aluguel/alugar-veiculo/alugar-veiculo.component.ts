@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Veiculo } from '../../../data-models/veiculo.model';
-import { VeiculoService } from '../../../services/veiculo.service';
-import { Cliente } from '../../../data-models/cliente.model';
-import { ClienteService } from '../../../services/cliente.service';
+import { Veiculo } from '../../../../data-models/veiculo.model';
+import { VeiculoService } from '../../../../services/veiculo.service';
+import { Cliente } from '../../../../data-models/cliente.model';
+import { ClienteService } from '../../../../services/cliente.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
@@ -27,6 +27,7 @@ export class AlugarVeiculoComponent implements OnInit {
 
   ngOnInit() {
     this.getVeiculo();
+    this.getClientes();
     this.getClientes();
   }
 

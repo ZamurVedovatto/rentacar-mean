@@ -43,7 +43,6 @@ export class ShowVeiculoComponent implements OnInit {
     this.veiculoService.getVeiculo(id)
       .subscribe(veiculo => {
         this.veiculo = veiculo;
-        console.log(this.veiculo);
 
         if (this.veiculo.aluguel) {
           this.getCliente(this.veiculo);
