@@ -18,3 +18,14 @@ table {
     padding: 26px;
     min-height: 280px;    
 }
+
+ul {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    list-style-type: none;
+}
+
+titLi {
+    line-height: 30px;
+}

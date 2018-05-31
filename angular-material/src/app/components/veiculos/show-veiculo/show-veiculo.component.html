@@ -10,10 +10,31 @@
             <label><strong>Placa:</strong> {{ veiculo.placa }}</label><br>
             <label><strong>Cor:</strong> {{ veiculo.cor }}</label><br>
             <label><strong>Ano de Fabricação:</strong> {{ veiculo.anoFabricacao }}</label><br>
-            <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
+            <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br><br>
+                        
+            <ul>
+              <li id="titLi">Informações adicionais</li>
+              <li *ngIf="veiculo.aluguel"><label><strong>Alugado</strong></label></li>
+              <li *ngIf="!veiculo.aluguel"><label><strong>Não Alugado</strong></label></li>
+              <li *ngIf="veiculo.manutencao"><label><strong>Em manutenção</strong></label></li>
+              <li *ngIf="!veiculo.manutencao"><label><strong>Não encontra-se em manutenção</strong></label></li>
+              <li *ngIf="veiculo.seguro"><label><strong>Seguro em andamento</strong></label></li>
+              <li *ngIf="!veiculo.seguro"><label><strong>Não possui seguro em andamento</strong></label></li>
+              <li *ngIf="veiculo.historico_de_alugueis.length > 0"><label><strong>Possui histórico de aluguéis</strong></label></li>
+              <li *ngIf="veiculo.historico_de_alugueis.length < 1"><label><strong>Não possui histórico de aluguéis</strong></label></li>
+              <li *ngIf="veiculo.historico_de_manutencoes.length > 0"><label><strong>Possui histórico de manutenções</strong></label></li>
+              <li *ngIf="veiculo.historico_de_manutencoes.length < 1"><label><strong>Não possui histórico de manutenções</strong></label></li>
+              <li *ngIf="veiculo.historico_de_seguros.length > 0"><label><strong>Possui histórico de seguros</strong></label></li>
+              <li *ngIf="veiculo.historico_de_seguros.length < 1"><label><strong>Não possui histórico de seguros</strong></label></li>
+            </ul>
+
             <br>
             <button mat-raised-button (click)="cliqueExcluir(veiculo._id)">Excluir</button>
-            <button mat-raised-button>Editar</button>
+            <button mat-raised-button routerLink="/veiculo/edit/{{ veiculo._id }}">Editar Informações</button>
+            <button *ngIf="!veiculo.aluguel" mat-raised-button routerLink="/veiculo/alugar/{{ veiculo._id }}">Novo Aluguel</button>
+            <button *ngIf="!veiculo.manutencao" mat-raised-button>Nova Manutenção</button>
+            <button *ngIf="!veiculo.seguro" mat-raised-button>Novo Seguro</button>            
+
         </div>
       </mat-tab>
 
@@ -21,14 +42,16 @@
       <mat-tab *ngIf="veiculo.aluguel" label="Aluguel">
         <div class="demo-tab-content">
 
-          <label><strong>Data de início:</strong> {{ beautyData(veiculo.aluguel.periodo.inicio) }}</label><br>
-          <label><strong>Cliente:</strong> {{ showCliente() }}</label><br>
-          <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
-          <label><strong>Dias de locação até o momento:</strong> {{ difDays() }}</label><br>
-          <label><strong>Valor final atual:</strong> {{ valorTotalLocacao() | currency: 'BRL':'symbol':'1.2-2' }}</label><br>
-          <br>
-          <button mat-raised-button>Editar</button>
-          <button mat-raised-button>Finalizar</button>
+          <div>
+            <label><strong>Data de início:</strong> {{ beautyData(veiculo.aluguel.periodo.inicio) }}</label><br>
+            <label><strong>Cliente:</strong> {{ showCliente() }}</label><br>
+            <label><strong>Valor da diária:</strong> {{ veiculo.valorDiaria | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
+            <label><strong>Dias de locação até o momento:</strong> {{ difDays() }}</label><br>
+            <label><strong>Valor final atual:</strong> {{ valorTotalLocacao() | currency: 'BRL':'symbol':'1.2-2' }}</label><br>
+            <br>
+            <button mat-raised-button>Editar</button>
+            <button mat-raised-button>Finalizar</button>
+          </div>
 
         </div>
       </mat-tab>
@@ -37,13 +60,15 @@
       <mat-tab *ngIf="veiculo.manutencao" label="Manutenção">
         <div class="demo-tab-content">
 
-          <label><strong>Data de início:</strong> {{ beautyData(veiculo.manutencao.periodo.inicio) }}</label><br>
-          <label><strong>Oficina:</strong> {{ showOficina() }}</label><br>
-          <label><strong>Descrição:</strong> {{ veiculo.manutencao.descricao }}</label><br>
-          <label><strong>Valor:</strong> {{ veiculo.manutencao.valorFinal | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
-          <br>
-          <button mat-raised-button>Editar</button>
-          <button mat-raised-button>Finalizar</button>
+          <div >
+            <label><strong>Data de início:</strong> {{ beautyData(veiculo.manutencao.periodo.inicio) }}</label><br>
+            <label><strong>Oficina:</strong> {{ showOficina() }}</label><br>
+            <label><strong>Descrição:</strong> {{ veiculo.manutencao.descricao }}</label><br>
+            <label><strong>Valor:</strong> {{ veiculo.manutencao.valorFinal | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
+            <br>
+            <button mat-raised-button>Editar</button>
+            <button mat-raised-button>Finalizar</button>
+          </div>
    
         </div>
       </mat-tab>
@@ -52,12 +77,14 @@
       <mat-tab *ngIf="veiculo.seguro" label="Seguro">
         <div class="demo-tab-content">
 
-          <label><strong>Data de início:</strong> {{ beautyData(veiculo.seguro.periodo.inicio) }}</label><br>
-          <label><strong>Seguradora:</strong> {{ showSeguradora() }}</label><br>
-          <label><strong>Valor:</strong> {{ veiculo.seguro.valorTotal | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
-          <br>
-          <button mat-raised-button>Editar</button>
-          <button mat-raised-button>Finalizar</button>
+          <div >
+            <label><strong>Data de início:</strong> {{ beautyData(veiculo.seguro.periodo.inicio) }}</label><br>
+            <label><strong>Seguradora:</strong> {{ showSeguradora() }}</label><br>
+            <label><strong>Valor:</strong> {{ veiculo.seguro.valorTotal | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
+            <br>
+            <button mat-raised-button>Editar</button>
+            <button mat-raised-button>Finalizar</button>
+          </div>
 
         </div>
       </mat-tab>

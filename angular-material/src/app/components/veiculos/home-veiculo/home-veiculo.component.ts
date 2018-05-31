@@ -10,7 +10,6 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class HomeVeiculoComponent implements OnInit {
 
-
   veiculo: Veiculo;
   veiculos: Veiculo;
   displayedColumns = ['modelo', 'fabrica', 'cor', 'anoFabricacao', 'valorDiaria', 'disponivel', 'edicao'];

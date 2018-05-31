@@ -19,6 +19,7 @@ import { SweetAlert } from 'sweetalert/typings/core';
 })
 export class ShowVeiculoComponent implements OnInit {
 
+  id = this.route.snapshot.params['id'];
   seguradora: Fornecedor;
   oficina: Fornecedor;
   cliente: Cliente;
@@ -38,13 +39,11 @@ export class ShowVeiculoComponent implements OnInit {
   }
 
   getVeiculo() {
-    const id = this.route.snapshot.params['id'];
+    const id = this.id;
     this.veiculoService.getVeiculo(id)
       .subscribe(veiculo => {
         this.veiculo = veiculo;
-        // console.log(this.veiculo);
-        // const aluguel = this.veiculo.aluguel;
-        // this.veiculo.historico_de_alugueis.push(aluguel);
+        console.log(this.veiculo);
 
         if (this.veiculo.aluguel) {
           this.getCliente(this.veiculo);
@@ -130,10 +129,6 @@ export class ShowVeiculoComponent implements OnInit {
     return seguradoraCompleto;
   }
 
-  goBack() {
-    this.router.navigate(['/veiculo']);
-  }
-
   difDays() {
     const now = moment();
     const firstDate =  this.veiculo.aluguel.periodo.inicio;
@@ -150,5 +145,8 @@ export class ShowVeiculoComponent implements OnInit {
     return dias * Number(this.veiculo.valorDiaria);
   }
 
+  goBack() {
+    this.router.navigate(['/veiculo']);
+  }
 
 }

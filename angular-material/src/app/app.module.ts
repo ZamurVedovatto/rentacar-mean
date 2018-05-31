@@ -9,6 +9,7 @@ import { VeiculoService } from './services/veiculo.service';
 import { ClienteService } from './services/cliente.service';
 import { FornecedorService } from './services/fornecedor.service';
 import { LOCALE_ID } from '@angular/core';
+import { CdkTableModule } from '@angular/cdk/table';
 import * as moment from 'moment';
 
 import { AppRoutingModule } from './app-routing.module'; /* put it in imports */
@@ -17,32 +18,41 @@ import { AppRoutingModule } from './app-routing.module'; /* put it in imports */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 /* angular material components */
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatCardModule} from '@angular/material/card';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatTableModule} from '@angular/material/table';
-import {MatListModule} from '@angular/material/list';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatSortModule} from '@angular/material';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatTableDataSource} from '@angular/material';
+import {
+  MatToolbarModule,
+  MatMenuModule,
+  MatIconModule,
+  MatTabsModule,
+  MatCardModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatPaginatorModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatDialogModule,
+  MatTooltipModule,
+  MatSnackBarModule,
+  MatSidenavModule,
+  MatTableModule,
+  MatListModule,
+  MatExpansionModule,
+  MatDatepickerModule,
+  MatSelectModule,
+  MatDividerModule,
+  MatSortModule,
+  MatGridListModule,
+  MatAutocompleteModule,
+  MatButtonToggleModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatNativeDateModule,
+  MatProgressBarModule,
+  MatRippleModule,
+  MatStepperModule
+} from '@angular/material';
 /* end - angular material */
 
 /* components - put it in declarations*/
@@ -76,6 +86,9 @@ import { SystemAboutComponent } from './components/system-about/system-about.com
 import { HomeVeiculoComponent } from './components/veiculos/home-veiculo/home-veiculo.component';
 import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-veiculo.component';
 import { AddVeiculoComponent } from './components/veiculos/add-veiculo/add-veiculo.component';
+import { EditVeiculoComponent } from './components/veiculos/edit-veiculo/edit-veiculo.component';
+import { AlugarVeiculoComponent } from './components/veiculos/alugar-veiculo/alugar-veiculo.component';
+
 
 @NgModule({
   declarations: [
@@ -103,7 +116,9 @@ import { AddVeiculoComponent } from './components/veiculos/add-veiculo/add-veicu
     SystemAboutComponent,
     HomeVeiculoComponent,
     ShowVeiculoComponent,
-    AddVeiculoComponent
+    AddVeiculoComponent,
+    EditVeiculoComponent,
+    AlugarVeiculoComponent
   ],
   imports: [
     BrowserModule,
@@ -112,9 +127,11 @@ import { AddVeiculoComponent } from './components/veiculos/add-veiculo/add-veicu
     HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     MatToolbarModule,
     MatMenuModule,
-    MatIconModule, MatTabsModule,
+    MatIconModule,
+    MatTabsModule,
     MatCardModule,
     MatSliderModule,
     MatSlideToggleModule,
@@ -136,7 +153,15 @@ import { AddVeiculoComponent } from './components/veiculos/add-veiculo/add-veicu
     MatDividerModule,
     MatSortModule,
     MatGridListModule,
-    AppRoutingModule
+    MatAutocompleteModule,
+    MatButtonToggleModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatNativeDateModule,
+    MatProgressBarModule,
+    MatRippleModule,
+    MatStepperModule,
+    CdkTableModule
   ],
   entryComponents: [
     MyDialogComponent

@@ -1,0 +1,58 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Edição de dados do Veículo</div>
+  <div class="panel-body">
+  <form class="form-horizontal" (submit)="updateVeiculo()">
+
+  <div class="form-group">
+    <label for="veiculo_fabrica" class="col-sm-2 control-label">Fábrica: </label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" [(ngModel)]="model.fabrica" name="fabrica" >
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="veiculo_modelo" class="col-sm-2 control-label">Modelo: </label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" [(ngModel)]="model.modelo" name="modelo" >
+    </div>
+  </div>
+    
+  <div class="form-group">
+    <label for="veiculo_placa" class="col-sm-2 control-label">Placa: </label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" [(ngModel)]="model.placa" name="placa" >
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="veiculo_cor" class="col-sm-2 control-label">Cor: </label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" [(ngModel)]="model.cor" name="cor" >
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="veiculo_anoFabricacao" class="col-sm-2 control-label">Ano de Fabricação: </label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" [(ngModel)]="model.anoFabricacao" name="anoFabricacao" >
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="veiculo_valorDiaria" class="col-sm-2 control-label">Valor da Diária: </label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" [(ngModel)]="model.valorDiaria" name="valorDiaria" >
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+      <button type="submit" class="btn btn-success">Alterar</button>
+        <a class="btn btn-info" (click)="goBack()">Cancelar</a>
+    </div>
+    
+  </div>
+</form>
+
+</div>
+</div>
