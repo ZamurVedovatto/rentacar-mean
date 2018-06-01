@@ -38,7 +38,8 @@ const veiculoSchema = new mongoose.Schema( {
     historico_de_manutencoes: [ ],
     historico_de_seguros: [ ]
     },
-    { collection: 'veiculos' }
+    { versionKey: false },
+    { collection: 'veiculos' }    
 );
 
 const Veiculo = module.exports = mongoose.model('Veiculo', veiculoSchema);
@@ -52,7 +53,8 @@ module.exports.add = function(novoVeiculo, callback){
 }
 
 module.exports.update = function(id, update, callback){
-    Veiculo.findByIdAndUpdate(id, update, callback);
+    Veiculo.findByIdAndUpdate(id, update, {upsert: true}, callback);
+    // Veiculo.findOneAndUpdate({'_id': id}, '-__v', update, {upsert:true}, callback);
 }
 
 module.exports.delete = function(id, callback){

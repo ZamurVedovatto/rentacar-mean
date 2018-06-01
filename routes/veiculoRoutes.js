@@ -15,6 +15,24 @@ router.get('/', (req, res) => {
 //create veiculo
 router.post('/', (req, res) => {
 
+    let hAlugueis;
+    if (req.body.historico_de_alugueis.length > 0)
+        hAlugueis = req.body.historico_de_alugueis;      
+    else
+        hAlugueis = [];
+
+    let hManutencoes;
+    if (req.body.historico_de_manutencoes.length > 0)
+        hManutencoes = req.body.historico_de_manutencoes;      
+    else
+        hManutencoes = [];
+
+    let hSeguros;
+    if (req.body.historico_de_seguros.length > 0)
+        hSeguros = req.body.historico_de_seguros;
+    else
+        hSeguros = [];    
+
     let novoVeiculo = {
         fabrica: req.body.fabrica,
         modelo: req.body.modelo,
@@ -47,10 +65,9 @@ router.post('/', (req, res) => {
             idSeguradora: req.body.seguro_idSeguradora,
             valorTotal: req.body.seguro_valorTotal
         },
-        
-        historico_de_alugueis: [ ],
-        historico_de_manutencoes: [ ],
-        historico_de_seguros: [ ]
+        historico_de_alugueis: hAlugueis,
+        historico_de_manutencoes: hManutencoes,
+        historico_de_seguros: hSeguros
     }
 
     Veiculo.add(novoVeiculo, (err, veiculo) => {
@@ -80,16 +97,14 @@ router.put('/:_id', (req, res) => {
     });
 
     */
-   console.log(req.body);   
    let update = req.body;
 
     Veiculo.update(req.params._id, update, (err, update) => {
         if (err) throw err;
-        res.json(update);
+        else {
+            res.json(update);
+        }
     });
-   
-   
-    
 });
 
 

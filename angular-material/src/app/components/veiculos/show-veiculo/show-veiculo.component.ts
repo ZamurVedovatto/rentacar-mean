@@ -24,6 +24,7 @@ export class ShowVeiculoComponent implements OnInit {
   oficina: Fornecedor;
   cliente: Cliente;
   veiculo: Veiculo;
+  veiculos: Veiculo;
   swal: SweetAlert = _swal as any;
 
   constructor(
@@ -59,18 +60,32 @@ export class ShowVeiculoComponent implements OnInit {
       });
   }
 
+  getVeiculos() {
+    this.veiculoService.getVeiculos()
+      .subscribe(veiculos => {
+        this.veiculos = veiculos;
+      });
+  }
+
   updateVeiculo() {
     this.veiculoService.updateVeiculo(this.id, this.veiculo)
       .subscribe(() => {
-        console.log(this.veiculo);
-        this.goBackVeiculo();
+        this.getVeiculos();
+        // this.goBackVeiculo();
+      });
+  }
+
+  addVeiculo() {
+    this.veiculoService.addVeiculo(this.veiculo)
+      .subscribe((veiculo) => {
+        console.log(veiculo);
       });
   }
 
   deleteVeiculo(id) {
     this.veiculoService.deleteVeiculo(id)
       .subscribe(() => {
-        this.goBack();
+        // this.goBack();
       });
   }
 
@@ -156,7 +171,8 @@ export class ShowVeiculoComponent implements OnInit {
     this.atualizarAluguel();
     this.veiculo.historico_de_alugueis.push(this.veiculo.aluguel);
     delete this.veiculo.aluguel;
-    this.updateVeiculo();
+    this.addVeiculo();
+    this.deleteVeiculo(this.id);
   }
 
   atualizarAluguel() {

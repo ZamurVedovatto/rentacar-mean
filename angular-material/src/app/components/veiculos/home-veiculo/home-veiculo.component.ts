@@ -28,6 +28,7 @@ export class HomeVeiculoComponent implements OnInit {
     this.veiculoService.getVeiculos()
       .subscribe(veiculos => {
         this.veiculos = veiculos;
+        console.log(this.veiculos);
       });
   }
 
