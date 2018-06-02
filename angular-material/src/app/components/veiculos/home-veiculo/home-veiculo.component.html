@@ -40,16 +40,11 @@
           <i class="material-icons">playlist_add</i>
         </button>
       </mat-header-cell>
+
       <mat-cell *matCellDef="let veiculo">
-        <button mat-button [matMenuTriggerFor]="menu">
-          <i class="material-icons">open_in_new</i>
-        </button>
-        <mat-menu #menu="matMenu" yPosition="above">
-          <button *ngIf="!veiculo.aluguel" mat-menu-item>Alugar</button>
-          <button *ngIf="veiculo.aluguel" mat-menu-item>Finalizar locação</button>
-          <button mat-menu-item routerLink="/veiculo/show/{{ veiculo._id }}">Info</button>
-        </mat-menu>
+        <button mat-menu-item routerLink="/veiculo/show/{{ veiculo._id }}"><i class="material-icons">open_in_new</i></button>
       </mat-cell>
+
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -57,11 +52,3 @@
 
   </mat-table>
 </div>
-
-<!--
-
-<a class="btn" routerLink="/veiculo/edit/{{ veiculo._id }}">Editar</a>
-<a class="btn" routerLink="/veiculo/manutencao/{{ veiculo._id }}">Manutenção</a>
-
-
--->

@@ -85,7 +85,7 @@ export class ShowVeiculoComponent implements OnInit {
   deleteVeiculo(id) {
     this.veiculoService.deleteVeiculo(id)
       .subscribe(() => {
-        // this.goBack();
+        this.goBackVeiculo();
       });
   }
 

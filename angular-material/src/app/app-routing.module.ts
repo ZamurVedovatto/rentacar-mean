@@ -22,6 +22,11 @@ import { EditVeiculoComponent } from './components/veiculos/edit-veiculo/edit-ve
 import { AlugarVeiculoComponent } from './components/veiculos/aluguel/alugar-veiculo/alugar-veiculo.component';
 import { EditarAluguelComponent } from './components/veiculos/aluguel/editar-aluguel/editar-aluguel.component';
 
+// componentes de Cliente
+import { ShowClienteComponent } from './components/cliente/show-cliente/show-cliente.component';
+import { HomeClienteComponent } from './components/cliente/home-cliente/home-cliente.component';
+import { AddClienteComponent } from './components/cliente/add-cliente/add-cliente.component';
+import { EditClienteComponent } from './components/cliente/edit-cliente/edit-cliente.component';
 
 import { TabsComponent } from './components/tabs/tabs.component';
 
@@ -44,6 +49,12 @@ const routes: Routes = [
   { path: 'veiculo/show/:id', component: ShowVeiculoComponent, canActivate: [AuthGuard] },
   { path: 'veiculo/alugar/:id', component: AlugarVeiculoComponent, canActivate: [AuthGuard]},
   { path: 'veiculo/editaraluguel/:id', component: EditarAluguelComponent, canActivate: [AuthGuard]},
+
+  // rotas de clientes
+  { path: 'cliente', component: HomeClienteComponent, canActivate: [AuthGuard] },
+  { path: 'cliente/edit/:id', component: EditClienteComponent, canActivate: [AuthGuard] },
+  { path: 'cliente/add', component: AddClienteComponent, canActivate: [AuthGuard] },
+  { path: 'cliente/show/:id', component: ShowClienteComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

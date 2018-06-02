@@ -90,6 +90,12 @@ import { EditVeiculoComponent } from './components/veiculos/edit-veiculo/edit-ve
 import { AlugarVeiculoComponent } from './components/veiculos/aluguel/alugar-veiculo/alugar-veiculo.component';
 import { EditarAluguelComponent } from './components/veiculos/aluguel/editar-aluguel/editar-aluguel.component';
 
+/* cliente components */
+import { ShowClienteComponent } from './components/cliente/show-cliente/show-cliente.component';
+import { HomeClienteComponent } from './components/cliente/home-cliente/home-cliente.component';
+import { AddClienteComponent } from './components/cliente/add-cliente/add-cliente.component';
+import { EditClienteComponent } from './components/cliente/edit-cliente/edit-cliente.component';
+
 
 @NgModule({
   declarations: [
@@ -120,7 +126,11 @@ import { EditarAluguelComponent } from './components/veiculos/aluguel/editar-alu
     AddVeiculoComponent,
     EditVeiculoComponent,
     AlugarVeiculoComponent,
-    EditarAluguelComponent
+    EditarAluguelComponent,
+    ShowClienteComponent,
+    HomeClienteComponent,
+    AddClienteComponent,
+    EditClienteComponent
   ],
   imports: [
     BrowserModule,

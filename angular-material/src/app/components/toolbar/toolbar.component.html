@@ -16,6 +16,9 @@
       <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
         <a mat-menu-item [routerLink]="['veiculo']"><mat-icon>directions_car</mat-icon>Controle</a>
       </li>
+      <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a mat-menu-item [routerLink]="['cliente']"><mat-icon>contacts</mat-icon>Clientes</a>
+      </li>
       <li *ngIf="authService.loggedIn()">
         <a mat-menu-item (click)="onLogoutClick()" href="#"><mat-icon>flight_takeoff</mat-icon>Logout</a>
       </li>

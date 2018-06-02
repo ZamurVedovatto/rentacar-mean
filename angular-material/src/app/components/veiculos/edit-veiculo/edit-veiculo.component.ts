@@ -27,7 +27,8 @@ export class EditVeiculoComponent implements OnInit {
     this.veiculoService.getVeiculo(this.id)
       .subscribe(veiculo => {
         this.model = veiculo;
-      });
+        console.log(this.model);
+    });
   }
 
   updateVeiculo() {
@@ -36,6 +37,6 @@ export class EditVeiculoComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/veiculo']);
+    this.router.navigate(['/veiculo/show/' + this.id]);
   }
 }

@@ -1,0 +1,41 @@
+<div id="conteudo">
+  <mat-table [dataSource]="clientes">
+
+    <ng-container matColumnDef="nomeCompleto">
+      <mat-header-cell *matHeaderCellDef> Nome Completo </mat-header-cell>
+      <mat-cell id="cellNome" *matCellDef="let cliente"><strong> {{ cliente.fullName }} </strong></mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+      <mat-cell *matCellDef="let cliente"> {{ cliente.email }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="fixo">
+      <mat-header-cell *matHeaderCellDef> Fixo </mat-header-cell>
+      <mat-cell *matCellDef="let cliente"> {{ cliente.fixo }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="celular">
+      <mat-header-cell *matHeaderCellDef> Celular </mat-header-cell>
+      <mat-cell *matCellDef="let cliente"> {{ cliente.celular }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="edicao">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-button routerLink="/cliente/add">
+          <i class="material-icons">playlist_add</i>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let cliente">
+        <button mat-menu-item routerLink="/cliente/show/{{ cliente._id }}"><i class="material-icons">open_in_new</i></button>
+      </mat-cell>
+
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+  </mat-table>
+</div>
