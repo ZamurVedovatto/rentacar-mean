@@ -33,10 +33,12 @@ export class EditClienteComponent implements OnInit {
 
   updateCliente() {
     this.clienteService.updateCliente(this.id, this.model)
-      .subscribe(() => this.goBack());
+      .subscribe(() => {
+        this.goBack();
+      });
   }
 
   goBack() {
-    this.router.navigate(['/cliente']);
+    this.router.navigate(['/cliente/show/' + this.id]);
   }
 }

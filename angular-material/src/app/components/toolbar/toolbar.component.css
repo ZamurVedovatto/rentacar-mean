@@ -9,3 +9,33 @@ ul {
     margin: 0px;
     padding: 0px;
 }
+
+.menuTopo {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menuTopo li {
+    float: left;
+}
+
+.menuTopo li a {
+    display: block;
+    font-size: 80%;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.menuTopo li a mat-icon{
+    padding: 0;
+    margin: 6px;    
+}
+
+#sistemaTitulo {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(255, 255, 255, 0.836);
+    font-size: 1.2em;
+    font-weight: 500;
+}

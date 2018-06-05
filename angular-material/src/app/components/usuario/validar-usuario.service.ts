@@ -6,8 +6,8 @@ export class ValidarUsuarioService {
   constructor() { }
 
   // validar cadastro de novo usuario
-  validarRegistro(usuario) {
-    if (usuario.nome === undefined || usuario.email === undefined || usuario.username === undefined || usuario.password === undefined) {
+  validarRegistro(user) {
+    if (user.fullName === undefined || user.email === undefined || user.username === undefined || user.password === undefined) {
       return false;
     } else {
       return true;

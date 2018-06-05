@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { UserService } from './services/user.service'; /* put it in providers */
+// import { UserService } from './services/user.service'; /* put it in providers */
 import { VeiculoService } from './services/veiculo.service';
 import { ClienteService } from './services/cliente.service';
 import { FornecedorService } from './services/fornecedor.service';
@@ -69,7 +69,7 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { DataTableComponent } from './components/data-table/data-table.component';
+// import { DataTableComponent } from './components/data-table/data-table.component';
 import { HomeDashboardComponent } from './components/home-dashboard/home-dashboard.component';
 /* end - components */
 
@@ -96,6 +96,12 @@ import { HomeClienteComponent } from './components/cliente/home-cliente/home-cli
 import { AddClienteComponent } from './components/cliente/add-cliente/add-cliente.component';
 import { EditClienteComponent } from './components/cliente/edit-cliente/edit-cliente.component';
 
+/* cliente components */
+import { ShowServicoComponent } from './components/servico/show-servico/show-servico.component';
+import { HomeServicoComponent } from './components/servico/home-servico/home-servico.component';
+import { AddServicoComponent } from './components/servico/add-servico/add-servico.component';
+import { EditServicoComponent } from './components/servico/edit-servico/edit-servico.component';
+
 
 @NgModule({
   declarations: [
@@ -113,7 +119,7 @@ import { EditClienteComponent } from './components/cliente/edit-cliente/edit-cli
     SnackbarComponent,
     MenuComponent,
     SidenavComponent,
-    DataTableComponent,
+    // DataTableComponent,
     HomeDashboardComponent,
     LoginComponent,
     RegistrarComponent,
@@ -130,7 +136,11 @@ import { EditClienteComponent } from './components/cliente/edit-cliente/edit-cli
     ShowClienteComponent,
     HomeClienteComponent,
     AddClienteComponent,
-    EditClienteComponent
+    EditClienteComponent,
+    ShowServicoComponent,
+    HomeServicoComponent,
+    AddServicoComponent,
+    EditServicoComponent
   ],
   imports: [
     BrowserModule,
@@ -179,7 +189,7 @@ import { EditClienteComponent } from './components/cliente/edit-cliente/edit-cli
     MyDialogComponent
   ],
   providers: [
-    UserService,
+    // UserService,
     ValidarUsuarioService,
     AuthService,
     VeiculoService,

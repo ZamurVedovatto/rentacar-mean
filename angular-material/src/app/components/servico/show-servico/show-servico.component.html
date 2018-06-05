@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-content>
+    <mat-tab-group class="demo-tab-group">
+
+      <!-- Informações Gerais -->
+      <mat-tab label="Informações Gerais">
+        <div class="demo-tab-content">      
+          <label><strong>Serviço:</strong> {{ model.tipo }}</label><br>    
+          <label><strong>Nome Fantasia:</strong> {{ model.nomeFantasia }}</label><br>
+          <label><strong>Email:</strong> {{ model.email }}</label><br>
+          <label><strong>Endereço:</strong> {{ model.endereco_logradouro }}, {{ model.endereco_numero }}, {{ model.endereco_cidade }}</label><br>
+          <label><strong>CEP:</strong> {{ model.endereco_cep }}</label><br>
+          <label><strong>Telefone:</strong> {{ model.fixo }}</label><br>
+          <br>
+          <button mat-raised-button (click)="cliqueExcluir(model._id)">Excluir</button>
+          <button mat-raised-button routerLink="/servico/edit/{{ model._id }}">Editar Informações</button>
+        </div>
+      </mat-tab>
+
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
+
+<button mat-raised-button id="buttonBack" color="primary" (click)="goBack()">Voltar</button>

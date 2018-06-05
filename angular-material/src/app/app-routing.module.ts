@@ -28,6 +28,12 @@ import { HomeClienteComponent } from './components/cliente/home-cliente/home-cli
 import { AddClienteComponent } from './components/cliente/add-cliente/add-cliente.component';
 import { EditClienteComponent } from './components/cliente/edit-cliente/edit-cliente.component';
 
+// componentes de Cliente
+import { ShowServicoComponent } from './components/servico/show-servico/show-servico.component';
+import { HomeServicoComponent } from './components/servico/home-servico/home-servico.component';
+import { AddServicoComponent } from './components/servico/add-servico/add-servico.component';
+import { EditServicoComponent } from './components/servico/edit-servico/edit-servico.component';
+
 import { TabsComponent } from './components/tabs/tabs.component';
 
 const routes: Routes = [
@@ -54,7 +60,14 @@ const routes: Routes = [
   { path: 'cliente', component: HomeClienteComponent, canActivate: [AuthGuard] },
   { path: 'cliente/edit/:id', component: EditClienteComponent, canActivate: [AuthGuard] },
   { path: 'cliente/add', component: AddClienteComponent, canActivate: [AuthGuard] },
-  { path: 'cliente/show/:id', component: ShowClienteComponent, canActivate: [AuthGuard] }
+  { path: 'cliente/show/:id', component: ShowClienteComponent, canActivate: [AuthGuard] },
+
+    // rotas de servicos
+    { path: 'servico', component: HomeServicoComponent, canActivate: [AuthGuard] },
+    { path: 'servico/edit/:id', component: EditServicoComponent, canActivate: [AuthGuard] },
+    { path: 'servico/add', component: AddServicoComponent, canActivate: [AuthGuard] },
+    { path: 'servico/show/:id', component: ShowServicoComponent, canActivate: [AuthGuard] }
+
 ];
 
 @NgModule({

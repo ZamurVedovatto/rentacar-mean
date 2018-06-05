@@ -1,30 +1,72 @@
-<div class="panel panel-default">
-    <div class="panel-heading">Adicionar novo Cliente</div>
-    <div class="panel-body">
-    <form class="form-horizontal" (submit)="addCliente()">
+<div class="container">
+  <h1>Cadastro de novo Cliente</h1>
+  <form class="formWidth" (submit)="addCliente()">
+    <table class="fullWidth" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Nome Completo" id="fullName" [(ngModel)]="model.fullName" name="fullName" required>
+          </mat-form-field>
+        </td>  
 
-    <div class="form-group">
-      <label for="cliente_fullName" class="col-sm-2 control-label">Nome Completo: </label>
-      <div class="col-sm-9">
-        <input type="text" class="form-control" [(ngModel)]="model.fullName" name="fullName" >
-      </div>
-    </div>
+        <td>
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Email" id="email" [(ngModel)]="model.email" name="email" required>
+          </mat-form-field>
+        </td>
+      </tr>
 
-    <div class="form-group">
-      <label for="cliente_email" class="col-sm-2 control-label">Email: </label>
-      <div class="col-sm-9">
-        <input type="email" class="form-control" [(ngModel)]="model.email" name="email">
-      </div>
-    </div> 
-  
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-8">
-        <button type="submit" class="btn btn-success">Salvar</button>
-         <a class="btn btn-info" (click)="goBack()">Cancelar</a>
-      </div>
-     
-    </div>
+      <tr>
+        <td>
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Fixo" id="fixo" [(ngModel)]="model.fixo" name="fixo" required>
+          </mat-form-field>
+        </td>  
+        <td>          
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Celular" id="celular" [(ngModel)]="model.celular" name="celular" required>
+          </mat-form-field>
+        </td>
+      </tr>
+
+      <tr>
+        <td>          
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Logradouro" id="logradouro" [(ngModel)]="model.endereco_logradouro" name="logradouro" required>
+          </mat-form-field>
+        </td>  
+        <td>          
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Número" id="numero" [(ngModel)]="model.endereco_numero" name="numero" required>
+          </mat-form-field>
+        </td>  
+      </tr>
+
+      <tr>
+        <td>          
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Cidade" id="cidade" [(ngModel)]="model.endereco_cidade" name="cidade" required>
+          </mat-form-field>
+        </td>  
+        <td>          
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="CEP" id="cep" [(ngModel)]="model.endereco_cep" name="cep" required>
+          </mat-form-field>
+        </td>  
+      </tr>
+
+      <tr>
+        <td>
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Idade" id="idade" [(ngModel)]="model.idade" name="idade" required>
+            </mat-form-field>
+        </td>
+        <td>
+          <button mat-button color="warn" (click)="goBack()">Cancelar</button>
+          <button mat-button color="primary" type="submit">Salvar</button>
+        </td>
+      </tr>
+    </table>
+
   </form>
-  
-    </div>
-  </div>
+</div>

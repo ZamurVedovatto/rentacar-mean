@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service'; // injetar no construtor
-import { Router } from '@angular/router'; // injetar no construtor
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormControl, Validators} from '@angular/forms';
 import { MatSnackBar } from '@angular/material'; // injetar no construtor
+import { User } from '../../../data-models/user.model';
 
 @Component({
   selector: 'app-registrar',
@@ -15,6 +16,8 @@ export class RegistrarComponent implements OnInit {
   hide = true;
 
   // user properties
+  user = new User();
+  /*
   name: String;
   username: String;
   email = new FormControl('', [Validators.email]);
@@ -26,8 +29,10 @@ export class RegistrarComponent implements OnInit {
   phone: String;
   cellPhone: String;
   linkedin: String;
+  */
 
   constructor(
+    public route: ActivatedRoute,
     private authService: AuthService,
     private router: Router,
     public snackBar: MatSnackBar
@@ -36,12 +41,8 @@ export class RegistrarComponent implements OnInit {
   ngOnInit() {
   }
 
-  getErrorMessage() {
-    return this.email.hasError('email') ? 'Email inválido' : '';
-  }
-
   openSnackbarRegistroValido(user) {
-    this.snackBar.open(`Usuário ${user.name} cadastrado com sucesso`, '', {
+    this.snackBar.open(`Usuário ${user.fullName} cadastrado com sucesso`, '', {
       duration: 5000
     });
   }
@@ -54,27 +55,12 @@ export class RegistrarComponent implements OnInit {
 
   // envio de dados do formulário de cadastro de novo usuário
   submeterRegistro() {
-    const user = {
-      name: this.name,
-      username: this.username,
-      email: this.email.value,
-      password: this.password,
-      address: {
-          street: this.street,
-          number: this.number,
-          city: this.city,
-          zipCode: this.zipCode,
-      },
-      phone: this.phone,
-      cellPhone: this.cellPhone,
-      linkedin: this.linkedin
-    };
 
     // registrar usuario (this is an observable)
-    this.authService.registrarUsuario(user)
+    this.authService.registrarUsuario(this.user)
       .subscribe(data => {
         if (data.success) {
-          this.openSnackbarRegistroValido(user);
+          this.openSnackbarRegistroValido(this.user);
           this.router.navigate(['usuario/login']);
         } else {
           this.openSnackbarRegistroInvalido();

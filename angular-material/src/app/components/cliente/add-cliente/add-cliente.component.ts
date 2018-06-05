@@ -20,6 +20,7 @@ export class AddClienteComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(this.model);
   }
 
   addCliente() {

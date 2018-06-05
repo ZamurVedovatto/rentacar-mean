@@ -12,6 +12,5 @@ export class Cliente {
     };
     fixo?: String;
     celular?: String;
-    linkedin?: String;
     idade?: Number;
 }

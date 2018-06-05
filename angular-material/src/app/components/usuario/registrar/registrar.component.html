@@ -6,12 +6,12 @@
       <tr>  
         <td>          
           <mat-form-field class="fullWidth">
-            <input matInput type="text" placeholder="Nome Completo" id="name" [(ngModel)]="name" name="name" required>
+            <input matInput type="text" placeholder="Nome Completo" id="name" [(ngModel)]="user.fullName" name="fullName" required>
           </mat-form-field>
         </td>  
         <td>
           <mat-form-field class="fullWidth">
-            <input matInput type="text" #input maxlength="10"placeholder="Username" id="username" [(ngModel)]="username" name="username" required>
+            <input matInput type="text" #input maxlength="10"placeholder="Username" id="username" [(ngModel)]="user.username" name="username" required>
             <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
           </mat-form-field>
         </td>  
@@ -19,13 +19,12 @@
       <tr>  
         <td>          
           <mat-form-field class="fullWidth">
-            <input matInput type="email" placeholder="Email" [formControl]="email" id="email" name="email" required>
-            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            <input matInput type="email" placeholder="Email" [(ngModel)]="user.email" id="email" name="email" required>
           </mat-form-field>
         </td>  
         <td>
           <mat-form-field class="fullWidth">
-            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" id="password" [(ngModel)]="password" name="password" required>
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" id="password" [(ngModel)]="user.password" name="password" required>
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
           </mat-form-field>
         </td>  
@@ -37,25 +36,25 @@
       <tr>
         <td>          
           <mat-form-field class="fullWidth">
-            <input matInput type="text" placeholder="Logradouro" id="logradouro" [(ngModel)]="street" name="street">
+            <input matInput type="text" placeholder="Logradouro" id="logradouro" [(ngModel)]="user.endereco_logradouro" name="logradouro">
             <mat-hint align="start">Rua, Avenida, Estrada, Galeria, Praça, Quadra</mat-hint>
           </mat-form-field>
         </td>  
         <td>
           <mat-form-field class="fullWidth">
-            <input matInput type="text" placeholder="Número" id="numero" [(ngModel)]="number" name="number">
+            <input matInput type="text" placeholder="Número" id="numero" [(ngModel)]="user.endereco_numero" name="numero">
           </mat-form-field>
         </td>  
       </tr>
       <tr>  
         <td>          
           <mat-form-field class="fullWidth">
-            <input matInput type="text" placeholder="Município" id="municipio" [(ngModel)]="city" name="city">
+            <input matInput type="text" placeholder="Município" id="municipio" [(ngModel)]="user.endereco_cidade" name="cidade">
           </mat-form-field>
         </td>  
         <td>
           <mat-form-field class="fullWidth">
-            <input matInput type="text" placeholder="CEP" id="cep" [(ngModel)]="zipCode" name="zipCode">
+            <input matInput type="text" placeholder="CEP" id="cep" [(ngModel)]="user.endereco_cep" name="cep">
           </mat-form-field>
         </td>  
       </tr>
@@ -66,19 +65,19 @@
       <tr>  
         <td>          
           <mat-form-field class="fullWidth">
-            <input matInput type="text" placeholder="Fixo" id="phone" [(ngModel)]="phone" name="phone">
+            <input matInput type="text" placeholder="Fixo" id="phone" [(ngModel)]="user.fixo" name="fixo">
           </mat-form-field>
         </td>  
         <td>
           <mat-form-field class="fullWidth">
-            <input matInput type="text" placeholder="Celular" id="cellPhone" [(ngModel)]="cellPhone" name="cellPhone">
+            <input matInput type="text" placeholder="Celular" id="cellPhone" [(ngModel)]="user.celular" name="celular">
           </mat-form-field>
         </td>  
       </tr>
       <tr>  
         <td>          
           <mat-form-field class="fullWidth">
-            <input matInput type="text" placeholder="Linkedin" id="linkedin" [(ngModel)]="linkedin" name="linkedin">
+            <input matInput type="text" placeholder="Linkedin" id="linkedin" [(ngModel)]="user.linkedin" name="linkedin">
           </mat-form-field>
         </td>
         <td>

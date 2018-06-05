@@ -1,0 +1,41 @@
+<div id="conteudo">
+  <mat-table [dataSource]="models">
+
+    <ng-container matColumnDef="tipo">
+      <mat-header-cell *matHeaderCellDef> Serviço </mat-header-cell>
+      <mat-cell *matCellDef="let fornecedor"><strong> {{ fornecedor.tipo }} </strong></mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nomeFantasia">
+      <mat-header-cell *matHeaderCellDef> Nome Fantasia </mat-header-cell>
+      <mat-cell *matCellDef="let fornecedor"> {{ fornecedor.nomeFantasia }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+      <mat-cell *matCellDef="let fornecedor"> {{ fornecedor.email }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="fixo">
+      <mat-header-cell *matHeaderCellDef> Fixo </mat-header-cell>
+      <mat-cell *matCellDef="let fornecedor"> {{ fornecedor.fixo }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="edicao">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-button routerLink="/servico/add">
+          <i class="material-icons">playlist_add</i>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let fornecedor">
+        <button mat-menu-item routerLink="/servico/show/{{ fornecedor._id }}"><i class="material-icons">open_in_new</i></button>
+      </mat-cell>
+
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+  </mat-table>
+</div>

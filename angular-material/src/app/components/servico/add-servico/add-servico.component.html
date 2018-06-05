@@ -1,0 +1,73 @@
+<div class="container">
+  <h1>Cadastro de novo Serviço</h1>
+  <form class="formWidth" (submit)="addFornecedor()">
+    <table class="fullWidth" cellspacing="0">
+      <tr>  
+        <td>          
+          <mat-form-field class="fullWidth">
+
+            <mat-select placeholder="Tipo de Serviço" [(ngModel)]="model.tipo" name="tipo" required>
+              <mat-option value="Seguradora">Seguradora</mat-option>
+              <mat-option value="Oficina">Oficina</mat-option>              
+            </mat-select>
+
+          </mat-form-field>
+        </td>  
+
+        <td>
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Nome Fantasia" id="nomeFantasia" [(ngModel)]="model.nomeFantasia" name="nomeFantasia" required>
+          </mat-form-field>
+        </td>        
+      </tr>
+
+      <tr>  
+        <td>          
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Email" id="email" [(ngModel)]="model.email" name="email" required>
+          </mat-form-field>
+        </td>  
+        <td>          
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Fixo" id="fixo" [(ngModel)]="model.fixo" name="fixo" required>
+          </mat-form-field>
+        </td>  
+      </tr>
+      <tr>
+        <td>          
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Logradouro" id="logradouro" [(ngModel)]="model.endereco.logradouro" name="logradouro" required>
+          </mat-form-field>
+        </td>  
+        <td>          
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Número" id="numero" [(ngModel)]="model.endereco.numero" name="numero" required>
+          </mat-form-field>
+        </td>  
+      </tr>
+
+      <tr>
+        <td>          
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="Cidade" id="cidade" [(ngModel)]="model.endereco.cidade" name="cidade" required>
+          </mat-form-field>
+        </td>  
+        <td>          
+          <mat-form-field class="fullWidth">
+            <input matInput type="text" placeholder="CEP" id="cep" [(ngModel)]="model.endereco.cep" name="cep" required>
+          </mat-form-field>
+        </td>  
+      </tr>
+
+      <tr>
+        <td>
+        </td>
+        <td>
+          <button mat-button color="warn" (click)="goBack()">Cancelar</button>
+          <button mat-button color="primary" type="submit">Salvar</button>
+        </td>
+      </tr>
+    </table>
+
+  </form>
+</div>

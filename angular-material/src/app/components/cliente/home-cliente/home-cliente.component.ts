@@ -28,14 +28,6 @@ export class HomeClienteComponent implements OnInit {
     this.clienteService.getClientes()
       .subscribe(clientes => {
         this.clientes = clientes;
-        console.log(this.clientes);
-      });
-  }
-
-  getVeiculo(id) {
-    this.clienteService.getCliente(id)
-      .subscribe(cliente => {
-        this.cliente = cliente;
       });
   }
 

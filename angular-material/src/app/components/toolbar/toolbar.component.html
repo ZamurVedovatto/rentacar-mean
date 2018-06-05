@@ -1,7 +1,24 @@
 <mat-toolbar color="primary">
-  <span>SisLoc</span>    
+  <ul>
+    <li>
+      <a mat-menu-item [routerLink]="['sobre']" id="sistemaTitulo">SisLoc</a>
+    </li>
+  </ul>
 
   <span class="spacer"></span>
+
+  <ul class="menuTopo">
+    <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+      <a mat-menu-item [routerLink]="['veiculo']"><mat-icon>directions_car</mat-icon>Veículos</a>
+    </li>
+    <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+      <a mat-menu-item [routerLink]="['cliente']"><mat-icon>contacts</mat-icon>Clientes</a>
+    </li>
+    <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+      <a mat-menu-item [routerLink]="['servico']"><mat-icon>domain</mat-icon>Serviços</a>
+    </li>
+
+  </ul>
   
   <a mat-icon-button [matMenuTriggerFor]="appMenu">
     <mat-icon>more_vert</mat-icon>
@@ -13,12 +30,6 @@
       <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
         <a mat-menu-item [routerLink]="['usuario/login']"><mat-icon>flight_land</mat-icon>Login</a>
       </li>
-      <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a mat-menu-item [routerLink]="['veiculo']"><mat-icon>directions_car</mat-icon>Controle</a>
-      </li>
-      <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a mat-menu-item [routerLink]="['cliente']"><mat-icon>contacts</mat-icon>Clientes</a>
-      </li>
       <li *ngIf="authService.loggedIn()">
         <a mat-menu-item (click)="onLogoutClick()" href="#"><mat-icon>flight_takeoff</mat-icon>Logout</a>
       </li>
@@ -29,7 +40,7 @@
         <a mat-menu-item [routerLink]="['usuario/registrar']"><mat-icon>fingerprint</mat-icon>Registrar</a>
       </li>
       <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a mat-menu-item [routerLink]="['/sobre']"><mat-icon>info_outline</mat-icon>About</a>
+        <a mat-menu-item [routerLink]="['sobre']"><mat-icon>info_outline</mat-icon>About</a>
       </li>
     </ul>
     

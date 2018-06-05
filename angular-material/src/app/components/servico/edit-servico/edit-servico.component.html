@@ -1,0 +1,70 @@
+<mat-card>
+  <mat-card-content>
+    <form class="formWidth" (submit)="update()">
+      <table class="fullWidth" cellspacing="0">
+        <h3>Alterar Dados</h3>
+
+        <tr>  
+          <td>          
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Tipo de Serviço" id="tipo" [(ngModel)]="model.tipo" name="tipo" required>
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>  
+          <td>          
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Nome Fantasia" id="nomeFantasia" [(ngModel)]="model.nomeFantasia" name="nomeFantasia" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Email" id="email" [(ngModel)]="model.email" name="email" required>
+            </mat-form-field>
+          </td>  
+        </tr>
+
+        <tr>
+          <td>          
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Logradouro" id="logradouro" [(ngModel)]="model.endereco.logradouro" name="logradouro" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Número" id="numero" [(ngModel)]="model.endereco.numero" name="numero" required>
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>  
+          <td>          
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Munícipio" id="municipio" [(ngModel)]="model.endereco.cidade" name="cidade" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="CEP" id="cep" [(ngModel)]="model.endereco.cep" name="cep" required>
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>  
+          <td>          
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Telefone" id="fixo" [(ngModel)]="model.fixo" name="fixo" required>
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>  
+          <button mat-raised-button id="buttonBack" color="primary" (click)="goBack()">Cancelar</button>
+          <button mat-raised-button color="primary" type="submit">Alterar</button>
+        </tr>
+      
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>

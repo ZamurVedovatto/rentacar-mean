@@ -1,30 +1,73 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Edição de dados do Cliente</div>
-  <div class="panel-body">
-  <form class="form-horizontal" (submit)="updateCliente()">
+<mat-card>
+  <mat-card-content>
+    <form class="formWidth" (submit)="updateCliente()">
+      <table class="fullWidth" cellspacing="0">
+        <h3>Alterar Dados</h3>
+        <tr>  
+          <td>          
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Nome Completo" id="nomeCompleto" [(ngModel)]="model.fullName" name="nomeCompleto" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Email" id="email" [(ngModel)]="model.email" name="email" required>
+            </mat-form-field>
+          </td>  
+        </tr>
 
-  <div class="form-group">
-    <label for="cliente_fullName" class="col-sm-2 control-label">Nome Completo: </label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" [(ngModel)]="model.fullName" name="fullName" >
-    </div>
-    
-  </div>
-  <div class="form-group">
-    <label for="cliente_email" class="col-sm-2 control-label">Email: </label>
-    <div class="col-sm-9">
-      <input type="email" class="form-control" [(ngModel)]="model.email" name="email">
-    </div>
-  </div>
+        <tr>  
+          <td>          
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Logradouro" id="logradouro" [(ngModel)]="model.endereco_logradouro" name="logradouro" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="fullWidth">
+              <input matInput type="number" placeholder="Número" id="numero" [(ngModel)]="model.endereco_numero" name="numero" required>
+            </mat-form-field>
+          </td>
+        </tr>
 
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-8">
-      <button type="submit" class="btn btn-success">Alterar</button>
-        <a class="btn btn-info" (click)="goBack()">Cancelar</a>
-    </div>
-    
-  </div>
-</form>
+        <tr>  
+          <td>          
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Munícipio" id="municipio" [(ngModel)]="model.endereco_cidade" name="cidade" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="fullWidth">
+              <input matInput type="number" placeholder="CEP" id="cep" [(ngModel)]="model.endereco_cep" name="cep" required>
+            </mat-form-field>
+          </td>
+        </tr>
 
-</div>
-</div>
+        <tr>  
+          <td>          
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Telefone" id="fixo" [(ngModel)]="model.fixo" name="fixo" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="fullWidth">
+              <input matInput type="text" placeholder="Celular" id="celular" [(ngModel)]="model.endereco.celular" name="celular" required>
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>  
+          <td>
+            <mat-form-field class="fullWidth">
+              <input matInput type="number" placeholder="Idade" id="idade" [(ngModel)]="model.idade" name="idade" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <br>
+
+        <button mat-raised-button id="buttonBack" color="primary" (click)="goBack()">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit">Alterar</button>
+
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>
