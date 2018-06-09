@@ -19,8 +19,15 @@ import { ShowVeiculoComponent } from './components/veiculos/show-veiculo/show-ve
 import { HomeVeiculoComponent } from './components/veiculos/home-veiculo/home-veiculo.component';
 import { AddVeiculoComponent } from './components/veiculos/add-veiculo/add-veiculo.component';
 import { EditVeiculoComponent } from './components/veiculos/edit-veiculo/edit-veiculo.component';
+
 import { AlugarVeiculoComponent } from './components/veiculos/aluguel/alugar-veiculo/alugar-veiculo.component';
 import { EditarAluguelComponent } from './components/veiculos/aluguel/editar-aluguel/editar-aluguel.component';
+
+import { AddManutencaoComponent } from './components/veiculos/manutencao/add-manutencao/add-manutencao.component';
+import { EditManutencaoComponent } from './components/veiculos/manutencao/edit-manutencao/edit-manutencao.component';
+
+import { AddSeguroComponent } from './components/veiculos/seguro/add-seguro/add-seguro.component';
+import { EditSeguroComponent } from './components/veiculos/seguro/edit-seguro/edit-seguro.component';
 
 // componentes de Cliente
 import { ShowClienteComponent } from './components/cliente/show-cliente/show-cliente.component';
@@ -28,7 +35,7 @@ import { HomeClienteComponent } from './components/cliente/home-cliente/home-cli
 import { AddClienteComponent } from './components/cliente/add-cliente/add-cliente.component';
 import { EditClienteComponent } from './components/cliente/edit-cliente/edit-cliente.component';
 
-// componentes de Cliente
+// componentes de Servicos
 import { ShowServicoComponent } from './components/servico/show-servico/show-servico.component';
 import { HomeServicoComponent } from './components/servico/home-servico/home-servico.component';
 import { AddServicoComponent } from './components/servico/add-servico/add-servico.component';
@@ -55,6 +62,12 @@ const routes: Routes = [
   { path: 'veiculo/show/:id', component: ShowVeiculoComponent, canActivate: [AuthGuard] },
   { path: 'veiculo/alugar/:id', component: AlugarVeiculoComponent, canActivate: [AuthGuard]},
   { path: 'veiculo/editaraluguel/:id', component: EditarAluguelComponent, canActivate: [AuthGuard]},
+
+  { path: 'veiculo/novamanutencao/:id', component: AddManutencaoComponent, canActivate: [AuthGuard]},
+  { path: 'veiculo/editarmanutencao/:id', component: EditManutencaoComponent, canActivate: [AuthGuard]},
+
+  { path: 'veiculo/novoseguro/:id', component: AddSeguroComponent, canActivate: [AuthGuard]},
+  { path: 'veiculo/editarseguro/:id', component: EditSeguroComponent, canActivate: [AuthGuard]},
 
   // rotas de clientes
   { path: 'cliente', component: HomeClienteComponent, canActivate: [AuthGuard] },

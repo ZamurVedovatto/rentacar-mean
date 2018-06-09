@@ -30,6 +30,39 @@ export class ShowClienteComponent implements OnInit {
       });
   }
 
+  deleteCliente(id) {
+    this.clienteService.deleteCliente(id)
+      .subscribe(() => {
+        this.goBack();
+      });
+  }
+
+  cliqueExcluir(id) {
+    swal({
+      title: `Excluir ${this.cliente.fullName}?`,
+      buttons: {
+        cancel: {
+          text: 'Cancelar',
+          value: null,
+          visible: true,
+          className: '',
+          closeModal: true,
+        },
+        confirm: {
+          text: 'OK',
+          value: true,
+          visible: true,
+          className: '',
+          closeModal: true
+        }
+      }
+    }).then((value) => {
+      if (value) {
+        this.deleteCliente(id);
+      }
+    });
+  }
+
   goBack() {
     this.router.navigate(['/cliente']);
   }

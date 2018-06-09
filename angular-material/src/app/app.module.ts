@@ -89,6 +89,10 @@ import { AddVeiculoComponent } from './components/veiculos/add-veiculo/add-veicu
 import { EditVeiculoComponent } from './components/veiculos/edit-veiculo/edit-veiculo.component';
 import { AlugarVeiculoComponent } from './components/veiculos/aluguel/alugar-veiculo/alugar-veiculo.component';
 import { EditarAluguelComponent } from './components/veiculos/aluguel/editar-aluguel/editar-aluguel.component';
+import { AddManutencaoComponent } from './components/veiculos/manutencao/add-manutencao/add-manutencao.component';
+import { EditManutencaoComponent } from './components/veiculos/manutencao/edit-manutencao/edit-manutencao.component';
+import { AddSeguroComponent } from './components/veiculos/seguro/add-seguro/add-seguro.component';
+import { EditSeguroComponent } from './components/veiculos/seguro/edit-seguro/edit-seguro.component';
 
 /* cliente components */
 import { ShowClienteComponent } from './components/cliente/show-cliente/show-cliente.component';
@@ -140,7 +144,11 @@ import { EditServicoComponent } from './components/servico/edit-servico/edit-ser
     ShowServicoComponent,
     HomeServicoComponent,
     AddServicoComponent,
-    EditServicoComponent
+    EditServicoComponent,
+    AddManutencaoComponent,
+    EditManutencaoComponent,
+    AddSeguroComponent,
+    EditSeguroComponent
   ],
   imports: [
     BrowserModule,

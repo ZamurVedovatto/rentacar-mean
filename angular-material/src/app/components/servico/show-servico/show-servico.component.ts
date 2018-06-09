@@ -30,6 +30,39 @@ export class ShowServicoComponent implements OnInit {
       });
   }
 
+  deleteFornecedor(id) {
+    this.fornecedorService.deleteFornecedor(id)
+      .subscribe(() => {
+        this.goBack();
+      });
+  }
+
+  cliqueExcluir(id) {
+    swal({
+      title: `Excluir ${this.model.nomeFantasia}?`,
+      buttons: {
+        cancel: {
+          text: 'Cancelar',
+          value: null,
+          visible: true,
+          className: '',
+          closeModal: true,
+        },
+        confirm: {
+          text: 'OK',
+          value: true,
+          visible: true,
+          className: '',
+          closeModal: true
+        }
+      }
+    }).then((value) => {
+      if (value) {
+        this.deleteFornecedor(id);
+      }
+    });
+  }
+
   goBack() {
     this.router.navigate(['/servico']);
   }

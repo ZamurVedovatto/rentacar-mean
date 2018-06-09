@@ -180,6 +180,30 @@ export class ShowVeiculoComponent implements OnInit {
     this.veiculo.aluguel.valorFinal = this.valorTotalLocacao();
   }
 
+  finalizarManutencao() {
+    this.atualizarManutencao();
+    this.veiculo.historico_de_manutencoes.push(this.veiculo.manutencao);
+    delete this.veiculo.manutencao;
+    this.addVeiculo();
+    this.deleteVeiculo(this.id);
+  }
+
+  atualizarManutencao() {
+    this.veiculo.manutencao.periodo.fim = new Date();
+  }
+
+  finalizarSeguro() {
+    this.atualizarSeguro();
+    this.veiculo.historico_de_seguros.push(this.veiculo.seguro);
+    delete this.veiculo.seguro;
+    this.addVeiculo();
+    this.deleteVeiculo(this.id);
+  }
+
+  atualizarSeguro() {
+    this.veiculo.seguro.periodo.fim = new Date();
+  }
+
   goBack() {
     this.router.navigate(['/veiculo']);
   }

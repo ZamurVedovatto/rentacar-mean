@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Cadastro de nova Manutenção</h1>
+  <form class="formWidth" (submit)="addManutencao()">
+    <table class="fullWidth" cellspacing="0">
+      <tr>  
+        <td>          
+          <mat-form-field class="fullWidth">
+            <mat-select placeholder="Selecionar Oficina" [(ngModel)]="idOficina" name="idOficina" required>
+              <mat-option *ngFor="let oficina of fornecedores" [value]="oficina._id">{{oficina.nomeFantasia}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Data de entrada na oficina" [(ngModel)]="dataEntrada" name="dataEntrada" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Descrição do serviço" [(ngModel)]="descricao" name="descricao" required>
+          </mat-form-field>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <mat-form-field class="fullWidth">
+            <input matInput type="number" placeholder="Valor" id="valorFinal" [(ngModel)]="valorFinal" name="valorFinal" required>
+            <span matPrefix>R$&nbsp;</span>
+            <span matSuffix>,00</span>
+          </mat-form-field>
+        </td>  
+      </tr>
+
+      <tr>
+        <td>
+          <button mat-button color="warn" (click)="goBack()">Cancelar</button>
+          <button mat-button color="primary" type="submit">Salvar</button>
+        </td>
+      </tr>
+    </table>
+
+  </form>
+</div>

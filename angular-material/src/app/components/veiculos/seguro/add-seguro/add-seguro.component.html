@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>Cadastro de novo Seguro</h1>
+  <form class="formWidth" (submit)="addSeguro()">
+    <table class="fullWidth" cellspacing="0">
+      <tr>  
+        <td>          
+          <mat-form-field class="fullWidth">
+            <mat-select placeholder="Selecionar Seguradora" [(ngModel)]="idSeguradora" name="idSeguradora" required>
+              <mat-option *ngFor="let seguradora of fornecedores" [value]="seguradora._id">{{seguradora.nomeFantasia}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Data de início do seguro" [(ngModel)]="dataEntrada" name="dataEntrada" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </td>
+      </tr>
+
+      <!-- <tr>
+        <td>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker1" placeholder="Data de finalização do seguro" [(ngModel)]="dataFim" name="dataFim" required>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </td>
+      </tr> -->
+
+      <tr>
+        <td>
+          <mat-form-field class="fullWidth">
+            <input matInput type="number" placeholder="Valor" id="valorFinal" [(ngModel)]="valorFinal" name="valorFinal" required>
+            <span matPrefix>R$&nbsp;</span>
+            <span matSuffix>,00</span>
+          </mat-form-field>
+        </td>  
+      </tr>
+
+      <tr>
+        <td>
+          <button mat-button color="warn" (click)="goBack()">Cancelar</button>
+          <button mat-button color="primary" type="submit">Salvar</button>
+        </td>
+      </tr>
+    </table>
+
+  </form>
+</div>

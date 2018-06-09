@@ -31,9 +31,9 @@
             <br>
             <button mat-raised-button (click)="cliqueExcluir(veiculo._id)">Excluir</button>
             <button mat-raised-button routerLink="/veiculo/edit/{{ veiculo._id }}">Editar Informações</button>
-            <button *ngIf="!veiculo.aluguel" mat-raised-button routerLink="/veiculo/alugar/{{ veiculo._id }}">Novo Aluguel</button>
-            <button *ngIf="!veiculo.manutencao" mat-raised-button>Nova Manutenção</button>
-            <button *ngIf="!veiculo.seguro" mat-raised-button>Novo Seguro</button>            
+            <button *ngIf="!veiculo.aluguel && !veiculo.manutencao" mat-raised-button routerLink="/veiculo/alugar/{{ veiculo._id }}">Novo Aluguel</button>
+            <button *ngIf="!veiculo.aluguel && !veiculo.manutencao" mat-raised-button routerLink="/veiculo/novamanutencao/{{ veiculo._id }}">Nova Manutenção</button>
+            <button *ngIf="!veiculo.seguro" mat-raised-button routerLink="/veiculo/novoseguro/{{ veiculo._id }}">Novo Seguro</button>            
 
         </div>
       </mat-tab>
@@ -66,8 +66,7 @@
             <label><strong>Descrição:</strong> {{ veiculo.manutencao.descricao }}</label><br>
             <label><strong>Valor:</strong> {{ veiculo.manutencao.valorFinal | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
             <br>
-            <button mat-raised-button>Editar</button>
-            <button mat-raised-button>Finalizar</button>
+            <button type="button" mat-raised-button (click)="finalizarManutencao()">Finalizar</button>
           </div>
    
         </div>
@@ -83,7 +82,7 @@
             <label><strong>Valor:</strong> {{ veiculo.seguro.valorTotal | currency: 'BRL':'symbol':'1.2-2'}}</label><br>
             <br>
             <button mat-raised-button>Editar</button>
-            <button mat-raised-button>Finalizar</button>
+            <button type="button" mat-raised-button (click)="finalizarSeguro()">Finalizar</button>
           </div>
 
         </div>
@@ -117,16 +116,18 @@
 
           <table mat-table>
             <thead>
-              <th mat-header-cell>Retirada</th>
-              <th mat-header-cell>Devolução</th>
-              <th mat-header-cell>Cliente</th>
+              <th mat-header-cell>Início</th>
+              <th mat-header-cell>Final</th>
+              <th mat-header-cell>Oficina</th>
+              <th mat-header-cell>Descrição</th>
               <th mat-header-cell>Valor</th>
             </thead>
-            <tbody *ngFor="let aluguel of veiculo.historico_de_alugueis">
-              <td mat-cell>{{aluguel.periodo.inicio}}</td>        
-              <td mat-cell>{{aluguel.periodo.fim}}</td>        
-              <td mat-cell>{{aluguel.idCliente}}</td>        
-              <td mat-cell>{{aluguel.valorFinal}}</td>
+            <tbody *ngFor="let manut of veiculo.historico_de_manutencoes">
+              <td mat-cell>{{manut.periodo.inicio}}</td>        
+              <td mat-cell>{{manut.periodo.fim}}</td>        
+              <td mat-cell>{{manut.idOficina}}</td>
+              <td mat-cell>{{manut.descricao}}</td>
+              <td mat-cell>{{manut.valorFinal}}</td>
             </tbody>
           </table>
 
@@ -139,16 +140,16 @@
 
           <table mat-table>
             <thead>
-              <th mat-header-cell>Retirada</th>
-              <th mat-header-cell>Devolução</th>
-              <th mat-header-cell>Cliente</th>
+              <th mat-header-cell>Início</th>
+              <th mat-header-cell>Fim</th>
+              <th mat-header-cell>Seguradora</th>
               <th mat-header-cell>Valor</th>
             </thead>
-            <tbody *ngFor="let aluguel of veiculo.historico_de_alugueis">
-              <td mat-cell>{{aluguel.periodo.inicio}}</td>        
-              <td mat-cell>{{aluguel.periodo.fim}}</td>        
-              <td mat-cell>{{aluguel.idCliente}}</td>        
-              <td mat-cell>{{aluguel.valorFinal}}</td>
+            <tbody *ngFor="let seg of veiculo.historico_de_seguros">
+              <td mat-cell>{{seg.periodo.inicio}}</td>        
+              <td mat-cell>{{seg.periodo.fim}}</td>        
+              <td mat-cell>{{seg.idSeguradora}}</td>        
+              <td mat-cell>{{seg.valorFinal}}</td>
             </tbody>
           </table>
 
