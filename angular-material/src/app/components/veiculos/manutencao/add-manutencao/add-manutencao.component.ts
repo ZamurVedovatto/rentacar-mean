@@ -48,6 +48,7 @@ export class AddManutencaoComponent implements OnInit {
     this.fornecedorService.getFornecedores()
       .subscribe(fornecedores => {
         this.fornecedores = fornecedores;
+        console.log(this.fornecedores);
       });
   }
 

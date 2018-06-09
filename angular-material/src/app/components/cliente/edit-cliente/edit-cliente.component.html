@@ -19,12 +19,12 @@
         <tr>  
           <td>          
             <mat-form-field class="fullWidth">
-              <input matInput type="text" placeholder="Logradouro" id="logradouro" [(ngModel)]="model.endereco_logradouro" name="logradouro" required>
+              <input matInput type="text" placeholder="Logradouro" id="logradouro" [(ngModel)]="model.endereco.logradouro" name="logradouro" required>
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="fullWidth">
-              <input matInput type="number" placeholder="Número" id="numero" [(ngModel)]="model.endereco_numero" name="numero" required>
+              <input matInput type="number" placeholder="Número" id="numero" [(ngModel)]="model.endereco.numero" name="numero" required>
             </mat-form-field>
           </td>
         </tr>
@@ -32,12 +32,12 @@
         <tr>  
           <td>          
             <mat-form-field class="fullWidth">
-              <input matInput type="text" placeholder="Munícipio" id="municipio" [(ngModel)]="model.endereco_cidade" name="cidade" required>
+              <input matInput type="text" placeholder="Munícipio" id="municipio" [(ngModel)]="model.endereco.cidade" name="cidade" required>
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="fullWidth">
-              <input matInput type="number" placeholder="CEP" id="cep" [(ngModel)]="model.endereco_cep" name="cep" required>
+              <input matInput type="number" placeholder="CEP" id="cep" [(ngModel)]="model.endereco.cep" name="cep" required>
             </mat-form-field>
           </td>
         </tr>
@@ -50,7 +50,7 @@
           </td>
           <td>
             <mat-form-field class="fullWidth">
-              <input matInput type="text" placeholder="Celular" id="celular" [(ngModel)]="model.endereco.celular" name="celular" required>
+              <input matInput type="text" placeholder="Celular" id="celular" [(ngModel)]="model.celular" name="celular" required>
             </mat-form-field>
           </td>
         </tr>

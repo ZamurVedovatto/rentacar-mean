@@ -7,8 +7,8 @@
         <div class="demo-tab-content">          
             <label><strong>Nome Completo:</strong> {{ cliente.fullName }}</label><br>
             <label><strong>Email:</strong> {{ cliente.email }}</label><br>
-            <label><strong>Endereço:</strong> {{ cliente.endereco_logradouro }}, {{ cliente.endereco_numero }}, {{ cliente.endereco_cidade }}</label><br>
-            <label><strong>CEP:</strong> {{ cliente.endereco_cep }}</label><br>
+            <label><strong>Endereço:</strong> {{ cliente.endereco.logradouro }}, {{ cliente.endereco.numero }}, {{ cliente.endereco.cidade }}</label><br>
+            <label><strong>CEP:</strong> {{ cliente.endereco.cep }}</label><br>
             <label><strong>Telefone:</strong> {{ cliente.fixo }}</label><br>
             <label><strong>Celular:</strong> {{ cliente.celular }}</label><br>
             <label><strong>Idade:</strong> {{ cliente.idade }}</label><br>                        
