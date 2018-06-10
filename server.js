@@ -10,15 +10,13 @@ const mongoose = require('mongoose');
 mongoose.connect(config.database);
 const db = mongoose.connection;
 db.on('connected', () => console.log('Conectado com sucesso'))
-db.on('error', (err) => console.log('Erro no banco de dados: ' + err));
-
+db.on('error', (err) => console.log('Erro ao conectar ao banco de dados: ' + err));
 
 //server config
 const app = express();
 const port = 3000;
 //start server
 app.listen(port, () => console.log('Servidor rodando na porta ' + port));
-
 
 //routes
 //INDEX ROUTE
@@ -28,10 +26,9 @@ const fornecedorRouter = require('./routes/fornecedorRoutes');
 const usuarioRouter = require('./routes/usuarioRoutes');
 const veiculoRouter = require('./routes/veiculoRoutes');
 
-
 //middlewares
 //set static folder
-app.use(express.static(path.join(__dirname, 'angular-src'))); //no video, ao inves de 'angular-src', foi usada 'public'
+app.use(express.static(path.join(__dirname, 'angular-src')));
 
 //CORS
 app.use(cors());
