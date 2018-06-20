@@ -16,10 +16,11 @@
     "express": "^4.16.3",
     "jsonwebtoken": "*",
     "mongoose": "^5.0.10",
+    "npm": "^6.1.0",
     "passport": "*",
     "passport-jwt": "*"
   },
   "devDependencies": {
-    "@angular/cli": "^1.7.4"
+    "@angular/cli": "^6.0.8"
   }
 }
